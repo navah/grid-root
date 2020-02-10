@@ -13,7 +13,7 @@
   --desktop: transparent;
   --mobile: transparent;
   --side-col-mobile: 4%;
-  --mid-col-mobile: 18rem;
+  --mid-col-mobile: 24rem;
 
   --side-col-desktop: 3rem;
   --mid-col-desktop: 10rem;
@@ -41,11 +41,11 @@ body {
 
 .grid {
   display: grid;
-  grid-template-columns: auto var(--side-col-mobile) var(--mid-col-mobile) var(--mid-col-mobile) var(--side-col-mobile) auto;
+  grid-template-columns: auto var(--side-col-mobile) minmax(100px,var(--mid-col-mobile)) minmax(100px, var(--mid-col-mobile)) var(--side-col-mobile) auto;
   grid-template-rows: auto auto auto auto auto auto auto auto auto;
   grid-row-gap: 1rem;
   grid-column-gap: 1rem;
-  margin:.5rem;
+  margin:0rem;
 
   }
 
@@ -95,14 +95,15 @@ body {
       /* border: 0px solid var(--mobile); */
       grid-row-start: 1;
       grid-row-end:   2;
-      grid-column-start: 2;
-      grid-column-end:   6;
-      padding: .6rem;
+      grid-column-start: 1;
+      grid-column-end:   7;
+      /* padding: .6rem; */
       min-height: 10rem;
       background-image: url("contours-04.png");
       background-size: cover;
       border: 0px solid black;
       margin-top: 2rem;
+      /* width: 70%; */
 
 
   }
