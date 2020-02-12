@@ -15,7 +15,7 @@
   --side-col-mobile: 4%;
   --mid-col-mobile: 24rem;
 
-  --side-col-desktop: 8rem;
+  --side-col-desktop: 4rem;
   --mid-col-desktop: 10rem;
 }
 
@@ -99,7 +99,7 @@ body {
       grid-column-end:   7;
       /* padding: .6rem; */
       min-height: 10rem;
-      background-image: url("contour-header-02.png");
+      background-image: url("contour-header-05.png");
       background-size: cover;
       border: 0px solid black;
       margin-top: 2rem;
@@ -240,10 +240,10 @@ body {
 @media only screen and (min-width: 992px) {
     .grid {
       display: grid;
-      grid-template-columns: auto var(--side-col-desktop) var(--mid-col-desktop) var(--mid-col-desktop) var(--mid-col-desktop) var(--mid-col-desktop) var(--side-col-desktop) auto;
+      grid-template-columns: auto var(--side-col-desktop) var(--mid-col-desktop) var(--mid-col-desktop) var(--mid-col-desktop) var(--mid-col-desktop) minmax(0px,var(--side-col-desktop)) minmax(0px,auto);
       grid-template-rows: auto 1fr;
-      grid-row-gap: 1rem;
-      grid-column-gap: 1rem;
+      grid-row-gap: 0.1rem;
+      grid-column-gap: 0.1rem;
       margin:0rem;
       margin-top: 1rem;
       }
@@ -264,6 +264,7 @@ body {
 
       grid-row-start: 2;
       grid-row-end:   4;
+
   }
 
 
@@ -283,7 +284,8 @@ body {
       grid-row-end:   2; */
       grid-column-start: 1;
       grid-column-end:   9;
-
+      background-size: 100% auto;
+      min-height: 12rem;
   }
 
 
@@ -299,17 +301,17 @@ body {
 
 
   .mid {
-      padding: .6rem
+      padding: .1rem
   }
 
   .mid-top {
-      border: 1px dashed var(--desktop);
+      border: 0px dashed var(--desktop);
       grid-row-start: 2;
       grid-row-end:   4;
   }
 
   .mid-bottom {
-      border: 1px dashed var(--desktop);
+      border: 0px dashed var(--desktop);
       grid-row-start: 2;
       grid-row-end:   4;
   }
