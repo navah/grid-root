@@ -10,12 +10,12 @@
 
 
   --text-color: #393939;
-  --desktop: transparent;
+  --desktop: blue;
   --mobile: transparent;
   --side-col-mobile: 4%;
   --mid-col-mobile: 24rem;
 
-  --side-col-desktop: 3rem;
+  --side-col-desktop: 8rem;
   --mid-col-desktop: 10rem;
 }
 
@@ -99,7 +99,7 @@ body {
       grid-column-end:   7;
       /* padding: .6rem; */
       min-height: 10rem;
-      background-image: url("contours-04.png");
+      background-image: url("contour-header-02.png");
       background-size: cover;
       border: 0px solid black;
       margin-top: 2rem;
@@ -244,7 +244,7 @@ body {
       grid-template-rows: auto 1fr;
       grid-row-gap: 1rem;
       grid-column-gap: 1rem;
-      margin:1rem;
+      margin:0rem;
       margin-top: 1rem;
       }
 
@@ -279,10 +279,10 @@ body {
 
   .header {
       /* border: 0px solid var(--desktop); */
-      grid-row-start: 1;
-      grid-row-end:   2;
-      grid-column-start: 2;
-      grid-column-end:   8;
+      /* grid-row-start: 1;
+      grid-row-end:   2; */
+      grid-column-start: 1;
+      grid-column-end:   9;
 
   }
 
@@ -303,13 +303,13 @@ body {
   }
 
   .mid-top {
-      border: 0px dashed var(--desktop);
+      border: 1px dashed var(--desktop);
       grid-row-start: 2;
       grid-row-end:   4;
   }
 
   .mid-bottom {
-      border: 0px dashed var(--desktop);
+      border: 1px dashed var(--desktop);
       grid-row-start: 2;
       grid-row-end:   4;
   }
