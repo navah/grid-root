@@ -117,51 +117,75 @@ body {
       height: 1.9rem;
   }
 
-  .header-alpha .navahx a{
-      display: block;
-      color: var(--text-color);
-      font-size: 1.5rem;
+
+
+
+
+
+
+  .bar-menu {
+      display: grid;
+      grid-template-columns: auto 4fr auto auto auto auto;
+      grid-template-rows: 2rem;
+      background-color: var(--card-img);
+      /* justify-items: center; */
+      /* opacity: 0.4; */
+      /* height: 2rem; */
+      /* height: 1.9rem; */
+      align-items: center;
+  }
+
+.navah {
+      grid-column-start: 1;
+      grid-column-end:   2;
+  }
+
+.navah a {
       text-decoration: none;
-      /* padding-top: .3rem; */
-      line-height: 1.9rem;
-      float: left;
-      height: 100%;
-  }
-
-  .header-alpha .little {
-      display: block;
-      border-right: 2px solid black;
-      float: right;
-      padding-right: 2rem;
-      padding-left: 2rem;
-      line-height: 1.9rem;
-      height: 100%;
-
-  }
-
-  .header-alpha .little a{
       color: var(--text-color);
-      font-size: 1rem;
+      font-size: 1.4rem;
+      padding-left: 0.5rem;
+  }
+
+.bar-menu > .links a {
+      font-size: 0.8rem;
       text-decoration: none;
-      /* float: left; */
+      color: var(--text-color);
+      padding-left: 0.5rem;
+      padding-right: 0.5rem;
   }
 
-  .header-alpha input {
-      display: block;
-      font-size: 0.9rem;
-      margin-top: .35rem;
-      /* padding-top: 0.4rem; */
-      line-height: .6rem;
-      border: 1px solid black;
-      float: left;
+.bar-menu > .home {
+      grid-column-start: 3;
+      grid-column-end:   4;
+      border-left: 2px solid black;
 
   }
 
-  .header-alpha .submit-button {
-      margin-top: .35rem;
-      padding: .3rem;
-      margin-left: 0.4rem;
+.bar-menu > .contact {
+      grid-column-start: 4;
+      grid-column-end:   5;
+      border-left: 2px solid black;
   }
+
+
+.bar-menu > .question {
+    grid-column-start: 5;
+    grid-column-end:   6;
+    border-left: 2px solid black;
+    padding-left: 0.7rem;
+    padding-right: 0.2rem;
+
+}
+
+.bar-menu > .question input {
+    border: 1px solid black;
+    font-size: 0.7rem;
+    margin-right: 0.5rem;
+    color: var(--text-color);
+    padding-left: 0.4rem;
+
+}
 
 
 
