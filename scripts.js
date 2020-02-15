@@ -1,3 +1,8 @@
+$(document).ready(function() {
+
+
+
+
 function show(id) {
 // selected off tabs, then on a tab
 $('.tab').removeClass('selected').filter(function () {
@@ -14,3 +19,7 @@ show(location.hash);
 
 // start with the first tab (temporary, obvi)
 show('#tab-the-first');
+
+
+
+});

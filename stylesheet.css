@@ -22,9 +22,6 @@
 }
 
 
-
-
-
 body {
   font-family: Arial, Helvetica, sans-serif;
   background: var(--main-bg);
@@ -41,6 +38,10 @@ body {
 
 
 
+/*-----------------------
+"mobile GRID INIT"
+-----------------------*/
+
 .grid {
   display: grid;
   grid-template-columns: auto var(--side-col-mobile) minmax(var(--mid-col-mobile-min),var(--mid-col-mobile)) minmax(var(--mid-col-mobile-min), var(--mid-col-mobile)) var(--side-col-mobile) auto;
@@ -48,21 +49,32 @@ body {
   grid-row-gap: 0rem;
   grid-column-gap: 0rem;
   margin:0rem;
-
   }
 
 
+  /*-----------------------*/
+  /* ! desktop GRID INIT   */
+  /*-----------------------*/
+
+@media only screen and (min-width: 992px) {
+
+  .grid {
+    display: grid;
+    grid-template-columns: auto var(--side-col-desktop) var(--mid-col-desktop) var(--mid-col-desktop) var(--mid-col-desktop) var(--mid-col-desktop) minmax(0px,var(--side-col-desktop)) minmax(0px,auto);
+    grid-template-rows: auto 1fr;
+    grid-row-gap: 0.1rem;
+    grid-column-gap: 0rem;
+    margin:0rem;
+    margin-top: 0rem;
+    }
+
+}
 
 
 
-/* ----------------------------------- */
-/*                                     */
-/*                                     */
-/* --- MOBILE SIDES ------------------ */
-/*                                     */
-/*                                     */
-/* ----------------------------------- */
-
+/*-----------------------
+"mobile SIDES"
+-----------------------*/
 
   .side {
       border: 1px solid var(--mobile);
@@ -82,16 +94,24 @@ body {
 
 
 
+/*-----------------------*/
+/* ! desktop SIDES       */
+/*-----------------------*/
+
+@media only screen and (min-width: 992px) {
+
+    .side {
+        grid-row-start: 2;
+        grid-row-end:   4;
+    }
+
+}
 
 
-  /* ----------------------------------- */
-  /*                                     */
-  /*                                     */
-  /* --- MOBILE HEADER ----------------- */
-  /*                                     */
-  /*                                     */
-  /* ----------------------------------- */
 
+/*-----------------------
+"mobile HEADER"
+-----------------------*/
 
   .header {
       grid-row-start: 1;
@@ -106,8 +126,6 @@ body {
       border-top: 2px solid black;
       border-bottom: 2px solid black;
       margin-bottom: 0.2rem;
-
-
   }
 
   .header-alpha {
@@ -119,19 +137,42 @@ body {
 
 
 
+/*-----------------------*/
+/* ! desktop HEADER      */
+/*-----------------------*/
+
+@media only screen and (min-width: 992px) {
+
+    .header {
+        grid-column-start: 1;
+        grid-column-end:   9;
+        background-size: 100% auto;
+        min-height: 12rem;
+    }
+
+    .header-alpha {
+        /* height: 1.4rem; */
+        /* opacity: 0.3; */
+    }
+
+    .header-divider{
+        opacity: 1;
+        border-bottom: 2px solid black;
+    }
+
+}
 
 
 
+/*-----------------------
+"mobile BAR MENU"
+-----------------------*/
 
   .bar-menu {
       display: grid;
-      grid-template-columns: auto 4fr auto auto auto auto;
+      grid-template-columns: auto 4fr auto auto auto auto auto;
       grid-template-rows: 2rem;
       background-color: var(--card-img);
-      /* justify-items: center; */
-      /* opacity: 0.4; */
-      /* height: 2rem; */
-      /* height: 1.9rem; */
       align-items: center;
   }
 
@@ -159,7 +200,6 @@ body {
       grid-column-start: 3;
       grid-column-end:   4;
       border-left: 2px solid black;
-
   }
 
 .bar-menu > .contact {
@@ -168,14 +208,12 @@ body {
       border-left: 2px solid black;
   }
 
-
 .bar-menu > .question {
     grid-column-start: 5;
     grid-column-end:   6;
     border-left: 2px solid black;
     padding-left: 0.7rem;
     padding-right: 0.2rem;
-
 }
 
 .bar-menu > .question input {
@@ -184,29 +222,33 @@ body {
     margin-right: 0.5rem;
     color: var(--text-color);
     padding-left: 0.4rem;
+}
+
+.bar-menu > .answers {
+      grid-column-start: 6;
+      grid-column-end:   7;
+      border-left: 2px solid black;
+  }
+
+  .header-divider{
+      border-bottom: 2px solid black;
+  }
+
+
+
+/*-----------------------*/
+/* ! desktop BAR MENU    */
+/*-----------------------*/
+
+@media only screen and (min-width: 992px) {
 
 }
 
 
 
-
-  .header-divider{
-      border-bottom: 2px solid black;
-      /* height: 3px; */
-  }
-
-
-
-
-
-  /* ----------------------------------- */
-  /*                                     */
-  /*                                     */
-  /* --- MOBILE MIDDLE ----------------- */
-  /*                                     */
-  /*                                     */
-  /* ----------------------------------- */
-
+/*-----------------------
+"mobile MIDDLE"
+-----------------------*/
 
   .mid {
       background: var(--card-bg);
@@ -219,23 +261,17 @@ body {
   .mid-top {
       grid-row-start: 2;
       grid-row-end:   3;
-
-
-
   }
 
   .mid-bottom {
-
       grid-row-start: 3;
       grid-row-end:   4;
-
   }
 
   .mid-1 {
       grid-column-start: 3;
       grid-column-end:   4;
       border-width: 2px 1px 1px 2px;
-
   }
 
   .mid-2 {
@@ -260,23 +296,71 @@ body {
 
 
 
-  .panel {
-      border: 1px solid black;
-      grid-column-start: 2;
-      grid-column-end: 6;
-      grid-row-start: 5;
-      grid-row-end: 6;
-  }
+  /*-----------------------*/
+  /* ! desktop MIDDLE      */
+  /*-----------------------*/
+
+@media only screen and (min-width: 992px) {
+
+    .mid {
+        /* padding: .4rem; */
+        border-style: solid;
+        border-color: black;
+        margin-top: -5rem;
+        z-index: 10;
+    }
+
+    .mid-top {
+        grid-row-start: 2;
+        grid-row-end:   4;
+    }
+
+    .mid-bottom {
+        grid-row-start: 2;
+        grid-row-end:   4;
+    }
+
+    .mid-1 {
+        grid-column-start: 3;
+        grid-column-end:   4;
+        border-width: 2px 1px 2px 2px;
+    }
+
+    .mid-2 {
+        grid-column-start: 4;
+        grid-column-end:   5;
+        border-width: 2px 1px 2px 1px;
+    }
+
+    .mid-3 {
+        grid-column-start: 5;
+        grid-column-end:   6;
+        border-width: 2px 1px 2px 1px;
+    }
+
+    .mid-4 {
+        grid-column-start: 6;
+        grid-column-end:   7;
+        border-width: 2px 2px 2px 1px;
+    }
+
+    .left {
+        grid-column-start: 1;
+        grid-column-end:   3;
+    }
+
+    .right {
+        grid-column-start: 7;
+        grid-column-end:   9;
+    }
+
+}
 
 
 
-/* ----------------------------------- */
-/*                                     */
-/*                                     */
-/* --- MOBILE CARDS ------------------ */
-/*                                     */
-/*                                     */
-/* ----------------------------------- */
+/*-----------------------
+"mobile CARDS"
+-----------------------*/
 
 .card {
     margin-bottom: .1rem;
@@ -288,8 +372,6 @@ body {
     display: none;
     border: 0px solid red;
     height: .8rem;
-
-
 }
 
 .moved .if-mod {
@@ -303,7 +385,6 @@ body {
     top: -.4rem;
     left: 6rem;
     border: 2px solid #000;
-
 }
 
 .moved .typcn {
@@ -317,18 +398,13 @@ body {
     left: 10px;
     border: 2px solid #000;
     font-weight: 100;
-
 }
-
-
 
 .card-top {
     background: var(--card-img);
     height: 6.4rem;
     margin: 0rem .6rem 0rem .6rem;
 }
-
-
 
 .card-title {
     display: block;
@@ -337,7 +413,6 @@ body {
     padding: .3rem .6rem;
     background: var(--card-img);
     border-bottom: 2px solid black;
-
 }
 
 .card-title a {
@@ -345,156 +420,54 @@ body {
     color: var(--text-color);
 }
 
-
 .card-text {
     color: var(--text-color);
     /* margin-bottom: .5rem; */
     min-height: 1.5rem;
     padding: .2rem .6rem .3rem .6rem;
+}
+
+
+
+/*-----------------------*/
+/* ! desktop CARDS    */
+/*-----------------------*/
+
+@media only screen and (min-width: 992px) {
 
 }
 
 
 
+/*-----------------------
+"mobile PANEL"
+-----------------------*/
+
+.panel {
+    background: var(--card-bg);
+    border: 2px solid black;
+    grid-column-start: 2;
+    grid-column-end: 6;
+    grid-row-start: 5;
+    grid-row-end: 6;
+    margin-top: 0.6rem;
+    padding: .3rem;
+    min-height: 4rem;
+}
 
 
 
-
+/*-----------------------*/
+/* ! desktop PANEL    */
+/*-----------------------*/
 
 @media only screen and (min-width: 992px) {
-    .grid {
-      display: grid;
-      grid-template-columns: auto var(--side-col-desktop) var(--mid-col-desktop) var(--mid-col-desktop) var(--mid-col-desktop) var(--mid-col-desktop) minmax(0px,var(--side-col-desktop)) minmax(0px,auto);
-      grid-template-rows: auto 1fr;
-      grid-row-gap: 0.1rem;
-      grid-column-gap: 0rem;
-      margin:0rem;
-      margin-top: 0rem;
-      }
 
-
-
-/* ----------------------------------- */
-/*                                     */
-/*                                     */
-/* --- DESKTOP SIDES ----------------- */
-/*                                     */
-/*                                     */
-/* ----------------------------------- */
-
-
-  .side {
-      grid-row-start: 2;
-      grid-row-end:   4;
-
-  }
-
-
-
-
-
-/* ----------------------------------- */
-/*                                     */
-/*                                     */
-/* --- DESKTOP HEADER ---------------- */
-/*                                     */
-/*                                     */
-/* ----------------------------------- */
-
-  .header {
-      grid-column-start: 1;
-      grid-column-end:   9;
-      background-size: 100% auto;
-      min-height: 12rem;
-
-  }
-
-  .header-alpha {
-      /* height: 1.4rem; */
-      /* opacity: 0.3; */
-
-  }
-
-
-
-  .header-divider{
-      opacity: 1;
-      border-bottom: 2px solid black;
-  }
-
-
-
-/* ----------------------------------- */
-/*                                     */
-/*                                     */
-/* --- DESKTOP MIDDLE ---------------- */
-/*                                     */
-/*                                     */
-/* ----------------------------------- */
-
-
-  .mid {
-      /* padding: .4rem; */
-      border-style: solid;
-      border-color: black;
-      margin-top: -5rem;
-      z-index: 10;
-
-  }
-
-  .mid-top {
-      grid-row-start: 2;
-      grid-row-end:   4;
-  }
-
-  .mid-bottom {
-      grid-row-start: 2;
-      grid-row-end:   4;
-  }
-
-
-  .mid-1 {
-      grid-column-start: 3;
-      grid-column-end:   4;
-      border-width: 2px 1px 2px 2px;
-  }
-
-  .mid-2 {
-      grid-column-start: 4;
-      grid-column-end:   5;
-      border-width: 2px 1px 2px 1px;
-  }
-
-  .mid-3 {
-      grid-column-start: 5;
-      grid-column-end:   6;
-      border-width: 2px 1px 2px 1px;
-  }
-
-  .mid-4 {
-      grid-column-start: 6;
-      grid-column-end:   7;
-      border-width: 2px 2px 2px 1px;
-
-  }
-
-  .left {
-      grid-column-start: 1;
-      grid-column-end:   3;
-  }
-
-  .right {
-      grid-column-start: 7;
-      grid-column-end:   9;
-  }
-
-  .panel {
-      border: 1px solid black;
-      grid-column-start: 2;
-      grid-column-end: 8;
-      grid-row-start: 4;
-      grid-row-end: 5;
-  }
-
+    .panel {
+        grid-column-start: 2;
+        grid-column-end: 8;
+        grid-row-start: 4;
+        grid-row-end: 5;
+    }
 
 }
