@@ -102,7 +102,7 @@ body {
       background-image: url("contour-header-00.png");
       background-size: cover;
       border: 0px solid black;
-      margin-top: 2rem;
+      margin-top: 1rem;
       border-top: 2px solid black;
       border-bottom: 2px solid black;
       margin-bottom: 0.2rem;
@@ -111,9 +111,64 @@ body {
   }
 
   .header-alpha {
-      background: #252529;
-      opacity: 0.0;
-      height: 10rem;
+      background: var(--card-img);
+      /* opacity: 0.4; */
+      /* height: 2rem; */
+      height: 1.9rem;
+  }
+
+  .header-alpha .navahx a{
+      display: block;
+      color: var(--text-color);
+      font-size: 1.5rem;
+      text-decoration: none;
+      /* padding-top: .3rem; */
+      line-height: 1.9rem;
+      float: left;
+      height: 100%;
+  }
+
+  .header-alpha .little {
+      display: block;
+      border-right: 2px solid black;
+      float: right;
+      padding-right: 2rem;
+      padding-left: 2rem;
+      line-height: 1.9rem;
+      height: 100%;
+
+  }
+
+  .header-alpha .little a{
+      color: var(--text-color);
+      font-size: 1rem;
+      text-decoration: none;
+      /* float: left; */
+  }
+
+  .header-alpha input {
+      display: block;
+      font-size: 0.9rem;
+      margin-top: .35rem;
+      /* padding-top: 0.4rem; */
+      line-height: .6rem;
+      border: 1px solid black;
+      float: left;
+
+  }
+
+  .header-alpha .submit-button {
+      margin-top: .35rem;
+      padding: .3rem;
+      margin-left: 0.4rem;
+  }
+
+
+
+
+  .header-divider{
+      border-bottom: 2px solid black;
+      /* height: 3px; */
   }
 
 
@@ -131,7 +186,7 @@ body {
 
   .mid {
       background: var(--card-bg);
-      padding: .4rem;
+      /* padding: .4rem; */
       min-height: 200px;
       border-style: solid;
       border-color: black;
@@ -201,9 +256,12 @@ body {
 
 .card {
     margin-bottom: .1rem;
+    /* padding: 0;
+    margin: 0; */
 }
 
 .moved {
+    display: none;
     border: 0px solid red;
     height: .8rem;
 
@@ -211,14 +269,15 @@ body {
 }
 
 .moved .if-mod {
+
     color: #000;
     background: var(--title);
     padding: 7px;
     border-radius: 8px;
     font-size: 1.7rem;
     position: relative;
-    top: -1.2rem;
-    left: 100px;
+    top: -.4rem;
+    left: 6rem;
     border: 2px solid #000;
 
 }
@@ -241,23 +300,33 @@ body {
 
 .card-top {
     background: var(--card-img);
-    height: 8rem;
+    height: 6.4rem;
+    margin: 0rem .6rem 0rem .6rem;
 }
 
 
 
 .card-title {
-    color: var(--text-color);
+    display: block;
+    /* color: var(--text-color); */
     font-size: 1.2rem;
-    margin-top: .2rem;
-
+    padding: .3rem .6rem;
+    background: var(--card-img);
+    border-bottom: 2px solid black;
 
 }
 
+.card-title a {
+    text-decoration: none;
+    color: var(--text-color);
+}
+
+
 .card-text {
     color: var(--text-color);
-    margin-bottom: .5rem;
+    /* margin-bottom: .5rem; */
     min-height: 1.5rem;
+    padding: .2rem .6rem .3rem .6rem;
 
 }
 
@@ -276,7 +345,7 @@ body {
       grid-row-gap: 0.1rem;
       grid-column-gap: 0rem;
       margin:0rem;
-      margin-top: 1rem;
+      margin-top: 0rem;
       }
 
 
@@ -312,12 +381,21 @@ body {
       grid-column-start: 1;
       grid-column-end:   9;
       background-size: 100% auto;
-      min-height: 8rem;
+      min-height: 12rem;
 
   }
 
   .header-alpha {
-      height: 8rem;
+      /* height: 1.4rem; */
+      /* opacity: 0.3; */
+
+  }
+
+
+
+  .header-divider{
+      opacity: 1;
+      border-bottom: 2px solid black;
   }
 
 
@@ -332,10 +410,11 @@ body {
 
 
   .mid {
-      padding: .4rem;
+      /* padding: .4rem; */
       border-style: solid;
       border-color: black;
       margin-top: -5rem;
+      z-index: 10;
 
   }
 
