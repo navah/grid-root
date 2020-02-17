@@ -11,10 +11,39 @@
 <link rel="stylesheet" href="icofont/icofont.min.css">
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script src="scripts.js"></script>
 
-<!-- <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
-  <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script> -->
+<!-- <script src="scripts.js"></script> -->
+
+
+
+<script>
+
+$(document).ready(function() {
+
+
+
+
+function show(id) {
+// selected off tabs, then on a tab
+$('.tab').removeClass('selected').filter(function () {
+return (this.hash === id);
+}).addClass('selected');
+
+// hide and selectively filter an individual panel
+$('.panel').hide().filter(id).show();
+}
+
+$(window).on('hashchange', function () {
+show(location.hash);
+});
+
+// start with the first tab (temporary, obvi)
+show('#tab-init');
+
+
+});
+
+</script>
 
 
 
@@ -184,6 +213,9 @@
     </div>
 
 
+    <div class="panel" id="tab-init">
+      navah x. farahat - this is the landing page, not really page, but dynamic content and/or
+    </div>
 
     <div class="panel" id="tab-the-first">
   tech stuff - code, projects, libraries, modules, etc.
