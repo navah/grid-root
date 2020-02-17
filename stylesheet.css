@@ -1,5 +1,5 @@
 :root {
-  --main-bg: #ffffff;
+  --main-bg: #fff;
   --card-bg: #ffffff;
   --card-head: #575757;
   --card-foot: #575757;
@@ -7,7 +7,16 @@
   --box-bg: #5b5b5b;
   --bg-fill: #7a7a7a;
   --border: #303030;
-  --card-img: #d1d1d1;
+
+  /* the main grey */
+  --card-img: #ddd;
+
+  /* reverse overlay */
+  --overlay: transparent;
+
+  --bpx: 1px;
+  --tpx: 0px;
+  --hpx: 0.5px;
 
 
   --text-color: #393939;
@@ -77,7 +86,7 @@ body {
 -----------------------*/
 
   .side {
-      border: 1px solid var(--mobile);
+      border: var(--bpx) solid var(--mobile);
       grid-row-start: 2;
       grid-row-end:   3;
   }
@@ -121,11 +130,12 @@ body {
       min-height: 10rem;
       background-image: url("contour-header-00.png");
       background-size: cover;
-      border: 0px solid var(--border);
       margin-top: 1rem;
-      border-top: 2px solid var(--border);
-      border-bottom: 2px solid var(--border);
       margin-bottom: 0.2rem;
+      background-color: var(--overlay);
+      background-blend-mode: exclusion;
+      /* padding-top: 2rem; */
+      border-bottom: var(--bpx) solid var(--border);
   }
 
   .header-alpha {
@@ -133,6 +143,11 @@ body {
       /* opacity: 0.4; */
       /* height: 2rem; */
       height: 1.9rem;
+  }
+
+  .header-divider{
+      opacity: 1;
+
   }
 
 
@@ -147,9 +162,8 @@ body {
         grid-column-start: 1;
         grid-column-end:   9;
         background-size: 100% auto;
-        min-height: 12rem;
-        /* background-color: #fff;
-        background-blend-mode: exclusion; */
+        min-height: 10rem;
+
     }
 
     .header-alpha {
@@ -157,10 +171,7 @@ body {
         /* opacity: 0.3; */
     }
 
-    .header-divider{
-        opacity: 1;
-        border-bottom: 2px solid var(--border);
-    }
+
 
 }
 
@@ -173,20 +184,24 @@ body {
   .bar-menu {
       display: grid;
       grid-template-columns: auto 4fr auto auto auto auto auto;
-      grid-template-rows: 2rem;
+      grid-template-rows: 1.7rem;
       background-color: var(--card-img);
       align-items: center;
+      border-top: var(--bpx) solid var(--border);
+      border-bottom: var(--bpx) solid var(--border);
+
   }
 
 .navah {
       grid-column-start: 1;
       grid-column-end:   2;
+      border: 0;
   }
 
 .navah a {
       text-decoration: none;
       color: var(--text-color);
-      font-size: 1.4rem;
+      font-size: 1.3rem;
       padding-left: 0.5rem;
   }
 
@@ -196,30 +211,36 @@ body {
       color: var(--text-color);
       padding-left: 0.5rem;
       padding-right: 0.5rem;
+      border: 0;
   }
 
 .bar-menu > .home {
       grid-column-start: 3;
       grid-column-end:   4;
-      border-left: 2px solid var(--border);
+      border: 0;
+      border-left: var(--bpx) solid var(--border);
+
   }
 
 .bar-menu > .contact {
       grid-column-start: 4;
       grid-column-end:   5;
-      border-left: 2px solid var(--border);
+      border: 0;
+      border-left: var(--bpx) solid var(--border);
   }
 
 .bar-menu > .question {
     grid-column-start: 5;
     grid-column-end:   6;
-    border-left: 2px solid var(--border);
+    border: 0;
+    border-left: var(--bpx) solid var(--border);
     padding-left: 0.7rem;
     padding-right: 0.2rem;
+
 }
 
 .bar-menu > .question input {
-    border: 1px solid var(--border);
+    border: var(--bpx) solid var(--border);
     font-size: 0.7rem;
     margin-right: 0.5rem;
     color: var(--text-color);
@@ -229,12 +250,10 @@ body {
 .bar-menu > .answers {
       grid-column-start: 6;
       grid-column-end:   7;
-      border-left: 2px solid var(--border);
+      border: 0;
+      border-left: var(--bpx) solid var(--border);
   }
 
-  .header-divider{
-      border-bottom: 2px solid var(--border);
-  }
 
 
 
@@ -258,6 +277,7 @@ body {
       /* min-height: 200px; */
       border-style: solid;
       border-color: var(--border);
+
   }
 
   .mid-top {
@@ -273,25 +293,25 @@ body {
   .mid-1 {
       grid-column-start: 3;
       grid-column-end:   4;
-      border-width: 2px 1px 1px 2px;
+      border-width: var(--bpx) var(--bpx) var(--bpx) var(--bpx);
   }
 
   .mid-2 {
       grid-column-start: 4;
       grid-column-end:   5;
-      border-width: 2px 2px 1px 1px;
+      border-width: var(--bpx) var(--bpx) var(--bpx) 0px;
   }
 
   .mid-3 {
       grid-column-start: 3;
       grid-column-end:   4;
-      border-width: 1px 1px 2px 2px;
+      border-width: 0px var(--bpx) var(--bpx) var(--bpx);
   }
 
   .mid-4 {
       grid-column-start: 4;
       grid-column-end:   5;
-      border-width: 1px 2px 2px 1px;
+      border-width: 0px var(--bpx) var(--bpx) 0px;
   }
 
 
@@ -308,7 +328,7 @@ body {
         /* padding: .4rem; */
         border-style: solid;
         border-color: var(--border);
-        margin-top: -5rem;
+        margin-top: -4rem;
         z-index: 10;
     }
 
@@ -325,25 +345,25 @@ body {
     .mid-1 {
         grid-column-start: 3;
         grid-column-end:   4;
-        border-width: 2px 1px 2px 2px;
+        border-width: var(--bpx) 0px var(--bpx) var(--bpx);
     }
 
     .mid-2 {
         grid-column-start: 4;
         grid-column-end:   5;
-        border-width: 2px 1px 2px 1px;
+        border-width: var(--bpx) 0px var(--bpx) var(--bpx);
     }
 
     .mid-3 {
         grid-column-start: 5;
         grid-column-end:   6;
-        border-width: 2px 1px 2px 1px;
+        border-width: var(--bpx) 0px var(--bpx) var(--bpx);
     }
 
     .mid-4 {
         grid-column-start: 6;
         grid-column-end:   7;
-        border-width: 2px 2px 2px 1px;
+        border-width: var(--bpx) var(--bpx) var(--bpx) var(--bpx);
     }
 
     .left {
@@ -412,7 +432,7 @@ body {
     font-size: 1.2rem;
     padding: .3rem .6rem;
     background: var(--card-img);
-    border-bottom: 2px solid var(--border);
+    border-bottom: var(--bpx) solid var(--border);
 }
 
 .card-title a {
@@ -445,13 +465,13 @@ body {
 
 .panel {
     background: var(--card-bg);
-    border: 2px solid var(--border);
+    border: var(--bpx) solid var(--border);
     grid-column-start: 2;
     grid-column-end: 6;
     grid-row-start: 5;
     grid-row-end: 6;
     margin-top: 0.6rem;
-    padding: .3rem;
+    padding: .6rem;
     min-height: 4rem;
 }
 
@@ -464,6 +484,16 @@ body {
 }
 
 .return-menu-link {
+
+}
+
+.full-card {
+
+}
+
+.card-hover {
+    background: #7d7d7d;
+    transition: all 0.5s linear .1s;
 
 }
 

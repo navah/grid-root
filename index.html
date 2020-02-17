@@ -23,7 +23,12 @@ $(document).ready(function() {
 
 
 
+//----------------------------------------
+//--------hashchange and panel changing
+//----------------------------------------
+
 function show(id) {
+
 // selected off tabs, then on a tab
 $('.tab').removeClass('selected').filter(function () {
 return (this.hash === id);
@@ -31,29 +36,51 @@ return (this.hash === id);
 
 // hide and selectively filter an individual panel
 $('.panel').hide().filter(id).show();
-
-// $('.toggle').hide();
 }
 
 $(window).on('hashchange', function () {
 show(location.hash);
 });
 
-
-
 // start with the first tab (temporary, obvi)
 show('#tab-init');
 
 
+//----------------------------------------
+//--------hashchange and panel changing
+//----------------------------------------
 
 $('.hide-menu-link').click(function(){
-  $('.toggle-menu').slideUp("fast");
+  $('.toggle-menu').slideUp("slow");
 });
 
 $('.return-menu-link').click(function(){
-  $('.toggle-menu').slideDown("fast");
+  $('.toggle-menu').slideDown("slow");
 });
 
+
+
+
+
+
+
+$('.mid').hover(function() {
+
+        $(this).addClass('card-hover');
+    }, function() {
+        $(this).removeClass('card-hover');
+
+
+
+});
+
+
+
+
+
+
+
+// outer-est loop
 });
 
 </script>
@@ -79,7 +106,7 @@ $('.return-menu-link').click(function(){
 
         <div class="bar-menu">
 
-            <div class="bar-menu navah">
+            <div class="navah">
                 <a class="tab return-menu-link" href="#tab-init">navah x. farahat</a>
             </div>
 
@@ -173,6 +200,8 @@ $('.return-menu-link').click(function(){
 
 
 
+
+
     <div class="mid mid-bottom mid-3">
 
 
@@ -197,6 +226,7 @@ $('.return-menu-link').click(function(){
 
 
     </div>
+
 
 
 
@@ -233,17 +263,17 @@ $('.return-menu-link').click(function(){
     </div>
 
     <div class="panel" id="tab-the-first">
-  tech stuff - code, projects, libraries, modules, etc.
+  tech stuff - atom-galv-ui with options, poster slider and exporter, possibly a symbols parser, matplotlib with negative space
 </div>
 <div class="panel" id="tab-the-second">
-  science - research, figures, data vis, publications, etc.
+  science - recent poster, research summary (animations here or elsewhere), publications
 </div>
 <div class="panel" id="tab-the-third">
-  visuals - science illustrations, digital, graphic bits, etc.
+  visuals - mmis radar, projects for ppl (rossby, ocean, penultimate), wireframing duh, topics in geosci
 </div>
 
 <div class="panel" id="tab-the-fourth">
-  www - instagram, links, wikipedia nonsense, etc.
+  www - important links via nnn, wikipedia nnn, elsewheres, form
 </div>
 
 
