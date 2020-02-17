@@ -11,15 +11,27 @@ return (this.hash === id);
 
 // hide and selectively filter an individual panel
 $('.panel').hide().filter(id).show();
+
+// $('.toggle').hide();
 }
 
 $(window).on('hashchange', function () {
 show(location.hash);
 });
 
+
+
 // start with the first tab (temporary, obvi)
-show('#tab-the-first');
+show('#tab-init');
 
 
+
+$('.hide-menu-link').click(function(){
+  $('.toggle-menu').slideUp("fast");
+});
+
+$('.return-menu-link').click(function(){
+  $('.toggle-menu').slideDown("fast");
+});
 
 });

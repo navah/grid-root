@@ -31,21 +31,32 @@ return (this.hash === id);
 
 // hide and selectively filter an individual panel
 $('.panel').hide().filter(id).show();
+
+// $('.toggle').hide();
 }
 
 $(window).on('hashchange', function () {
 show(location.hash);
 });
 
+
+
 // start with the first tab (temporary, obvi)
 show('#tab-init');
 
 
+
+$('.hide-menu-link').click(function(){
+  $('.toggle-menu').slideUp("fast");
+});
+
+$('.return-menu-link').click(function(){
+  $('.toggle-menu').slideDown("fast");
+});
+
 });
 
 </script>
-
-
 
 
 
@@ -61,8 +72,6 @@ show('#tab-init');
 
 
 
-
-
 <main class="grid">
 
     <div class="header">
@@ -71,11 +80,11 @@ show('#tab-init');
         <div class="bar-menu">
 
             <div class="bar-menu navah">
-                <a href="http://navah.site">navah x. farahat</a>
+                <a class="tab return-menu-link" href="#tab-init">navah x. farahat</a>
             </div>
 
             <div class="bar-menu links home">
-                <a href="http://navah.site">home</a>
+                <a class="tab return-menu-link" href="#tab-init">home</a>
             </div>
 
             <div class="bar-menu links contact">
@@ -111,23 +120,25 @@ show('#tab-init');
 
     <div class="mid mid-top mid-1">
 
+
         <div class="card card-title">
-             <a class="tab" href="#tab-the-first">tech stuff</a>
+             <a class="tab hide-menu-link" href="#tab-the-first">tech stuff</a>
         </div>
+
 
         <div class="card card-text">
             code, projects, libraries, modules, etc.
         </div>
 
 
-        <div class="card card-top">
+        <div class="card card-top toggle-menu">
 
         </div>
 
-        <!-- <div class="moved">
-        <span class="if-mod icofont-chart-flow-2"></span>
-        </div> -->
 
+        <!-- <div class="moved">
+            <span class="if-mod icofont-chart-flow-2"></span>
+        </div> -->
 
 
     </div>
@@ -138,22 +149,23 @@ show('#tab-init');
 
 
         <div class="card card-title">
-             <a class="tab" href="#tab-the-second">science</a>
+             <a class="tab hide-menu-link" href="#tab-the-second">science</a>
         </div>
+
 
         <div class="card card-text">
             research, figures, data vis, publications, etc.
         </div>
 
 
-        <div class="card card-top">
+        <div class="card card-top toggle-menu">
 
         </div>
 
-        <div class="moved">
-        <span class="if-mod icofont-molecule"></span>
-        </div>
 
+        <!-- <div class="moved">
+            <span class="if-mod icofont-molecule"></span>
+        </div> -->
 
 
     </div>
@@ -163,54 +175,57 @@ show('#tab-init');
 
     <div class="mid mid-bottom mid-3">
 
+
         <div class="card card-title">
-             <a class="tab" href="#tab-the-third">visuals</a>
+             <a class="tab hide-menu-link" href="#tab-the-third">visuals</a>
         </div>
+
 
         <div class="card card-text">
             science illustrations, digital, graphic bits, etc.
         </div>
 
 
-
-        <div class="card card-top">
+        <div class="card card-top toggle-menu">
 
         </div>
 
-        <div class="moved">
-        <!-- <span class="if-mod icofont-compass-alt-3"></span> -->
-        <span class="if-mod icofont-pixels"></span>
-        </div>
 
+        <!-- <div class="moved">
+            <span class="if-mod icofont-pixels"></span>
+        </div> -->
 
 
     </div>
 
 
 
+
     <div class="mid mid-bottom mid-4">
 
+
         <div class="card card-title">
-             <a class="tab" href="#tab-the-fourth">www</a>
+             <a class="tab hide-menu-link" href="#tab-the-fourth">www</a>
         </div>
+
 
         <div class="card card-text">
             instagram, links, wikipedia nonsense, etc.
         </div>
 
 
-
-        <div class="card card-top">
+        <div class="card card-top toggle-menu">
 
         </div>
 
-        <div class="moved">
-        <span class="if-mod icofont-compass"></span>
-        </div>
 
+        <!-- <div class="moved">
+            <span class="if-mod icofont-compass"></span>
+        </div> -->
 
 
     </div>
+
 
 
     <div class="panel" id="tab-init">
