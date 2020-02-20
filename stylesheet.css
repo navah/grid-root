@@ -384,6 +384,8 @@ body {
 "CARDS mobile"
 -----------------------*/
 
+
+
 .card {
     margin-bottom: .1rem;
 }
@@ -440,6 +442,7 @@ body {
     color: var(--text-color);
 }
 
+
 .card-text {
     color: var(--text-color);
     /* margin-bottom: .5rem; */
@@ -492,8 +495,13 @@ body {
 }
 
 .card-hover {
-    background: #7d7d7d;
-    transition: all 0.5s linear .1s;
+    background: #d2d2d2;
+    transition: all 0.3s linear .1s;
+
+}
+
+.shaded-tab {
+    background-color: yellow;
 
 }
 
