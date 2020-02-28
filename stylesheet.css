@@ -28,6 +28,10 @@
 
   --side-col-desktop: 4rem;
   --mid-col-desktop: 10rem;
+
+
+  --hover-tab-color: #e0a903;
+  --hover-tab-color-dark: #b08606;
 }
 
 
@@ -433,7 +437,7 @@ body {
     /* color: var(--text-color); */
     font-size: 1.2rem;
     padding: .3rem .6rem;
-    background: var(--card-img);
+    /* background: var(--card-img); */
     border-bottom: var(--bpx) solid var(--border);
 }
 
@@ -495,13 +499,13 @@ body {
 }
 
 .card-hover {
-    background: #d2d2d2;
-    transition: all 0.3s linear .1s;
+    background: var(--hover-tab-color);
+    transition: all 0.2s ease-in .1s;
 
 }
 
 .shaded-tab {
-    background-color: yellow;
+    background-color: var(--hover-tab-color);
 
 }
 

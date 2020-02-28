@@ -42,6 +42,17 @@ $(window).on('hashchange', function () {
 show(location.hash);
 });
 
+
+// start with the first tab (temporary, obvi)
+show('#tab-init');
+
+
+
+
+//----------------------------------------
+//--------shading and unshade on hashchange
+//----------------------------------------
+
 $(window).on('hashchange', function () {
     if (location.hash === "#tab-the-first") {
         $('.mid').removeClass('shaded-tab');
@@ -63,10 +74,17 @@ $(window).on('hashchange', function () {
         $('.mid-4').addClass('shaded-tab');
     }
 
+    else if (location.hash === "#tab-init") {
+        $('.mid').removeClass('shaded-tab');
+    }
+
 });
 
-// start with the first tab (temporary, obvi)
-show('#tab-init');
+
+
+
+
+
 
 
 //----------------------------------------
@@ -74,18 +92,20 @@ show('#tab-init');
 //----------------------------------------
 
 $('.hide-menu-link').click(function(){
-  $('.toggle-menu').slideUp("slow");
+  $('.toggle-menu').slideUp("fast");
 });
 
 $('.return-menu-link').click(function(){
-  $('.toggle-menu').slideDown("slow");
+  $('.toggle-menu').slideDown("fast");
 });
 
 
 
 
 
-
+//----------------------------------------
+//--------animated hovering
+//----------------------------------------
 
 $('.mid').hover(function() {
 
@@ -93,11 +113,17 @@ $('.mid').hover(function() {
     }, function() {
         $(this).removeClass('card-hover');
 
-
-
 });
 
 
+
+// $('.mid').hover(function() {
+//
+//         $(this).children('.card-title').addClass('card-hover');
+//     }, function() {
+//         $(this).children('.card-title').removeClass('card-hover');
+//
+// });
 
 
 

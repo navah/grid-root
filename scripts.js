@@ -9,6 +9,9 @@ $(document).ready(function() {
 
 function show(id) {
 
+
+
+
 // selected off tabs, then on a tab
 $('.tab').removeClass('selected').filter(function () {
 return (this.hash === id);
@@ -22,9 +25,17 @@ $(window).on('hashchange', function () {
 show(location.hash);
 });
 
+// start with the first tab (temporary, obvi)
+show('#tab-init');
 
 
-// hashchange makes tab colors shade and unshade
+
+
+//----------------------------------------
+//--------shading and unshade on hashchange
+//----------------------------------------
+
+
 $(window).on('hashchange', function () {
     if (location.hash === "#tab-the-first") {
         $('.mid').removeClass('shaded-tab');
@@ -51,8 +62,7 @@ $(window).on('hashchange', function () {
 
 
 
-// start with the first tab (temporary, obvi)
-show('#tab-init');
+
 
 
 //----------------------------------------
