@@ -139,8 +139,9 @@ body {
       grid-column-start: 1;
       grid-column-end:   7;
       min-height: 10rem;
-      background-image: url("contour-header-00.png");
-      background-size: cover;
+      background-image: url("contour-may-03.svg");
+      background-size: 100% auto;
+
       margin-top: 1rem;
       margin-bottom: 0.2rem;
       background-color: var(--overlay);
