@@ -36,6 +36,7 @@ return (this.hash === id);
 
 // hide and selectively filter an individual panel
 $('.panel').hide().filter(id).show();
+
 }
 
 $(window).on('hashchange', function () {
@@ -44,7 +45,9 @@ show(location.hash);
 
 
 // start with the first tab (temporary, obvi)
-show('#tab-init');
+show('#0');
+
+
 
 
 
@@ -54,23 +57,29 @@ show('#tab-init');
 //----------------------------------------
 
 $(window).on('hashchange', function () {
-    if (location.hash === "#tab-the-first") {
+    if (location.hash === "#1") {
         $('.mid').removeClass('shaded-tab-base');
         $('.mid-1').addClass('shaded-tab-base');
         $('.mid .card-title').removeClass('shaded-tab');
         $('.mid-1 .card-title').addClass('shaded-tab');
+        $('.card-left').css( "display", "inline" );
+
+        // if($('.card-left').is(':hidden')){
+            $( ".card-left" ).toggle( "slide" );
+        // }
 
     }
 
-    else if (location.hash === "#tab-the-second") {
+    else if (location.hash === "#2") {
         $('.mid').removeClass('shaded-tab-base');
         $('.mid-2').addClass('shaded-tab-base');
         $('.mid .card-title').removeClass('shaded-tab');
         $('.mid-2 .card-title').addClass('shaded-tab');
+        $('.card-left').css( "display", "inline" );
 
     }
 
-    else if (location.hash === "#tab-the-third") {
+    else if (location.hash === "#3") {
         $('.mid').removeClass('shaded-tab-base');
         $('.mid-3').addClass('shaded-tab-base');
         $('.mid .card-title').removeClass('shaded-tab');
@@ -78,7 +87,7 @@ $(window).on('hashchange', function () {
 
     }
 
-    else if (location.hash === "#tab-the-fourth") {
+    else if (location.hash === "#4") {
         $('.mid').removeClass('shaded-tab-base');
         $('.mid-4').addClass('shaded-tab-base');
         $('.mid .card-title').removeClass('shaded-tab');
@@ -86,7 +95,7 @@ $(window).on('hashchange', function () {
 
     }
 
-    else if (location.hash === "#tab-init") {
+    else if (location.hash === "#0") {
         $('.mid').removeClass('shaded-tab');
     }
 
@@ -105,6 +114,8 @@ $(window).on('hashchange', function () {
 
 $('.hide-menu-link').click(function(){
   $('.toggle-menu').slideUp("fast");
+
+  // $('.card-left').css( "display", "inline" );
 });
 
 $('.return-menu-link').click(function(){
@@ -169,11 +180,11 @@ $('.mid .card-title').hover(function() {
         <div class="bar-menu">
 
             <div class="navah">
-                <a class="tab return-menu-link" href="#tab-init">navah x. farahat</a>
+                <a class="tab return-menu-link" href="#0">navah x. farahat</a>
             </div>
 
             <div class="bar-menu links home">
-                <a class="tab return-menu-link" href="#tab-init">home</a>
+                <a class="tab return-menu-link" href="#0">home</a>
             </div>
 
             <div class="bar-menu links contact">
@@ -211,7 +222,8 @@ $('.mid .card-title').hover(function() {
 
 
         <div class="card card-title">
-             <a class="tab hide-menu-link" href="#tab-the-first">tech stuff</a>
+            <div class="card-left">moo</div>
+             <a class="tab hide-menu-link" href="#1">tech stuff</a>
         </div>
 
 
@@ -238,7 +250,8 @@ $('.mid .card-title').hover(function() {
 
 
         <div class="card card-title">
-             <a class="tab hide-menu-link" href="#tab-the-second">science</a>
+            <div class="card-left">moo</div>
+             <a class="tab hide-menu-link" href="#2">science</a>
         </div>
 
 
@@ -268,7 +281,8 @@ $('.mid .card-title').hover(function() {
 
 
         <div class="card card-title">
-             <a class="tab hide-menu-link" href="#tab-the-third">visuals</a>
+            <div class="card-left">thr</div>
+            <a class="tab hide-menu-link" href="#3">visuals</a>
         </div>
 
 
@@ -297,7 +311,8 @@ $('.mid .card-title').hover(function() {
 
 
         <div class="card card-title">
-             <a class="tab hide-menu-link" href="#tab-the-fourth">www</a>
+            <div class="card-left">fr</div>
+             <a class="tab hide-menu-link" href="#4">www</a>
         </div>
 
 
@@ -320,21 +335,21 @@ $('.mid .card-title').hover(function() {
 
 
 
-    <div class="panel" id="tab-init">
+    <div class="panel" id="0">
       navah x. farahat - this is the landing page, not really page, but dynamic content and/or
     </div>
 
-    <div class="panel" id="tab-the-first">
+    <div class="panel" id="1">
   tech stuff - atom-galv-ui with options, poster slider and exporter, possibly a symbols parser, matplotlib with negative space
 </div>
-<div class="panel" id="tab-the-second">
+<div class="panel" id="2">
   science - recent poster, research summary (animations here or elsewhere), publications
 </div>
-<div class="panel" id="tab-the-third">
+<div class="panel" id="3">
   visuals - mmis radar, projects for ppl (rossby, ocean, penultimate), wireframing duh, topics in geosci
 </div>
 
-<div class="panel" id="tab-the-fourth">
+<div class="panel" id="4">
   www - important links via nnn, wikipedia nnn, elsewheres, form
 </div>
 
