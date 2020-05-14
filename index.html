@@ -16,16 +16,63 @@
 
 
 
+
+<!-- ! new jquery -->
+
 <script>
 
 $(document).ready(function() {
 
 
+// tab visual changes upon hashchange
+
+$(window).on('hashchange', function () {
+
+    if (location.hash === '#1') {
+        var tabText = '.t1';
+    }
+    else if (location.hash === '#2') {
+        var tabText = '.t2';
+    }
+
+    $(tabText).addClass('shaded-tab');
+
+        // $('.mid .t1').removeClass('shaded-tab-base');
+        // $('.mid-1').addClass('shaded-tab-base');
+        // $('.mid .card-title .t1').removeClass('shaded-tab');
+
+        // $('.card-left').css( "display", "inline" );
+
+        // if($('.card-left').is(':hidden')){
+            // $( ".card-left" ).toggle( "slide" );
+        // }
+
+    //}
+});
 
 
-//----------------------------------------
-//--------hashchange and panel changing
-//----------------------------------------
+
+// outer-est loop
+});
+
+</script>
+
+
+
+
+
+
+<!-- ! old jquery -->
+
+<!-- <script>
+
+$(document).ready(function() {
+
+
+
+//
+// hashchange and panel changing
+
 
 function show(id) {
 
@@ -52,9 +99,9 @@ show('#0');
 
 
 
-//----------------------------------------
-//--------shading and unshade on hashchange
-//----------------------------------------
+//
+// shading and unshade on hashchange
+
 
 $(window).on('hashchange', function () {
     if (location.hash === "#1") {
@@ -108,9 +155,9 @@ $(window).on('hashchange', function () {
 
 
 
-//----------------------------------------
-//--------hashchange and panel changing
-//----------------------------------------
+//
+// hashchange and panel changing
+
 
 $('.hide-menu-link').click(function(){
   $('.toggle-menu').slideUp("fast");
@@ -126,9 +173,10 @@ $('.return-menu-link').click(function(){
 
 
 
-//----------------------------------------
-//--------animated hovering
-//----------------------------------------
+//
+// animated hovering
+
+
 
 $('.mid .card-title').hover(function() {
 
@@ -157,7 +205,7 @@ $('.mid .card-title').hover(function() {
 });
 
 </script>
-
+ -->
 
 
 
@@ -218,7 +266,7 @@ $('.mid .card-title').hover(function() {
 
 
 
-    <div class="mid mid-top mid-1">
+    <div class="mid mid-top mid-1 t1">
 
 
         <div class="card card-title">
@@ -246,7 +294,7 @@ $('.mid .card-title').hover(function() {
 
 
 
-    <div class="mid mid-top mid-2">
+    <div class="mid mid-top mid-2 t2">
 
 
         <div class="card card-title">
@@ -346,7 +394,7 @@ $('.mid .card-title').hover(function() {
   science - recent poster, research summary (animations here or elsewhere), publications
 </div>
 <div class="panel" id="3">
-  visuals - mmis radar, projects for ppl (rossby, ocean, penultimate), wireframing duh, topics in geosci
+  visuals - mmis radar, projects for ppl (rossby, ocean, penultima), wireframing duh, topics in geosci
 </div>
 
 <div class="panel" id="4">
