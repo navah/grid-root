@@ -12,9 +12,11 @@
   --card-img: #ddd;
 
   /* reverse overlay */
-  --overlay: #835ed4;
-  --o-mode: multiply;
-  --overlay2: rgba(255, 234, 61, 0.2);
+  /* --overlay: #835ed4; */
+  --overlay: rgba(255, 255, 255, 0.5);
+  --overlay2: rgba(255, 255, 255, 0.5);
+  --o-mode: screen;
+  --overlay-filter: 100%;
 
   --bpx: 1px;
   --tpx: 0px;
@@ -29,7 +31,7 @@
   --mid-col-mobile-min: 6rem;
 
   --side-col-desktop: 4rem;
-  --mid-col-desktop: 10rem;
+  --mid-col-desktop: 13rem;
 
 
   /*-----------------------*/
@@ -85,7 +87,15 @@ body {
 
   .grid {
     display: grid;
-    grid-template-columns: auto var(--side-col-desktop) var(--mid-col-desktop) var(--mid-col-desktop) var(--mid-col-desktop) var(--mid-col-desktop) minmax(0px,var(--side-col-desktop)) minmax(0px,auto);
+    grid-template-columns:
+    /* 1 */ minmax(0px,auto)
+    /* 2 */ minmax(0px,var(--side-col-desktop))
+    /* 3 */ var(--mid-col-desktop)
+    /* 4 */ var(--mid-col-desktop)
+    /* 5 */ var(--mid-col-desktop)
+    /* 6 */ var(--mid-col-desktop)
+    /* 7 */ minmax(0px,var(--side-col-desktop))
+    /* 8 */ minmax(0px,auto);
     grid-template-rows: auto auto auto auto;
     grid-row-gap: 0.0rem;
     grid-column-gap: 0rem;
@@ -145,12 +155,8 @@ body {
       grid-row-end:   2;
       grid-column-start: 1;
       grid-column-end:   7;
-      min-height: 10rem;
-      background-image: url("contour-may-03.svg");
-      background-color: var(--overlay);
-      background-blend-mode: var(--o-mode);
 
-      background-size: 100% auto;
+
       margin-top: 1rem;
       margin-bottom: 0.2rem;
 
@@ -160,8 +166,25 @@ body {
       border-right: var(--bpx) solid var(--border);
   }
 
+  .header-bg {
+      min-height: 10rem;
+      background-image:
+          linear-gradient(to right,
+              var(--overlay) 0%,
+              var(--overlay2) 100%),
+          url('contour-may-03.svg');
+      background-blend-mode: var(--o-mode);
+      background-size: var(--overlay-filter) auto;
+
+      /* INVERSION LINES BELOW */
+      /* filter: invert(100%);
+      -webkit-filter: invert(var(--overlay-filter)); */
+
+  }
+
   .header-alpha {
       background: var(--card-img);
+
       /* opacity: 0.4; */
       /* height: 2rem; */
       height: 1.9rem;
@@ -181,8 +204,8 @@ body {
 @media only screen and (min-width: 992px) {
 
     .header {
-        grid-column-start: 1;
-        grid-column-end:   9;
+        grid-column-start: 3;
+        grid-column-end:   7;
         background-size: 100% auto;
         min-height: 10rem;
 
@@ -350,7 +373,7 @@ body {
         /* border-style: solid;
         border-color: var(--border); */
         /* margin-top: -4rem; */
-        margin-top: 0.3rem;
+        margin-top: 0.6rem;
         z-index: 10;
     }
 
@@ -390,16 +413,43 @@ body {
 
     .left {
         grid-column-start: 1;
-        grid-column-end:   3;
+        grid-column-end:   2;
     }
 
     .right {
         grid-column-start: 7;
-        grid-column-end:   9;
+        grid-column-end:   8;
     }
 
 }
 
+
+
+/*-----------------------
+"CARDS lateral"
+-----------------------*/
+
+.card-container {
+    display: grid;
+    grid-template-columns: auto auto;
+}
+
+.card-container-left {
+    /* background: lightblue;
+    display: none;
+    padding: .3rem; */
+    background: var(--card-img);
+    height: 4rem;
+    width: 4rem;
+    margin: .3rem;
+    display: none;
+}
+
+
+.card-container-right: {
+    background: pink;
+    padding: .3rem;
+}
 
 
 /*-----------------------
@@ -544,10 +594,10 @@ body {
 
 }
 
-.shaded-tab-base {
+.shaded-title {
     /* background-color: var(--hover-tab-color-base); */
-    background-color: var(--hover-tab-color);
-    border-bottom: 0;
+    background-color: var(--hover-tab-color-dark);
+    /* border-bottom: 0; */
 
 }
 

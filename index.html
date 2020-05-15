@@ -34,8 +34,28 @@ $(window).on('hashchange', function () {
     else if (location.hash === '#2') {
         var tabText = '.t2';
     }
+    else if (location.hash === '#3') {
+        var tabText = '.t3';
+    }
+    else if (location.hash === '#4') {
+        var tabText = '.t4';
+    }
 
-    $(tabText).addClass('shaded-tab');
+    $('.mid').removeClass('shaded-tab');
+    $('.mid' + tabText).addClass('shaded-tab');
+
+    $('.card-title').removeClass('shaded-title');
+    $('.card-title' + tabText).addClass('shaded-title');
+
+
+    $('.card-container-left').css( "display", "inline" );
+    $('.card-top').css( "display", "none" );
+
+
+
+    // $('.card-title').removeClass('shaded-tab');
+    // $(tabText).addClass('shaded-tab');
+
 
         // $('.mid .t1').removeClass('shaded-tab-base');
         // $('.mid-1').addClass('shaded-tab-base');
@@ -225,6 +245,8 @@ $('.mid .card-title').hover(function() {
     <div class="header">
 
 
+
+
         <div class="bar-menu">
 
             <div class="navah">
@@ -252,6 +274,9 @@ $('.mid .card-title').hover(function() {
 
         </div>
 
+        <div class="header-bg">
+        </div>
+
 
         <div class="header-divider"></div>
 
@@ -265,24 +290,37 @@ $('.mid .card-title').hover(function() {
 
 
 
-
+    <!-- ! CARD 1 -->
     <div class="mid mid-top mid-1 t1">
 
 
-        <div class="card card-title">
-            <div class="card-left">moo</div>
-             <a class="tab hide-menu-link" href="#1">tech stuff</a>
+        <div class="card-container">
+
+
+            <div class="card-container-left t1">
+            </div>
+
+
+            <div class="card-container-right t1">
+
+                <div class="card card-title t1">
+                     <a class="tab hide-menu-link" href="#1">tech stuff</a>
+                </div>
+
+                <div class="card card-text">
+                    code, projects, libraries, modules, etc.
+                </div>
+
+                <div class="card card-top toggle-menu">
+                </div>
+
+            <!-- end card-container-right -->
+            </div>
+
+
+        <!-- end card-container -->
         </div>
 
-
-        <div class="card card-text">
-            code, projects, libraries, modules, etc.
-        </div>
-
-
-        <div class="card card-top toggle-menu">
-
-        </div>
 
 
         <!-- <div class="moved">
@@ -293,11 +331,11 @@ $('.mid .card-title').hover(function() {
     </div>
 
 
-
+    <!-- ! CARD 2 -->
     <div class="mid mid-top mid-2 t2">
 
 
-        <div class="card card-title">
+        <div class="card card-title t2">
             <div class="card-left">moo</div>
              <a class="tab hide-menu-link" href="#2">science</a>
         </div>
@@ -324,11 +362,11 @@ $('.mid .card-title').hover(function() {
 
 
 
+    <!-- ! CARD 3 -->
+    <div class="mid mid-bottom mid-3 t3">
 
-    <div class="mid mid-bottom mid-3">
 
-
-        <div class="card card-title">
+        <div class="card card-title t3">
             <div class="card-left">thr</div>
             <a class="tab hide-menu-link" href="#3">visuals</a>
         </div>
@@ -354,11 +392,11 @@ $('.mid .card-title').hover(function() {
 
 
 
+    <!-- ! CARD 4 -->
+    <div class="mid mid-bottom mid-4 t4">
 
-    <div class="mid mid-bottom mid-4">
 
-
-        <div class="card card-title">
+        <div class="card card-title t4">
             <div class="card-left">fr</div>
              <a class="tab hide-menu-link" href="#4">www</a>
         </div>
