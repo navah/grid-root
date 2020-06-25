@@ -12,6 +12,8 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
+<script src="https://navah.site/transit.min.js"></script>
+
 <!-- <script src="scripts.js"></script> -->
 
 
@@ -30,15 +32,23 @@ $(window).on('hashchange', function () {
 
     if (location.hash === '#1') {
         var tabText = '.t1';
+        var intString = '3';
+        var intOnly = 1;
     }
     else if (location.hash === '#2') {
         var tabText = '.t2';
+        var intString = '4';
+        var intOnly = 2;
     }
     else if (location.hash === '#3') {
         var tabText = '.t3';
+        var intString = '5';
+        var intOnly = 3;
     }
     else if (location.hash === '#4') {
         var tabText = '.t4';
+        var intString = '6';
+        var intOnly = 4;
     }
 
     $('.mid').removeClass('shaded-tab');
@@ -48,26 +58,42 @@ $(window).on('hashchange', function () {
     $('.card-title' + tabText).addClass('shaded-title');
 
 
+
+
+    if($( ".panel-pointer" ).css('opacity') == 0) {
+
+        var mult = 13.6*parseFloat(getComputedStyle(document.documentElement).fontSize)*intOnly-44;
+        var multString =  mult.toString() + "px";
+
+        $(".tri-left").css("width", multString);
+
+        $(".panel-pointer").animate( {opacity: 1}, 200 );
+
+
+
+    $( ".panel-pointer" ).slideDown(400);
+   }
+
+  else {
+
+      var mult = 13.6*parseFloat(getComputedStyle(document.documentElement).fontSize)*intOnly-44;
+      var multString =  mult.toString() + "px";
+      // document.write(multString);
+
+
+      $(".tri-left").animate({width: multString});
+
+  }
+
+
+
+
     $('.card-container-left').css( "display", "inline" );
     $('.card-top').css( "display", "none" );
 
 
 
-    // $('.card-title').removeClass('shaded-tab');
-    // $(tabText).addClass('shaded-tab');
 
-
-        // $('.mid .t1').removeClass('shaded-tab-base');
-        // $('.mid-1').addClass('shaded-tab-base');
-        // $('.mid .card-title .t1').removeClass('shaded-tab');
-
-        // $('.card-left').css( "display", "inline" );
-
-        // if($('.card-left').is(':hidden')){
-            // $( ".card-left" ).toggle( "slide" );
-        // }
-
-    //}
 });
 
 
@@ -465,11 +491,26 @@ $('.mid .card-title').hover(function() {
     </div>
 
 
-    
 
-<div class="panel-pointer">
-    <div class="triangle-down"></div>
-</div>
+<!-- <div class="triangle-wrap">
+    yarr
+</div> -->
+    <div class="panel-pointer">
+
+        <div class="tri-left">
+        </div>
+
+
+        <div class="tri-right">
+            <div class="triangle-down-bg">
+                <div class="triangle-down"></div>
+            </div>
+        </div>
+
+
+
+    </div>
+
 
 
 
