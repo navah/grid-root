@@ -23,200 +23,109 @@
 
 <script>
 
-$(document).ready(function() {
 
+// move pointer and style tabs according to hash
+function align(hashString,duration) {
 
-// tab visual changes upon hashchange
+    var myRem = parseFloat(getComputedStyle(document.documentElement).fontSize)
+    var url = hashString
+    var hash = url.split('#')[1];
+    var tabText = '.t' + hash;
+    var intOnly = parseInt(hash);
+    var intString = intOnly.toString(intOnly + 2);
+    var mult = (13.6*myRem*(intOnly-1));
+    var multString =  mult.toString() + "px";
 
-
-
-// animated hovering
-
-$('.mid .card-title').hover(function() {
-
-        $(this).addClass('card-hover');
-    }, function() {
-        $(this).removeClass('card-hover');
-
-});
-
-
-// this hover doesn't do anything (yet)
-$('.mid').hover(function() {
-
-        $(this).children('.card-title').addClass('card-hover');
-    }, function() {
-        $(this).children('.card-title').removeClass('card-hover');
-
-});
-
-
-// what happens when you actually click
-
-$(window).on('hashchange', function () {
-
-
-// set variables for each hashchange
-    if (location.hash === '#1') {
-        var tabText = '.t1';
-        var intString = '3';
-        var intOnly = 1;
-    }
-    else if (location.hash === '#2') {
-        var tabText = '.t2';
-        var intString = '4';
-        var intOnly = 2;
-    }
-    else if (location.hash === '#3') {
-        var tabText = '.t3';
-        var intString = '5';
-        var intOnly = 3;
-    }
-    else if (location.hash === '#4') {
-        var tabText = '.t4';
-        var intString = '6';
-        var intOnly = 4;
-    }
-
-
-// todo: front page on hashchange #0
-        else if (location.hash === "#0") {
-            $('.mid').removeClass('shaded-tab');
-        }
-
-        // todo: slide up pointer, show title cards again, front page
-
-
-
-// change color of active tab (no animation)
     $('.mid').removeClass('shaded-tab');
-    $('.mid' + tabText).addClass('shaded-tab');
-
     $('.card-title').removeClass('shaded-title');
+    $('.mid' + tabText).addClass('shaded-tab');
     $('.card-title' + tabText).addClass('shaded-title');
+    $('.card-top').slideUp(duration);
+    $(".panel-pointer").animate( {opacity: 1}, duration );
 
+    $(".tri-left").animate({width: multString}, duration);
 
+}
 
-    // todo: front page on hashchange #0
-
-
-
-
-// if no tab selected, fade in the pointer in the right spot
-    if($( ".panel-pointer" ).css('opacity') == 0) {
-
-        var mult = 13.6*parseFloat(getComputedStyle(document.documentElement).fontSize)*intOnly-44;
-        var multString =  mult.toString() + "px";
-
-        $(".tri-left").css("width", multString);
-
-        $(".panel-pointer").animate( {opacity: 1}, 300 );
-
-
-
-    // $( ".panel-pointer" ).slideDown(400);
-   }
-
-// if a tab is selected, sliiide to new tab
-  else {
-
-      var mult = 13.6*parseFloat(getComputedStyle(document.documentElement).fontSize)*intOnly-44;
-      var multString =  mult.toString() + "px";
-      // document.write(multString);
-
-
-      $(".tri-left").animate({width: multString});
-
-  }
-
-
-// leftover script from vertical to lateral tabs
-
-    $('.card-container-left').css( "display", "inline" );
-    $('.card-top').slideUp(300);
-
-
-
-
-});
-
-
-
-// outer-est loop
-});
-
-</script>
-
-
-
-
-
-
-<!-- ! old jquery -->
-
-<!-- <script>
-
-$(document).ready(function() {
-
-
-
-//
-// hashchange and panel changing
 
 
 function show(id) {
 
-// selected off tabs, then on a tab
-$('.tab').removeClass('selected').filter(function () {
-return (this.hash === id);
-}).addClass('selected');
+    // selected off tabs, then on a tab
+    $('.tab').removeClass('selected').filter(function () {
+        return (this.hash === id);
+    }).addClass('selected');
 
-// hide and selectively filter an individual panel
-$('.panel').hide().filter(id).show();
+    // selectively filter one specific panel
+    $('.panel').hide().filter(id).show();
 
 }
 
-$(window).on('hashchange', function () {
-show(location.hash);
-});
 
 
-// start with the first tab (temporary, obvi)
-show('#0');
+$(document).ready(function() {
 
+    // if you start with a hashed URL for some reason:
+    if((window.location.hash === "#1")
+    || (window.location.hash === "#2")
+    || (window.location.hash === "#3")
+    || (window.location.hash === "#4")) {
 
+        align(window.location.hash,0);
+        show(location.hash);
 
+        $(".panel-pointer").animate( {opacity: 1}, 300 );
 
-
-
-//
-// hashchange and panel changing
-
-
-$('.hide-menu-link').click(function(){
-  $('.toggle-menu').slideUp("fast");
-
-  // $('.card-left').css( "display", "inline" );
-});
-
-$('.return-menu-link').click(function(){
-  $('.toggle-menu').slideDown("fast");
-});
+    } // end starting with hash url
 
 
 
+    // animated hovering
+    $('.mid .card-title').hover(function() {
 
+            $(this).addClass('card-hover');
+        }, function() {
+            $(this).removeClass('card-hover');
+
+    }); // end hover
 
 
 
 
 
 
-// outer-est loop
-});
+    // if you hashchange
+    $(window).on('hashchange', function () {
+
+        // if you go BACK to the homepage, from another page
+        if(window.location.hash === "#0") {
+            $('.mid').removeClass('shaded-tab');
+            $('.card-title').removeClass('shaded-title');
+            $(".panel-pointer").animate( {opacity: 0}, 0 );
+            $('.card-top').slideDown(300);
+        }
+
+
+        else {
+            align(window.location.hash,500);
+            show(location.hash);
+        }
+
+
+        // todo: if no tab selected, assume hash is 0
+        if($( ".panel-pointer" ).css('opacity') == 0) {
+
+        }
+
+    }); // end on haschange loop
+
+
+
+}); // outer-est loop
 
 </script>
- -->
+
+
 
 
 
@@ -459,6 +368,9 @@ $('.return-menu-link').click(function(){
             <div class="triangle-down-bg">
                 <div class="triangle-down"></div>
             </div>
+        </div>
+
+        <div class="gap">
         </div>
 
 

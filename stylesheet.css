@@ -201,8 +201,7 @@ body {
       font-size: 0.7rem;
       display: inline;
       padding: 5px;
-      padding-left: 8px;
-      padding-right: 8px;
+      padding-left: 8px
       margin-left: 10px;
       border-radius: 12px;
       /* margin-top: 10px;
@@ -519,15 +518,6 @@ body {
     grid-template-columns: auto auto;
     /* width: var(--mid-col-desktop); */
 
-    /* opacity: 0; */
-    /* margin: auto; */
-    /* margin-top: -1px; */
-    /* align-items: right;
-    justify-items: right;
-    align-content: right;
-    align-self: right;
-    justify-content: right;
-    justify-self: right; */
 
     /* border: 2px solid green; */
     height: auto;
@@ -551,7 +541,14 @@ body {
     grid-column-start: 2;
     grid-column-end: 3;
     /* border: 1px solid purple; */
+    width: 13rem;
     /* height: 10px; */
+}
+
+.tri-gap {
+    grid-column-start: 3;
+    grid-column-end: 4;
+    border: 1px solid orange;
 }
 
 
@@ -623,10 +620,7 @@ body {
 
 .card-hover {
     background: var(--hover-tab-color);
-    /* transition: all 0.1s ease-in 0s; */
-    transition-duration: .15s;
-  transition-timing-function: linear;
-    /* transition: width 2s, height 2s, transform 2s; */
+    transition: all 0.2s ease-in .0s;
 
 }
 
