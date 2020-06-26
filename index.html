@@ -28,8 +28,35 @@ $(document).ready(function() {
 
 // tab visual changes upon hashchange
 
+
+
+// animated hovering
+
+$('.mid .card-title').hover(function() {
+
+        $(this).addClass('card-hover');
+    }, function() {
+        $(this).removeClass('card-hover');
+
+});
+
+
+// this hover doesn't do anything (yet)
+$('.mid').hover(function() {
+
+        $(this).children('.card-title').addClass('card-hover');
+    }, function() {
+        $(this).children('.card-title').removeClass('card-hover');
+
+});
+
+
+// what happens when you actually click
+
 $(window).on('hashchange', function () {
 
+
+// set variables for each hashchange
     if (location.hash === '#1') {
         var tabText = '.t1';
         var intString = '3';
@@ -51,6 +78,17 @@ $(window).on('hashchange', function () {
         var intOnly = 4;
     }
 
+
+// todo: front page on hashchange #0
+        else if (location.hash === "#0") {
+            $('.mid').removeClass('shaded-tab');
+        }
+
+        // todo: slide up pointer, show title cards again, front page
+
+
+
+// change color of active tab (no animation)
     $('.mid').removeClass('shaded-tab');
     $('.mid' + tabText).addClass('shaded-tab');
 
@@ -59,7 +97,12 @@ $(window).on('hashchange', function () {
 
 
 
+    // todo: front page on hashchange #0
 
+
+
+
+// if no tab selected, fade in the pointer in the right spot
     if($( ".panel-pointer" ).css('opacity') == 0) {
 
         var mult = 13.6*parseFloat(getComputedStyle(document.documentElement).fontSize)*intOnly-44;
@@ -67,13 +110,14 @@ $(window).on('hashchange', function () {
 
         $(".tri-left").css("width", multString);
 
-        $(".panel-pointer").animate( {opacity: 1}, 200 );
+        $(".panel-pointer").animate( {opacity: 1}, 300 );
 
 
 
-    $( ".panel-pointer" ).slideDown(400);
+    // $( ".panel-pointer" ).slideDown(400);
    }
 
+// if a tab is selected, sliiide to new tab
   else {
 
       var mult = 13.6*parseFloat(getComputedStyle(document.documentElement).fontSize)*intOnly-44;
@@ -86,10 +130,10 @@ $(window).on('hashchange', function () {
   }
 
 
-
+// leftover script from vertical to lateral tabs
 
     $('.card-container-left').css( "display", "inline" );
-    $('.card-top').css( "display", "none" );
+    $('.card-top').slideUp(300);
 
 
 
@@ -146,62 +190,6 @@ show('#0');
 
 
 //
-// shading and unshade on hashchange
-
-
-$(window).on('hashchange', function () {
-    if (location.hash === "#1") {
-        $('.mid').removeClass('shaded-tab-base');
-        $('.mid-1').addClass('shaded-tab-base');
-        $('.mid .card-title').removeClass('shaded-tab');
-        $('.mid-1 .card-title').addClass('shaded-tab');
-        $('.card-left').css( "display", "inline" );
-
-        // if($('.card-left').is(':hidden')){
-            $( ".card-left" ).toggle( "slide" );
-        // }
-
-    }
-
-    else if (location.hash === "#2") {
-        $('.mid').removeClass('shaded-tab-base');
-        $('.mid-2').addClass('shaded-tab-base');
-        $('.mid .card-title').removeClass('shaded-tab');
-        $('.mid-2 .card-title').addClass('shaded-tab');
-        $('.card-left').css( "display", "inline" );
-
-    }
-
-    else if (location.hash === "#3") {
-        $('.mid').removeClass('shaded-tab-base');
-        $('.mid-3').addClass('shaded-tab-base');
-        $('.mid .card-title').removeClass('shaded-tab');
-        $('.mid-3 .card-title').addClass('shaded-tab');
-
-    }
-
-    else if (location.hash === "#4") {
-        $('.mid').removeClass('shaded-tab-base');
-        $('.mid-4').addClass('shaded-tab-base');
-        $('.mid .card-title').removeClass('shaded-tab');
-        $('.mid-4 .card-title').addClass('shaded-tab');
-
-    }
-
-    else if (location.hash === "#0") {
-        $('.mid').removeClass('shaded-tab');
-    }
-
-});
-
-
-
-
-
-
-
-
-//
 // hashchange and panel changing
 
 
@@ -218,29 +206,6 @@ $('.return-menu-link').click(function(){
 
 
 
-
-//
-// animated hovering
-
-
-
-$('.mid .card-title').hover(function() {
-
-        $(this).addClass('card-hover');
-    }, function() {
-        $(this).removeClass('card-hover');
-
-});
-
-
-
-// $('.mid').hover(function() {
-//
-//         $(this).children('.card-title').addClass('card-hover');
-//     }, function() {
-//         $(this).children('.card-title').removeClass('card-hover');
-//
-// });
 
 
 
@@ -301,6 +266,27 @@ $('.mid .card-title').hover(function() {
         </div>
 
         <div class="header-bg">
+
+            <div class="tag-wrap">
+
+            <div class="header-tag">numerical modeling</div>
+            <div class="header-tag">data visualization</div>
+            <br>
+
+            <div class="header-tag">fluid dynamics</div>
+            <div class="header-tag">information design</div>
+            <div class="header-tag">reactive transport</div>
+            <br>
+
+            <div class="header-tag">parallel computing</div>
+            <div class="header-tag">web apps</div>
+            <div class="header-tag">climate science</div>
+            <br>
+
+            <div class="header-tag">science communication</div>
+
+            </div>
+
         </div>
 
 
@@ -323,12 +309,6 @@ $('.mid .card-title').hover(function() {
         <div class="card-container">
 
 
-            <!-- <div class="card-container-left t1">
-            </div> -->
-
-
-            <div class="card-container-right t1">
-
                 <div class="card card-title t1">
                      <a class="tab hide-menu-link" href="#1">about me</a>
                 </div>
@@ -341,8 +321,6 @@ $('.mid .card-title').hover(function() {
                 <div class="card card-top toggle-menu">
                 </div>
 
-            <!-- end card-container-right -->
-            </div>
 
 
 
@@ -372,11 +350,6 @@ $('.mid .card-title').hover(function() {
         <div class="card-container">
 
 
-            <!-- <div class="card-container-left t2">
-            </div> -->
-
-
-            <div class="card-container-right t2">
 
                 <div class="card card-title t2">
                      <a class="tab hide-menu-link" href="#2">projects</a>
@@ -389,9 +362,6 @@ $('.mid .card-title').hover(function() {
 
                 <div class="card card-top toggle-menu">
                 </div>
-
-            <!-- end card-container-right -->
-            </div>
 
 
         <!-- end card-container -->
@@ -415,12 +385,6 @@ $('.mid .card-title').hover(function() {
         <div class="card-container">
 
 
-            <!-- <div class="card-container-left t3">
-            </div> -->
-
-
-            <div class="card-container-right t3">
-
                 <div class="card card-title t3">
                      <a class="tab hide-menu-link" href="#3">science</a>
                 </div>
@@ -433,9 +397,6 @@ $('.mid .card-title').hover(function() {
 
                 <div class="card card-top toggle-menu">
                 </div>
-
-            <!-- end card-container-right -->
-            </div>
 
 
         <!-- end card-container -->
@@ -460,11 +421,6 @@ $('.mid .card-title').hover(function() {
         <div class="card-container">
 
 
-            <!-- <div class="card-container-left t4">
-            </div> -->
-
-
-            <div class="card-container-right t4">
 
                 <div class="card card-title t4">
                      <a class="tab hide-menu-link" href="#4">www</a>
@@ -477,8 +433,6 @@ $('.mid .card-title').hover(function() {
                 <div class="card card-top toggle-menu">
                 </div>
 
-            <!-- end card-container-right -->
-            </div>
 
 
         <!-- end card-container -->

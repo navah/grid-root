@@ -146,11 +146,11 @@ body {
       grid-column-start: 3;
       grid-column-end:   7;
       background-size: 100% auto;
-      min-height: 10rem;
+      /* min-height: 10rem; */
   }
 
   .header-bg {
-      min-height: 10rem;
+      /* min-height: 10rem; */
       background-image:
           linear-gradient(to right,
               var(--overlay) 0%,
@@ -164,6 +164,14 @@ body {
       /* filter: invert(100%);
       -webkit-filter: invert(var(--overlay-filter)); */
 
+      text-align: right;
+      /* padding-top: 1.5rem; */
+      /* padding-right: 1.5rem; */
+      vertical-align: bottom;
+      /* justify-content: middle;
+      justify-items: middle; */
+
+
   }
 
   .header-alpha {
@@ -173,6 +181,34 @@ body {
 
   .header-divider{
       opacity: 1;
+
+  }
+
+  .tag-wrap {
+
+      /* border: 1px solid green; */
+      /* margin: auto; */
+      /* min-height: 10rem; */
+      /* vertical-align: bottom; */
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+      margin-right: 1rem;
+  }
+
+  .header-tag {
+      border: 1px solid var(--border);
+      background: var(--hover-tab-color);
+      font-size: 0.7rem;
+      display: inline;
+      padding: 5px;
+      padding-left: 8px;
+      padding-right: 8px;
+      margin-left: 10px;
+      border-radius: 12px;
+      /* margin-top: 10px;
+      margin-bottom: 10px; */
+      line-height: 2rem;
+      /* margin: auto; */
 
   }
 
@@ -475,8 +511,8 @@ body {
 
     grid-row-start: 4;
     grid-row-end: 5;
-    /* grid-column-start: 4;
-    grid-column-end: 5; */
+    grid-column-start: 3;
+    grid-column-end: 4;
     /* margin-top: -7px; */
     display: grid;
     grid-template-rows: auto;
@@ -508,14 +544,14 @@ body {
     grid-column-start: 1;
     grid-column-end: 2;
     /* border: 1px solid magenta; */
-    height: 10px;
+    /* height: 10px; */
 }
 
 .tri-right {
     grid-column-start: 2;
     grid-column-end: 3;
     /* border: 1px solid purple; */
-    height: 10px;
+    /* height: 10px; */
 }
 
 
@@ -554,7 +590,7 @@ body {
     width: 100px;
 
     /* border: 1px solid blue; */
-    height: 10px;
+    /* height: 10px; */
 
     /* display: inline;  */
     /* grid-column-start: 3;
@@ -587,7 +623,10 @@ body {
 
 .card-hover {
     background: var(--hover-tab-color);
-    transition: all 0.2s ease-in .1s;
+    /* transition: all 0.1s ease-in 0s; */
+    transition-duration: .15s;
+  transition-timing-function: linear;
+    /* transition: width 2s, height 2s, transform 2s; */
 
 }
 
