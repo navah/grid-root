@@ -33,13 +33,27 @@ function align(hashString,duration) {
     var tabText = '.t' + hash;
     var intOnly = parseInt(hash);
     var intString = intOnly.toString(intOnly + 2);
-    var mult = (13.6*myRem*(intOnly-1));
+    // var mult = (13.6*myRem*(intOnly-1));
+    var mult = (($('.mid').width()+(0.6*myRem))*(intOnly-1));
     var multString =  mult.toString() + "px";
 
+    // $('.mid' + tabText).transition({ x: '0px', y: '+9px' }, 20, 'in');
+    // $('.mid' + tabText).transition({ x: '0px', y: '-9px' }, 150, 'in');
+
     $('.mid').removeClass('shaded-tab');
-    $('.card-title').removeClass('shaded-title');
     $('.mid' + tabText).addClass('shaded-tab');
+
+    $('.card-title').removeClass('shaded-title');
     $('.card-title' + tabText).addClass('shaded-title');
+
+    $('.mid').removeClass('mid-moved');
+    $('.mid' + tabText).addClass('mid-moved');
+    // $('.mid').transition({ x: '-5px', y: '-5px' });
+
+    // $('.mid').transition({ x: '0px', y: '-3px' }, 0, 'in');
+    // $('.mid' + tabText).transition({ x: '0px', y: '+3px' }, 400, 'in');
+    // $('.mid' + tabText).transition({ x: '0px', y: '+3px' }, 400, 'in');
+
     $('.card-top').slideUp(duration);
     $(".panel-pointer").animate( {opacity: 1}, duration );
 
@@ -81,20 +95,80 @@ $(document).ready(function() {
 
 
     // animated hovering
-    $('.mid .card-title').hover(function() {
+    $('.mid').hover(
+
+        function() {
+
+        // $(this).addClass('mid-moved');
 
             $(this).addClass('card-hover');
         }, function() {
             $(this).removeClass('card-hover');
 
+
+    }); // end hover
+
+
+    // animated hovering
+    $('.mid').hover(
+
+        function() {
+
+
+
+            $(this).find('.card-title').addClass('title-hover');
+        }, function() {
+            $(this).find('.card-title').removeClass('title-hover');
+
+
     }); // end hover
 
 
 
+//     $('.mid').hover(
+//
+//         function() {
+//
+//     $(this).transition({ x: '0px', y: '+3px' }, 150, 'in');
+// }, function() {
+//     $(this).transition({ x: '0px', y: '-3px' }, 150, 'in');
+//
+//     }); // end hover
 
 
+
+
+// $('.mid').hover(
+//
+//         function() {
+//
+
+//
+//             $(this).find(".card-text, .card-base").addClass('shaded-tab');
+//         }, function() {
+//             $(this).find(".card-text, .card-base").removeClass('shaded-tab');
+//
+//         }); // end hover
+
+            // $(this).find(".card-text").addClass('card-hover');
+            // $(this).find(".card-text").removeClass('card-hover');
+
+
+
+
+
+
+
+//     $('.mid').mouseout( function(){
+//         $('.mid').transition({ x: '0px', y: '+9px' }, 150, 'in');
+//         $('.mid').transition({ x: '0px', y: '-9px' }, 150, 'in');
+//
+// });
 
     // if you hashchange
+
+
+
     $(window).on('hashchange', function () {
 
         // if you go BACK to the homepage, from another page
@@ -107,6 +181,7 @@ $(document).ready(function() {
 
 
         else {
+
             align(window.location.hash,500);
             show(location.hash);
         }
@@ -219,15 +294,18 @@ $(document).ready(function() {
 
 
                 <div class="card card-title t1">
-                     <a class="tab hide-menu-link" href="#1">about me</a>
+                     <a class="tab" href="#1">about me</a>
                 </div>
 
-                <div class="card card-text">
-                    cv, bio, WIPs, etc.
+                <a class="tab" href="#1">
+                    <div class="card card-text">
+                        cv, bio, WIPs, etc.
+                    </div>
+                </a>
 
-                </div>
-
-                <div class="card card-top toggle-menu">
+                <div class="card-base">
+                    <div class="card card-top toggle-menu">
+                    </div>
                 </div>
 
 
@@ -261,16 +339,19 @@ $(document).ready(function() {
 
 
                 <div class="card card-title t2">
-                     <a class="tab hide-menu-link" href="#2">projects</a>
+                     <a class="tab" href="#2">projects</a>
                 </div>
 
-                <div class="card card-text">
-                    packages, graphics, tools, etc.
+                <a class="tab" href="#2">
+                    <div class="card card-text">
+                        graphics, tools, etc.
+                    </div>
+                </a>
 
-                </div>
 
-                <div class="card card-top toggle-menu">
-                </div>
+                    <div class="card card-top toggle-menu">
+                    </div>
+
 
 
         <!-- end card-container -->
@@ -295,17 +376,19 @@ $(document).ready(function() {
 
 
                 <div class="card card-title t3">
-                     <a class="tab hide-menu-link" href="#3">science</a>
+                     <a class="tab" href="#3">science</a>
                 </div>
 
-                <div class="card card-text">
-                    research, figures, etc.
+                <a class="tab" href="#3">
+                    <div class="card card-text">
+                        research, figures, etc.
+                    </div>
+                </a>
 
-                    <!-- data vis, publications, etc. -->
-                </div>
 
-                <div class="card card-top toggle-menu">
-                </div>
+                    <div class="card card-top toggle-menu">
+                    </div>
+
 
 
         <!-- end card-container -->
@@ -335,12 +418,18 @@ $(document).ready(function() {
                      <a class="tab hide-menu-link" href="#4">www</a>
                 </div>
 
+                <a class="tab" href="#4">
                 <div class="card card-text">
-                    ig, links, wikipedia, etc.
-                </div>
 
-                <div class="card card-top toggle-menu">
+                    ig, links, wikipedia, etc.
+
                 </div>
+                </a>
+
+
+                    <div class="card card-top toggle-menu">
+                    </div>
+
 
 
 
