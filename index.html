@@ -175,6 +175,7 @@ $(document).ready(function() {
         if(window.location.hash === "#0") {
             $('.mid').removeClass('shaded-tab');
             $('.card-title').removeClass('shaded-title');
+            $('.mid').removeClass('mid-moved');
             $(".panel-pointer").animate( {opacity: 0}, 0 );
             $('.card-top').slideDown(300);
         }
@@ -225,25 +226,31 @@ $(document).ready(function() {
         <div class="bar-menu">
 
             <div class="navah">
-                <a class="tab return-menu-link" href="#0">navah x. farahat</a>
+                <a class="tab" href="#0">navah x. farahat</a>
             </div>
 
-            <div class="bar-menu links home">
-                <a class="tab return-menu-link" href="#0">home</a>
+
+            <div class="links home">
+                <a href="#0">home</a>
             </div>
 
-            <div class="bar-menu links contact">
+            <div class="links contact">
+                <a href="#0">home1</a>
+            </div>
+
+
+            <!-- <div class="links contact">
                 <a href="http://navah.site">contact</a>
-            </div>
+            </div> -->
 
-            <div class="bar-menu links question">
+            <div class="links question">
                 <input class="question-field" type="text" id="send" value="ask a question">
 
                 <input class="submit-button" type="submit" value="send">
 
             </div>
 
-            <div class="bar-menu links answers">
+            <div class="links answers">
                 <a href="http://navah.site">see answers</a>
             </div>
 
@@ -485,7 +492,7 @@ $(document).ready(function() {
 </div>
 
 <div class="panel" id="4">
-  www - important links via nnn, wikipedia nnn, elsewheres, form
+  www - important links via nnn, wikipedia nnn, elsewheres, form, important links via nnn, wikipedia nnn, elsewheres, form
 </div>
 
 

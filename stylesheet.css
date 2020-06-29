@@ -18,7 +18,7 @@
   --o-mode: screen;
   --overlay-filter: 100%;
 
-  --bpx: 2px;
+
   --tpx: 0px;
   --hpx: 0.5px;
 
@@ -26,16 +26,21 @@
   --text-color: #303030;
   --desktop: blue;
   --mobile: transparent;
-  --side-col-mobile: 4%;
-  --mid-col-mobile: 16rem;
+
+  --side-col-mobile: 0px;
+  --mid-col-mobile: 1fr;
   --mid-col-mobile-min: 6rem;
 
   --side-col-desktop: 0.5rem;
   --mid-col-desktop: 12rem;
+    --box-shadow-color: #282828;
 
+
+
+  --bpx: 1px;
   --border-radius: 10px;
-  --box-shadow: 3px;
-  --box-shadow-color: #282828;
+  --box-shadow: 1px;
+
 
 
   /*-----------------------*/
@@ -69,29 +74,39 @@ a {
 } */
 
 
+@media only screen and (min-width: 992px) {
+    :root{
+         --box-shadow: 2px;
+         --bpx: 2px;
+         --border-radius: 10px;
+     }
+}
+
+
 
 /*-----------------------
 "GRID INIT (mobile)"
 -----------------------*/
 
+
+/* minmax(0px, var(--mid-col-mobile)) */
 .grid {
     display: grid;
     grid-template-columns:
-    /* 1 */ minmax(0px,auto)
-    /* 2 */ minmax(0px,var(--side-col-desktop))
-    /* 3 */ minmax(0px, var(--mid-col-desktop))
-    /* 4 */ minmax(0px, var(--mid-col-desktop))
-    /* 5 */ minmax(0px, var(--mid-col-desktop))
-    /* 6 */ minmax(0px, var(--mid-col-desktop))
-    /* 7 */ minmax(0px,var(--side-col-desktop))
-    /* 8 */ minmax(0px,auto);
-    grid-template-rows: auto auto auto auto;
-    grid-row-gap: 0.6rem;
-    grid-column-gap: .6rem;
+    /* 1 */ 0px
+    /* 2 */ minmax(0px,var(--side-col-mobile))
+    /* 3 */ minmax(0px, var(--mid-col-mobile))
+    /* 6 */ minmax(0px, var(--mid-col-mobile))
+    /* 7 */ minmax(0px,var(--side-col-mobile))
+    /* 8 */ 0px
+    grid-template-rows: auto auto auto auto auto;
+    grid-row-gap: 0.5rem;
+    grid-column-gap: 0.5rem;
     margin:0rem;
-    margin-top: 0rem;
-    margin-left: 1rem;
-    margin-right: 1rem;
+    margin-top: 0.5rem;
+    /* margin-left: 0rem;
+    margin-right: 0rem; */
+    /* border: 1px solid red; */
   }
 
 
@@ -101,9 +116,25 @@ a {
 
 @media only screen and (min-width: 992px) {
 
-  .grid {
-
-    }
+    .grid {
+        display: grid;
+        grid-template-columns:
+        /* 1 */ minmax(0px,auto)
+        /* 2 */ minmax(0px,var(--side-col-desktop))
+        /* 3 */ minmax(0px, var(--mid-col-desktop))
+        /* 4 */ minmax(0px, var(--mid-col-desktop))
+        /* 5 */ minmax(0px, var(--mid-col-desktop))
+        /* 6 */ minmax(0px, var(--mid-col-desktop))
+        /* 7 */ minmax(0px,var(--side-col-desktop))
+        /* 8 */ minmax(0px,auto);
+        grid-template-rows: auto auto auto auto;
+        grid-row-gap: 1.0rem;
+        grid-column-gap: 1.0rem;
+        margin:0rem;
+        margin-top: 1rem;
+        margin-left: 1rem;
+        margin-right: 1rem;
+      }
 
 }
 
@@ -113,23 +144,20 @@ a {
 "SIDES mobile"
 -----------------------*/
 
-  .side {
-      /* border: var(--bpx) solid var(--mobile); */
+  /* .side {
       grid-row-start: 2;
       grid-row-end:   4;
-      /* border: 4px solid green; */
-  }
+      border: 4px solid green;
+  } */
 
   .left {
       grid-column-start: 1;
       grid-column-end:   3;
-      /* border: 1px solid blue; */
   }
 
   .right {
-      grid-column-start: 7;
-      grid-column-end:   9;
-      /* border: 1px solid red; */
+      grid-column-start: 5;
+      grid-column-end:   7;
   }
 
 
@@ -140,8 +168,21 @@ a {
 
 @media only screen and (min-width: 992px) {
 
-    .side {
+    /* .side {
 
+        grid-row-start: 2;
+        grid-row-end:   4;
+
+    } */
+
+    .left {
+        grid-column-start: 1;
+        grid-column-end:   3;
+    }
+
+    .right {
+        grid-column-start: 7;
+        grid-column-end:   9;
     }
 
 }
@@ -154,10 +195,8 @@ a {
 
   .header {
       grid-column-start: 3;
-      grid-column-end:   7;
+      grid-column-end:   5;
       background-size: 100% auto;
-      /* min-height: 10rem; */
-
   }
 
   .header-bg {
@@ -239,14 +278,10 @@ a {
 
 @media only screen and (min-width: 992px) {
 
-    .header-tag {
-
-        /* padding: 3px 8px; */
-        /* margin-left: 7px; */
-        /* border-radius: 12px; */
-
-
-
+    .header {
+        grid-column-start: 3;
+        grid-column-end:   7;
+        background-size: 100% auto;
     }
 
 
@@ -261,14 +296,25 @@ a {
 
   .bar-menu {
       display: grid;
-      grid-template-columns: auto 4fr auto auto auto auto auto;
+      grid-template-columns: auto 1fr auto auto auto auto auto;
       grid-template-rows: 1.7rem;
       /* grid-template-rows: auto auto; */
       background-color: var(--card-img);
-      align-items: center;
+      /* align-items: center; */
+      /* justify-items: middle; */
       margin-bottom: .6rem;
       margin-top: .6rem;
       border: var(--bpx) solid var(--border);
+      border-radius: var(--border-radius);
+
+      -webkit-box-shadow: var(--box-shadow) var(--box-shadow)
+      0px 0px var(--box-shadow-color);
+      -moz-box-shadow: var(--box-shadow) var(--box-shadow)
+      0px 0px var(--box-shadow-color);
+      box-shadow: var(--box-shadow) var(--box-shadow)
+      0px 0px var(--box-shadow-color);
+      align-items: center;
+   justify-items: center;
 
   }
 
@@ -278,6 +324,8 @@ a {
       grid-column-start: 1;
       grid-column-end:   2;
       border: 0;
+      border-radius: 0;
+      /* margin: auto; */
 
   }
 
@@ -289,13 +337,25 @@ a {
       padding-left: 0.5rem;
   }
 
+
+
+
+
+.links {
+    /* margin: auto; */
+    /* border-radius: 0; */
+    /* margin: auto; */
+    border-left: 1px solid black;
+
+}
+
 .links a {
       font-size: 0.8rem;
       text-decoration: none;
       color: var(--text-color);
       padding-left: 0.5rem;
       padding-right: 0.5rem;
-      border: 0;
+      /* margin: auto; */
   }
 
 .home {
@@ -303,8 +363,7 @@ a {
       grid-row-end: 2;
       grid-column-start: 3;
       grid-column-end:   4;
-      border: 0;
-      border-left: var(--bpx) solid var(--border);
+      /* margin: auto; */
 
   }
 
@@ -313,8 +372,8 @@ a {
       grid-row-end: 2;
       grid-column-start: 4;
       grid-column-end:   5;
-      border: 0;
-      border-left: var(--bpx) solid var(--border);
+      /* border-radius: 0; */
+      /* margin: auto; */
   }
 
 .question {
@@ -323,19 +382,21 @@ a {
     grid-column-start: 1;
     grid-column-end:   2;
     border: 0;
-    border-left: var(--bpx) solid var(--border);
     padding-left: 0.7rem;
     padding-right: 0.2rem;
     display: none;
+    /* margin: auto; */
 
 }
 
 .question input {
-    border: var(--bpx) solid var(--border);
+    border: 1px solid var(--border);
     font-size: 0.7rem;
-    margin-right: 0.5rem;
+    /* margin-right: 0.5rem; */
     color: var(--text-color);
-    padding-left: 0.4rem;
+    padding-left: 0.3rem;
+    border-radius: 5px;
+    /* padding: 1px; */
 }
 
 .answers {
@@ -344,8 +405,8 @@ a {
       grid-column-start: 2;
       grid-column-end:   3;
       border: 0;
-      border-left: var(--bpx) solid var(--border);
       display: none;
+      /* margin: auto; */
   }
 
 
@@ -387,7 +448,7 @@ a {
   grid-row-end: 2;
   grid-column-start: 4;
   grid-column-end:   5;
-  border: 0;
+  /* border: 0; */
 }
 
 
@@ -447,11 +508,11 @@ a {
 
   .mid-top {
       grid-row-start: 2;
-      grid-row-end:   4;
+      grid-row-end:   3;
   }
 
   .mid-bottom {
-      grid-row-start: 2;
+      grid-row-start: 3;
       grid-row-end:   4;
   }
 
@@ -469,26 +530,17 @@ a {
   }
 
   .mid-3 {
-      grid-column-start: 5;
-      grid-column-end:   6;
+      grid-column-start: 3;
+      grid-column-end:   4;
       border-width: var(--bpx);
   }
 
   .mid-4 {
-      grid-column-start: 6;
-      grid-column-end:   7;
+      grid-column-start: 4;
+      grid-column-end:   5;
       border-width: var(--bpx);
   }
 
-  /* .left {
-      grid-column-start: 1;
-      grid-column-end:   2;
-  }
-
-  .right {
-      grid-column-start: 7;
-      grid-column-end:   8;
-  } */
 
 
 
@@ -500,9 +552,36 @@ a {
 
 @media only screen and (min-width: 992px) {
 
-    .mid {
+    .mid-top {
+        grid-row-start: 2;
+        grid-row-end:   4;
     }
 
+    .mid-bottom {
+        grid-row-start: 2;
+        grid-row-end:   4;
+    }
+
+
+    .mid-1 {
+        grid-column-start: 3;
+        grid-column-end:   4;
+    }
+
+    .mid-2 {
+        grid-column-start: 4;
+        grid-column-end:   5;
+    }
+
+    .mid-3 {
+        grid-column-start: 5;
+        grid-column-end:   6;
+    }
+
+    .mid-4 {
+        grid-column-start: 6;
+        grid-column-end:   7;
+    }
 
 
 }
@@ -527,7 +606,6 @@ a {
 
 
 
-
 .card-top {
     background: var(--card-img);
     height: 6.4rem;
@@ -536,17 +614,10 @@ a {
 
 
 
-
-
-
-
 .card-title {
     display: block;
     color: var(--text-color);
-    /* font-size: 1.2rem; */
-    font-size: min(1.2rem, max(2vw, 0.7rem));
-    /* notation: min(highest, varying, shrinking) */
-    /* like: upper limit, adjustable, lower limit */
+    font-size: 1.6rem;
     background: var(--card-img);
     border-bottom: var(--bpx) solid var(--border);
     border-top-left-radius: var(--border-radius);
@@ -565,15 +636,10 @@ a {
 .card-text {
     display: block;
     color: var(--text-color);
-    /* margin-bottom: .5rem; */
-    /* min-height: 1rem; */
-    font-size: 1.2vw;
-    font-size: min(0.7rem, max(2.1vw, 1.1rem));
-    /* line-height: 2.1vw; */
-    padding: .6rem .6rem;
-    /* padding: .4rem .6rem .3rem .6rem; */
-    /* border: 1px solid red; */
-    /* background: red; */
+    /* font-size: min(0.7rem, max(2.1vw, 1.1rem)); */
+    font-size: 1.0rem;
+    padding: .3rem .6rem;
+
 }
 
 
@@ -583,6 +649,18 @@ a {
 /*-----------------------*/
 
 @media only screen and (min-width: 992px) {
+
+
+    .card-title {
+        font-size: min(1.2rem, max(2vw, 0.7rem));
+    }
+
+
+    .card-text {
+        font-size: min(0.7rem, max(2.1vw, 1.1rem));
+    }
+
+
 }
 
 
@@ -594,16 +672,13 @@ a {
 .panel {
     background: var(--card-bg);
     border: var(--bpx) solid var(--border);
-
     grid-column-start: 3;
-    grid-column-end: 7;
+    grid-column-end: 5;
     grid-row-start: 5;
     grid-row-end: 6;
     margin-top: -1px;
     padding: .6rem;
     min-height: 4rem;
-
-
 }
 
 .panel-pointer {
@@ -707,9 +782,9 @@ a {
 
 
 
-.return-menu-link {
+/* .return-menu-link {
 
-}
+} */
 
 
 

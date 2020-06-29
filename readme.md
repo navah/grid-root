@@ -1,5 +1,11 @@
 **readme.md**
 
+**top priorities**
+* mobile buttons sans tabs (dim(2,2)?)
+* font sizes for mobile don't need viewport units
+* choose sub (vertical) mini-portfolio browser
+* outline hydrothermal figures
+
 
 **obvious todos**
 * make mid-grid something other than dim(2,2), maybe do dim(1,4)
