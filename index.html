@@ -10,6 +10,18 @@
 
 <link rel="stylesheet" href="icofont/icofont.min.css">
 
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Space+Mono">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Work+Sans">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Courier+Prime">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Share+Tech+Mono">
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
 <script src="https://navah.site/transit.min.js"></script>
@@ -33,12 +45,11 @@ function align(hashString,duration) {
     var tabText = '.t' + hash;
     var intOnly = parseInt(hash);
     var intString = intOnly.toString(intOnly + 2);
-    // var mult = (13.6*myRem*(intOnly-1));
+
     var mult = (($('.mid').width()+(0.6*myRem))*(intOnly-1));
     var multString =  mult.toString() + "px";
 
-    // $('.mid' + tabText).transition({ x: '0px', y: '+9px' }, 20, 'in');
-    // $('.mid' + tabText).transition({ x: '0px', y: '-9px' }, 150, 'in');
+
 
     $('.mid').removeClass('shaded-tab');
     $('.mid' + tabText).addClass('shaded-tab');
@@ -50,14 +61,11 @@ function align(hashString,duration) {
     $('.mid' + tabText).addClass('mid-moved');
     // $('.mid').transition({ x: '-5px', y: '-5px' });
 
-    // $('.mid').transition({ x: '0px', y: '-3px' }, 0, 'in');
-    // $('.mid' + tabText).transition({ x: '0px', y: '+3px' }, 400, 'in');
-    // $('.mid' + tabText).transition({ x: '0px', y: '+3px' }, 400, 'in');
 
     $('.card-top').slideUp(duration);
     $(".panel-pointer").animate( {opacity: 1}, duration );
 
-    $(".tri-left").animate({width: multString}, duration);
+    // $(".tri-left").animate({width: multString}, duration);
 
 }
 
@@ -94,6 +102,7 @@ $(document).ready(function() {
 
 
 
+
     // animated hovering
     $('.mid').hover(
 
@@ -105,70 +114,25 @@ $(document).ready(function() {
         }, function() {
             $(this).removeClass('card-hover');
 
-
     }); // end hover
+
+
 
 
     // animated hovering
     $('.mid').hover(
 
         function() {
-
-
-
             $(this).find('.card-title').addClass('title-hover');
         }, function() {
             $(this).find('.card-title').removeClass('title-hover');
-
 
     }); // end hover
 
 
 
-//     $('.mid').hover(
-//
-//         function() {
-//
-//     $(this).transition({ x: '0px', y: '+3px' }, 150, 'in');
-// }, function() {
-//     $(this).transition({ x: '0px', y: '-3px' }, 150, 'in');
-//
-//     }); // end hover
-
-
-
-
-// $('.mid').hover(
-//
-//         function() {
-//
-
-//
-//             $(this).find(".card-text, .card-base").addClass('shaded-tab');
-//         }, function() {
-//             $(this).find(".card-text, .card-base").removeClass('shaded-tab');
-//
-//         }); // end hover
-
-            // $(this).find(".card-text").addClass('card-hover');
-            // $(this).find(".card-text").removeClass('card-hover');
-
-
-
-
-
-
-
-//     $('.mid').mouseout( function(){
-//         $('.mid').transition({ x: '0px', y: '+9px' }, 150, 'in');
-//         $('.mid').transition({ x: '0px', y: '-9px' }, 150, 'in');
-//
-// });
 
     // if you hashchange
-
-
-
     $(window).on('hashchange', function () {
 
         // if you go BACK to the homepage, from another page
@@ -182,7 +146,6 @@ $(document).ready(function() {
 
 
         else {
-
             align(window.location.hash,500);
             show(location.hash);
         }
@@ -190,10 +153,14 @@ $(document).ready(function() {
 
         // todo: if no tab selected, assume hash is 0
         if($( ".panel-pointer" ).css('opacity') == 0) {
-
         }
 
-    }); // end on haschange loop
+
+    }); // end if-you-haschange loop
+
+
+
+// $(this).find(".card-text, .card-base").removeClass('shaded-tab');
 
 
 
@@ -218,6 +185,7 @@ $(document).ready(function() {
 
 <main class="grid">
 
+
     <div class="header">
 
 
@@ -230,29 +198,20 @@ $(document).ready(function() {
             </div>
 
 
-            <div class="links home">
+            <div class="home">
                 <a href="#0">home</a>
+                <!-- <a href="#0">contact</a> -->
+                <a href="#0">contact</a>
+
+
+                <!-- <input type="text" id="send" value="ask a question">
+
+                <input type="submit" value="send"> -->
+
+                <!-- <a href="#0">(see answers)</a> -->
             </div>
 
-            <div class="links contact">
-                <a href="#0">home1</a>
-            </div>
 
-
-            <!-- <div class="links contact">
-                <a href="http://navah.site">contact</a>
-            </div> -->
-
-            <div class="links question">
-                <input class="question-field" type="text" id="send" value="ask a question">
-
-                <input class="submit-button" type="submit" value="send">
-
-            </div>
-
-            <div class="links answers">
-                <a href="http://navah.site">see answers</a>
-            </div>
 
         </div>
 
@@ -266,12 +225,14 @@ $(document).ready(function() {
 
             <div class="header-tag">fluid dynamics</div>
             <div class="header-tag">information design</div>
-            <div class="header-tag">reactive transport</div>
+            <div class="header-tag">climate science</div>
+
             <br>
 
+            <div class="header-tag">reactive transport</div>
             <div class="header-tag">parallel computing</div>
             <div class="header-tag">web apps</div>
-            <div class="header-tag">climate science</div>
+
             <br>
 
             <div class="header-tag">science communication</div>
@@ -281,10 +242,13 @@ $(document).ready(function() {
         </div>
 
 
-        <div class="header-divider"></div>
+        <!-- <div class="header-divider"></div> -->
 
 
+        <!-- end header -->
     </div>
+
+
 
 
     <div class="side left"> </div>
@@ -303,6 +267,8 @@ $(document).ready(function() {
                 <div class="card card-title t1">
                      <a class="tab" href="#1">about me</a>
                 </div>
+
+                <div class="divider-dash"></div>
 
                 <a class="tab" href="#1">
                     <div class="card card-text">
@@ -349,6 +315,8 @@ $(document).ready(function() {
                      <a class="tab" href="#2">projects</a>
                 </div>
 
+                <div class="divider-dash"></div>
+
                 <a class="tab" href="#2">
                     <div class="card card-text">
                         graphics, tools, etc.
@@ -385,6 +353,8 @@ $(document).ready(function() {
                 <div class="card card-title t3">
                      <a class="tab" href="#3">science</a>
                 </div>
+
+                <div class="divider-dash"></div>
 
                 <a class="tab" href="#3">
                     <div class="card card-text">
@@ -425,10 +395,12 @@ $(document).ready(function() {
                      <a class="tab hide-menu-link" href="#4">www</a>
                 </div>
 
+                <div class="divider-dash"></div>
+
                 <a class="tab" href="#4">
                 <div class="card card-text">
 
-                    ig, links, wikipedia, etc.
+                    ig, links, wiki, etc.
 
                 </div>
                 </a>
@@ -492,7 +464,7 @@ $(document).ready(function() {
 </div>
 
 <div class="panel" id="4">
-  www - important links via nnn, wikipedia nnn, elsewheres, form, important links via nnn, wikipedia nnn, elsewheres, form
+  www - important links via nnn, wikipedia nnn, elsewheres, form,
 </div>
 
 
