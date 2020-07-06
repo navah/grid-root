@@ -44,28 +44,36 @@ function align(hashString,duration) {
     var hash = url.split('#')[1];
     var tabText = '.t' + hash;
     var intOnly = parseInt(hash);
-    var intString = intOnly.toString(intOnly + 2);
 
-    var mult = (($('.mid').width()+(0.6*myRem))*(intOnly-1));
-    var multString =  mult.toString() + "px";
 
 
 
     $('.mid').removeClass('shaded-tab');
     $('.mid' + tabText).addClass('shaded-tab');
 
-    $('.card-title').removeClass('shaded-title');
-    $('.card-title' + tabText).addClass('shaded-title');
+
 
     $('.mid').removeClass('mid-moved');
     $('.mid' + tabText).addClass('mid-moved');
-    // $('.mid').transition({ x: '-5px', y: '-5px' });
+
 
 
     $('.card-top').slideUp(duration);
-    $(".panel-pointer").animate( {opacity: 1}, duration );
 
-    // $(".tri-left").animate({width: multString}, duration);
+
+    var is_mobile = false;
+    if( $('.tag-wrap').css('visibility')=='hidden') {
+        is_mobile = true;
+    }
+    if (is_mobile == true) {
+        // $('.card-text').slideUp(duration);
+        // $('.divider-dash').slideUp(duration);
+    }
+
+
+    // $('.card-text').slideUp(duration);
+    // $('.divider-dash').slideUp(duration);
+
 
 }
 
@@ -87,6 +95,18 @@ function show(id) {
 
 $(document).ready(function() {
 
+
+    var is_mobile = false;
+
+    if( $('.tag-wrap').css('visibility')=='hidden') {
+        is_mobile = true;
+    }
+
+    // now I can use is_mobile to run javascript conditionally
+
+
+
+
     // if you start with a hashed URL for some reason:
     if((window.location.hash === "#1")
     || (window.location.hash === "#2")
@@ -96,7 +116,18 @@ $(document).ready(function() {
         align(window.location.hash,0);
         show(location.hash);
 
-        $(".panel-pointer").animate( {opacity: 1}, 300 );
+
+        var is_mobile = false;
+        if( $('.tag-wrap').css('visibility')=='hidden') {
+            is_mobile = true;
+        }
+        if (is_mobile == true) {
+            // $('.card-text').slideDown(0);
+            // $('.divider-dash').slideDown(0);
+        }
+
+
+
 
     } // end starting with hash url
 
@@ -119,15 +150,7 @@ $(document).ready(function() {
 
 
 
-    // animated hovering
-    $('.mid').hover(
 
-        function() {
-            $(this).find('.card-title').addClass('title-hover');
-        }, function() {
-            $(this).find('.card-title').removeClass('title-hover');
-
-    }); // end hover
 
 
 
@@ -138,22 +161,44 @@ $(document).ready(function() {
         // if you go BACK to the homepage, from another page
         if(window.location.hash === "#0") {
             $('.mid').removeClass('shaded-tab');
-            $('.card-title').removeClass('shaded-title');
             $('.mid').removeClass('mid-moved');
-            $(".panel-pointer").animate( {opacity: 0}, 0 );
+
             $('.card-top').slideDown(300);
+
+
+            var is_mobile = false;
+            if( $('.tag-wrap').css('visibility')=='hidden') {
+                is_mobile = true;
+            }
+            if (is_mobile == true) {
+                // $('.card-text').slideDown(300);
+                // $('.divider-dash').slideDown(300);
+            }
+
+
+
         }
 
 
         else {
             align(window.location.hash,500);
+
+
+            var is_mobile = false;
+            if( $('.tag-wrap').css('visibility')=='hidden') {
+                is_mobile = true;
+            }
+            if (is_mobile == true) {
+                $('.card-text').slideUp(500);
+                $('.divider-dash').slideUp(500);
+            }
+
+
             show(location.hash);
         }
 
 
-        // todo: if no tab selected, assume hash is 0
-        if($( ".panel-pointer" ).css('opacity') == 0) {
-        }
+
 
 
     }); // end if-you-haschange loop
@@ -430,6 +475,29 @@ $(document).ready(function() {
 
 
 
+        <!-- LINE UPS -->
+
+               <!-- ! CARD 3 -->
+               <!-- <div class="line-up mid mid-bottom mid-3 t3">
+                   <div class="card-container">
+                       <div class="card card-title t3">
+                            <a class="tab" href="#3">science</a>
+                       </div>
+                   </div>
+               </div> -->
+
+
+               <!-- ! CARD 4 -->
+               <!-- <div class="line-up mid mid-bottom mid-4 t4">
+                   <div class="card-container">
+                       <div class="card card-title t4">
+                            <a class="tab" href="#4">www</a>
+                       </div>
+                   </div>
+               </div> -->
+
+
+
 
     </div>
 
@@ -438,24 +506,7 @@ $(document).ready(function() {
 <!-- <div class="triangle-wrap">
     yarr
 </div> -->
-    <div class="panel-pointer">
 
-        <div class="tri-left">
-        </div>
-
-
-        <div class="tri-right">
-            <div class="triangle-down-bg">
-                <div class="triangle-down"></div>
-            </div>
-        </div>
-
-        <div class="gap">
-        </div>
-
-
-
-    </div>
 
 
 
