@@ -80,8 +80,8 @@
   /* --box-offset: 5px; */
 
   --title-font-size: 0.8rem;
-  --title-padding1: 0.4rem;
-  --title-padding2: 0.3rem;
+  --title-padding1: 0.2rem;
+  --title-padding2: 0.0rem;
 
 
 
@@ -91,9 +91,9 @@
 
 
   --img-padding1: 0.0rem;
-  --img-padding2: 0.2rem;
-  --img-padding3: 0.5rem;
-  --img-padding4: 0.2rem;
+  --img-padding2: 0.0rem;
+  --img-padding3: 0.3rem;
+  --img-padding4: 0.0rem;
   --img-border-radius: 15px;
 
 
@@ -114,7 +114,7 @@
   --mb-input-size: 0.6rem;
 
   --row-gap: 0.8rem;
-  --col-gap: 0.4rem;
+  --col-gap: 0.5rem;
 
   --dash: 2px;
   --dash-frac: 25%;
@@ -164,12 +164,12 @@ a {
          /* --box-offset: 5px; */
 
          --title-font-size: 1.2rem;
-         --title-padding1: 0.6rem;
-         --title-padding2: 0.8rem;
+         --title-padding1: 0.4rem;
+         --title-padding2: 0.6rem;
 
          --font-size: 0.6rem;
-         --text-padding1: 0.8rem;
-         --text-padding2: 1.2rem;
+         --text-padding1: 0.6rem;
+         --text-padding2: var(--title-padding2);
 
 
          --img-padding1: 0.0rem;
@@ -508,8 +508,8 @@ a {
 
   .mid {
 
-      border-left: 1px solid var(--border);
-      border-right: 1px solid var(--border);
+      /* border-left: 1px solid var(--border); */
+      border-bottom: 1px solid var(--border);
   }
 
 .mid:active{
@@ -658,7 +658,26 @@ a {
     background: #a6a5aa;
     height: var(--card-height);
     margin: var(--img-padding1) var(--img-padding2) var(--img-padding3) var(--img-padding4);
+    width: 100%;
+    /* border: 1px solid red; */
 
+
+}
+
+
+.c-2 {
+    background: url('sample_projects1.svg');
+    background-size: 140%;
+    background-repeat: no-repeat;
+    background-position: -30px -40px;
+}
+
+
+.c-3 {
+    background: url('sample_science1.svg');
+    background-size: 100%;
+    background-repeat: no-repeat;
+    /* background-position: 0px -40px; */
 }
 
 
@@ -672,7 +691,7 @@ a {
 .card-title {
     display: block;
     padding: var(--title-padding1) var(--title-padding2);
-    text-align: center;
+    text-align: left;
     /* border: 1px solid var(--border); */
     /* border-radius: var(--border-radius); */
 
@@ -706,6 +725,10 @@ a {
     font-family: var(--ff-text);
     display: none;
 
+    white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
 }
 
 
@@ -727,11 +750,16 @@ a {
         border: none;
     }
 
+
     .card-title {
         color: var(--text-color);
         border-top-left-radius: var(--img-border-radius);
         border-top-right-radius: var(--img-border-radius);
         text-align: left;
+
+        white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
     }
 
     .divider-dash {
