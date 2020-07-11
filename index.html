@@ -46,6 +46,8 @@ function align(hashString,duration) {
     var tabText = '.t' + hash;
     var intOnly = parseInt(hash);
 
+    // $('.panel').text(tabText);
+
 
 
 
@@ -59,7 +61,24 @@ function align(hashString,duration) {
 
 
 
-    $('.card-top').slideUp(duration);
+    $('.card-top').slideUp(duration, function() {
+
+        var base = $('.mid' + tabText).first();
+        var position = base.position();
+        var grad0 = "linear-gradient(to bottom, #ccc ";
+        var gradCalc = position.top + $('.mid' + tabText).outerHeight(true);
+        var grad1 =  gradCalc + "px";
+        var grad2 = ", #fff " + gradCalc + "px, #fff)";
+        $('body').css("background", grad0 + grad1 + grad2);
+
+    });
+
+
+
+
+
+
+
 
 
     var is_mobile = false;
@@ -74,6 +93,15 @@ function align(hashString,duration) {
 
     // $('.card-text').slideUp(duration);
     // $('.divider-dash').slideUp(duration);
+
+ // if (hash != "0") {
+
+// }
+
+
+
+
+
 
 
 }
@@ -93,11 +121,22 @@ function show(id) {
 }
 
 
-
+// run no matter what
 $(document).ready(function() {
 
+    if(window.location.hash != ''){
+        // $('.panel').show();
+        // $('.header-tag').hide();
+        show(location.hash);
 
-    show(location.hash);
+    } else {
+        // show("#0");
+        $('.panel').hide().filter("#0").show();
+        // $('.header-tag').hide();
+    }
+
+
+    // show(location.hash);
 
 
     var is_mobile = false;
@@ -162,12 +201,30 @@ $(document).ready(function() {
     // if you hashchange
     $(window).on('hashchange', function () {
 
+
+
+
+
         // if you go BACK to the homepage, from another page
         if(window.location.hash === "#0") {
             $('.mid').removeClass('shaded-tab');
             $('.mid').removeClass('mid-moved');
 
-            $('.card-top').slideDown(300);
+            // $('.card-top').slideDown(300);
+
+            $('.card-top').slideDown(300, function() {
+
+                var base = $('.mid').first();
+                var position = base.position();
+                var grad0 = "linear-gradient(to bottom, #ccc ";
+                var gradCalc = position.top + $('.mid').outerHeight(true);
+                var grad1 =  gradCalc + "px";
+                var grad2 = ", #fff " + gradCalc + "px, #fff)";
+                $('body').css("background", grad0 + grad1 + grad2);
+
+            });
+
+            show(location.hash);
 
 
             var is_mobile = false;
@@ -179,6 +236,15 @@ $(document).ready(function() {
                 // $('.divider-dash').slideDown(300);
             }
 
+
+
+            // var base = $('.mid').first();
+            // var position = base.position();
+            // var grad0 = "linear-gradient(to bottom, #ccc ";
+            // var gradCalc = position.top + $('.mid').outerHeight(true);
+            // var grad1 =  gradCalc + "px";
+            // var grad2 = ", #fff " + gradCalc + "px, #fff)";
+            // $('body').css("background", grad0 + grad1 + grad2);
 
 
         }
@@ -199,7 +265,15 @@ $(document).ready(function() {
 
 
             show(location.hash);
+
+
+
+
+
+
         }
+
+
 
 
 
@@ -212,6 +286,19 @@ $(document).ready(function() {
 // $(this).find(".card-text, .card-base").removeClass('shaded-tab');
 
 
+
+// make sure bg is in correct position
+// var base = $('.mid').last();
+// var position = base.position();
+// var grad0 = "linear-gradient(to bottom, #ccc ";
+// var gradCalc = position.top + $('.mid').outerHeight(true);
+// var grad1 =  gradCalc + "px";
+// var grad2 = ", #fff 200px, #fff)";
+// $('body').css("background", grad0 + grad1 + grad2);
+
+
+// $('.panel').text("left: " + position.left + ", top: " + position.top);
+// $('.panel').text(grad0 + grad1 + grad2)
 
 }); // outer-est loop
 
@@ -228,6 +315,13 @@ $(document).ready(function() {
 
 
 <body>
+
+
+
+
+<!-- <div class="bg-placement"></div> -->
+
+
 
 
 
@@ -303,6 +397,9 @@ $(document).ready(function() {
     <div class="side left"> </div>
 
     <div class="side right"> </div>
+
+
+
 
 
 
@@ -403,7 +500,7 @@ $(document).ready(function() {
 
 
     <!-- ! CARD 3 -->
-    <div class="mid mid-bottom mid-3 t3">
+    <div class="mid mid-top mid-3 t3">
 
 
 
@@ -443,7 +540,7 @@ $(document).ready(function() {
 
 
     <!-- ! CARD 4 -->
-    <div class="mid mid-bottom mid-4 t4">
+    <div class="mid mid-top mid-4 t4">
 
 
 
@@ -515,7 +612,7 @@ $(document).ready(function() {
     <div class="panel" id="0">
 
       <p>
-          navah x. farahat - this is the landing page, not really page, but dynamic content and/or
+          LANDING PAGE!
       </p>
 
     </div>
@@ -556,10 +653,15 @@ $(document).ready(function() {
 
     <div class="pcard-body">
       <h2>Lorem, ipsum dolor.</h2>
-      <p>Lorem ipsum dolor sit amet consectetur. Lorem, ipsum dolor.</p>
+      <p>Lorem ipsum dolor sit amet consectetur. Lorem, ipsum dolor. Lorem ipsum dolor sit amet consectetur. Lorem, ipsum dolor.</p>
     </div>
 
     <div class="pcard-image">
+
+        <span class="badge b-1">graphic design</span>
+
+        <!-- <span class="badge">yum</span> -->
+
         <img class="pimage" src="card-stand01.png" alt="">
     </div>
 
@@ -576,6 +678,27 @@ $(document).ready(function() {
     </div>
 
     <div class="pcard-image">
+
+        <span class="badge b-1">graphic design</span>
+
+        <img class="pimage" src="card-stand01.png" alt="">
+
+    </div>
+
+</div>
+
+
+
+
+<div class="pcard">
+
+    <div class="pcard-body">
+      <h2>Lorem, ipsum dolor.</h2>
+      <p>Lorem ipsum dolor sit amet consectetur. Lorem, ipsum dolor.</p>
+    </div>
+
+    <div class="pcard-image">
+        <span class="badge b-2">data stuff</span>
         <img class="pimage" src="card-stand01.png" alt="">
     </div>
 
@@ -592,11 +715,27 @@ $(document).ready(function() {
     </div>
 
     <div class="pcard-image">
+        <span class="badge">graphics</span>
         <img class="pimage" src="card-stand01.png" alt="">
     </div>
 
 </div>
 
+
+
+<div class="pcard">
+
+    <div class="pcard-body">
+      <h2>Lorem, ipsum dolor.</h2>
+      <p>Lorem ipsum dolor sit amet consectetur. Lorem, ipsum dolor.Lorem ipsum dolor sit amet consectetur. Lorem, ipsum dolor.Lorem ipsum dolor sit amet consectetur. Lorem, ipsum dolor.</p>
+    </div>
+
+    <div class="pcard-image">
+        <span class="badge">graphics</span>
+        <img class="pimage" src="card-stand01.png" alt="">
+    </div>
+
+</div>
 
 
 
@@ -606,44 +745,13 @@ $(document).ready(function() {
       <h2>Lorem, ipsum dolor.</h2>
       <p>Lorem ipsum dolor sit amet consectetur. Lorem, ipsum dolor.</p>
     </div>
-
     <div class="pcard-image">
+        <span class="badge">graphics</span>
         <img class="pimage" src="card-stand01.png" alt="">
     </div>
-
 </div>
 
 
-
-
-<div class="pcard">
-
-    <div class="pcard-body">
-      <h2>Lorem, ipsum dolor.</h2>
-      <p>Lorem ipsum dolor sit amet consectetur. Lorem, ipsum dolor.</p>
-    </div>
-
-    <div class="pcard-image">
-        <img class="pimage" src="card-stand01.png" alt="">
-    </div>
-
-</div>
-
-
-
-
-<div class="pcard">
-
-    <div class="pcard-body">
-      <h2>Lorem, ipsum dolor.</h2>
-      <p>Lorem ipsum dolor sit amet consectetur. Lorem, ipsum dolor.</p>
-    </div>
-
-    <div class="pcard-image">
-        <img class="pimage" src="card-stand01.png" alt="">
-    </div>
-
-</div>
 
 
 </div>
