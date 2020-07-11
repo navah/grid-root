@@ -1,0 +1,69 @@
+/*-----------------------*/
+/* ! desktop only vars */
+/*-----------------------*/
+
+@media only screen and (min-width: 600px) {
+    :root{
+
+
+
+        --side-col-desktop: 0.5rem;
+        --mid-col-desktop: 12rem;
+        --mid-col-desktop-min: 0px;
+
+
+
+         --bpx: 1px;
+         --border-radius: 10px;
+         --box-shadow: 2px;
+         /* --box-offset: 5px; */
+
+         --title-font-size: 1.2rem;
+         --title-padding1: 0.4rem;
+         --title-padding2: 0.5rem;
+
+
+
+
+         --font-size: 0.7rem;
+         --text-padding1: 0.4rem;
+         --text-padding2: var(--title-padding2);
+
+
+         --img-padding1: 0.0rem;
+         --img-padding2: 0.0rem;
+         --img-padding3: 0.7rem;
+         --img-padding4: 0.0rem;
+         --img-border-radius: 15px;
+
+
+         --bar-menu-padding: 0.5rem;
+
+
+         --tag-font-size: 0.8rem;
+         --tag-lh: 1.1rem;
+         --tag-padding1: 0px;
+         --tag-padding2: 5px;
+         --tag-spacing: 0.2rem;
+         --tag-radius: 8px;
+         --tag-bpx: 2px;
+         --tag-v-spacing: 0.2rem;
+
+         --tag-mg1: 0.8rem;
+         --tag-mg2: 0.8rem;
+
+
+         --mb-navah-size: 1.0rem;
+         --mb-link-size: 0.8rem;
+         --mb-input-size: 0.6rem;
+
+         --row-gap: 0.7rem;
+         --col-gap: 0.7rem;
+
+         --dash: 1px;
+         --dash-frac: 30%;
+         --dash-width: 6px;
+
+         --card-height: 6.4rem;
+     }
+}

@@ -1,0 +1,157 @@
+:root {
+
+    /*-----------------------*/
+    /* ! mobile only vars */
+    /*-----------------------*/
+
+    /* lightstripe */
+
+
+
+    --bg-url: var(--main-bg);
+
+
+    --side-col-mobile: 0px;
+    --mid-col-mobile: 40rem;
+    --mid-col-mobile-min: 0px;
+
+
+    --bpx: 1px;
+    --border-radius: 10px;
+    --box-shadow: 2px;
+    /* --box-offset: 5px; */
+
+    --title-font-size: 0.8rem;
+    --title-padding1: 0.2rem;
+    --title-padding2: 0.1rem;
+
+
+
+    --font-size: 0.65rem;
+    --text-padding1: 0.4rem;
+    --text-padding2: var(--title-padding2);
+
+
+    --img-padding1: 0.0rem;
+    --img-padding2: 0.0rem;
+    --img-padding3: 0.3rem;
+    --img-padding4: 0.0rem;
+    --img-border-radius: 15px;
+
+
+    --bar-menu-padding: 0.3rem;
+
+
+    --tag-font-size: 0.4rem;
+    --tag-lh: 1.1rem;
+    --tag-padding1: 1px;
+    --tag-padding2: 5px;
+    --tag-spacing: 0.3rem;
+    --tag-radius: 4px;
+    --tag-bpx: 1px;
+
+    --tag-mg1: 0.4rem;
+    --tag-mg2: 1.0rem;
+
+
+    --mb-navah-size: 0.8rem;
+    --mb-link-size: 0.6rem;
+    --mb-input-size: 0.6rem;
+
+    --row-gap: 0.3rem;
+    --col-gap: 0.8rem;
+
+    --dash: 2px;
+    --dash-frac: 25%;
+    --dash-width: 14px;
+
+
+    --card-height: 3.5rem;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /*-----------------------*/
+    /* ! universal vars */
+    /*-----------------------*/
+
+
+    --main-bg: #d7d5d5;
+    --card-bg: #ffffff;
+    --card-head: #575757;
+    --card-foot: #575757;
+    --title: #fff;
+    --box-bg: #5b5b5b;
+    --bg-fill: #7a7a7a;
+    --border: #303030;
+
+    /* the main grey */
+    --card-img: #b9b7b7;
+
+    /* reverse overlay */
+    /* --overlay: #835ed4; */
+    --overlay: rgba(255, 255, 255, 0.5);
+    --overlay2: rgba(255, 255, 255, 0.5);
+    --o-mode: screen;
+    --overlay-filter: 100%;
+
+
+    --tpx: 0px;
+    --hpx: 0.5px;
+
+
+    --text-color: #303030;
+    --desktop: blue;
+    --mobile: transparent;
+    --alt-border: transparent;
+
+
+    --breakpoint: 600px;
+
+
+    --box-shadow-color: #282828;
+
+
+
+    --bg-url: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPSc2JyBoZWlnaHQ9JzQ5Jz4KICA8cmVjdCB3aWR0aD0nMycgaGVpZ2h0PSc1MCcgZmlsbD0nI2ZmZicvPgogIDxyZWN0IHg9JzMnIHdpZHRoPScxJyBoZWlnaHQ9JzUwJyBmaWxsPScjY2NjJy8+Cjwvc3ZnPgo=");
+
+    --bg-url: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPSc1JyBoZWlnaHQ9JzUnPgogIDxyZWN0IHdpZHRoPSc1JyBoZWlnaHQ9JzUnIGZpbGw9J3doaXRlJy8+CiAgPHBhdGggZD0nTTAgNUw1IDBaTTYgNEw0IDZaTS0xIDFMMSAtMVonIHN0cm9rZT0nIzg4OCcgc3Ryb2tlLXdpZHRoPScxJy8+Cjwvc3ZnPg==");
+
+
+   /* snippet: background: repeating-linear-gradient(-45deg, transparent 0, transparent 3px, #000 4px, transparent 5px); */
+
+    /*-----------------------*/
+    /* ! COLOR VARS */
+    /*-----------------------*/
+
+
+
+    --hover-tab-color: #e0a903;
+    --hover-tab-color-dark: #b08606;
+    --hover-tab-color-base: #c2c2c2;
+
+
+    --ff-title: 'Space Mono';
+
+    /* --ff-text: 'Share Tech Mono';
+    --ff-tag: 'Space Mono'; */
+
+    --ff-text: 'Montserrat';
+    --ff-tag: 'Montserrat''
+
+
+
+
+}
