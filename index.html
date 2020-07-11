@@ -6,6 +6,8 @@
 
 <link rel="stylesheet" href="reset.css">
 <link rel="stylesheet" href="stylesheet.css">
+<link rel="stylesheet" href="var-mobile.css">
+<link rel="stylesheet" href="var-desktop.css">
 <link rel="stylesheet" href="sass.css">
 <link rel='stylesheet' href='typicons_font/src/font/typicons.min.css' />
 
@@ -22,6 +24,10 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Courier+Prime">
 
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Share+Tech+Mono">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
@@ -66,10 +72,11 @@ function align(hashString,duration) {
         var base = $('.mid' + tabText).first();
         var position = base.position();
         var grad0 = "linear-gradient(to bottom, #ccc ";
-        var gradCalc = position.top + $('.mid' + tabText).outerHeight(true);
+        var gradCalc = position.top + $('.mid' + tabText).outerHeight(true) + 10;
         var grad1 =  gradCalc + "px";
         var grad2 = ", #fff " + gradCalc + "px, #fff)";
         $('body').css("background", grad0 + grad1 + grad2);
+        $('body').css("background-repeat", 'no-repeat');
 
     });
 
@@ -217,10 +224,11 @@ $(document).ready(function() {
                 var base = $('.mid').first();
                 var position = base.position();
                 var grad0 = "linear-gradient(to bottom, #ccc ";
-                var gradCalc = position.top + $('.mid').outerHeight(true);
+                var gradCalc = position.top + $('.mid').outerHeight(true) + 10;
                 var grad1 =  gradCalc + "px";
                 var grad2 = ", #fff " + gradCalc + "px, #fff)";
                 $('body').css("background", grad0 + grad1 + grad2);
+                $('body').css("background-repeat", 'no-repeat');
 
             });
 
@@ -360,25 +368,52 @@ $(document).ready(function() {
 
         <div class="header-bg">
 
+            <!-- <div class="tag-wrap">
+
+                <div class="header-tag">numerical modeling</div>
+                <div class="header-tag">data visualization</div>
+                <br>
+
+                <div class="header-tag">fluid dynamics</div>
+                <div class="header-tag">information design</div>
+                <div class="header-tag">climate science</div>
+
+                <br>
+
+                <div class="header-tag">reactive transport</div>
+                <div class="header-tag">parallel computing</div>
+                <div class="header-tag">web apps</div>
+
+                <br>
+
+                <div class="header-tag">science communication</div>
+
+            </div> -->
+
+
             <div class="tag-wrap">
 
-            <div class="header-tag">numerical modeling</div>
-            <div class="header-tag">data visualization</div>
-            <br>
+                <div class="header-tag"><p>numerical modeling</p></div>
+                <div class="header-tag"><p>fluid dynamics</p></div>
+                <div class="header-tag"><p>&nbsp;</p></div>
+                <div class="header-tag"><p>data viz.</p></div>
+                <br>
 
-            <div class="header-tag">fluid dynamics</div>
-            <div class="header-tag">information design</div>
-            <div class="header-tag">climate science</div>
 
-            <br>
+                <div class="header-tag"><p>web apps</p></div>
+                <div class="header-tag"><p>information design</p></div>
+                <div class="header-tag"><p>climate science</p></div>
 
-            <div class="header-tag">reactive transport</div>
-            <div class="header-tag">parallel computing</div>
-            <div class="header-tag">web apps</div>
+                <br>
 
-            <br>
+                <div class="header-tag"><p>parallel computing</p></div>
+                <div class="header-tag"><p>reactive transport</p></div>
+                <div class="header-tag"><p>science communication</p></div>
 
-            <div class="header-tag">science communication</div>
+
+                <br>
+
+
 
             </div>
 
@@ -652,7 +687,7 @@ $(document).ready(function() {
 <div class="pcard">
 
     <div class="pcard-body">
-      <h2>Lorem, ipsum dolor.</h2>
+      <h2>spider plots</h2>
       <p>Lorem ipsum dolor sit amet consectetur. Lorem, ipsum dolor. Lorem ipsum dolor sit amet consectetur. Lorem, ipsum dolor.</p>
     </div>
 
@@ -673,7 +708,7 @@ $(document).ready(function() {
 <div class="pcard">
 
     <div class="pcard-body">
-      <h2>Lorem, ipsum dolor.</h2>
+      <h2>geotopics</h2>
       <p>Lorem ipsum dolor sit amet consectetur. Lorem, ipsum dolor.</p>
     </div>
 
@@ -693,7 +728,7 @@ $(document).ready(function() {
 <div class="pcard">
 
     <div class="pcard-body">
-      <h2>Lorem, ipsum dolor.</h2>
+      <h2>graphic design</h2>
       <p>Lorem ipsum dolor sit amet consectetur. Lorem, ipsum dolor.</p>
     </div>
 
@@ -710,7 +745,7 @@ $(document).ready(function() {
 <div class="pcard">
 
     <div class="pcard-body">
-      <h2>Lorem, ipsum dolor.</h2>
+      <h2>wireframing</h2>
       <p>Lorem ipsum dolor sit amet consectetur. Lorem, ipsum dolor.</p>
     </div>
 
@@ -727,7 +762,7 @@ $(document).ready(function() {
 
     <div class="pcard-body">
       <h2>Lorem, ipsum dolor.</h2>
-      <p>Lorem ipsum dolor sit amet consectetur. Lorem, ipsum dolor.Lorem ipsum dolor sit amet consectetur. Lorem, ipsum dolor.Lorem ipsum dolor sit amet consectetur. Lorem, ipsum dolor.</p>
+      <p>Lorem ipsum dolor sit amet consectetur. Lorem, ipsum dolor.Lorem ipsum dolor sit amet consectetur. Lorem, ipsum dolor.Lorem ipsum dolor sit amet consectetur. Lorem, ipsum dolor. ipsum dolor sit amet consectetur. Lorem, ipsum dolor.Lorem ipsum dolor sit amet consectetur. Lorem, ipsum dolor. ipsum dolor sit amet consectetur. Lorem, ipsum dolor.Lorem ipsum dolor sit amet consectetur. Lorem, ipsum dolor.</p>
     </div>
 
     <div class="pcard-image">
