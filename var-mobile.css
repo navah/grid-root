@@ -17,13 +17,13 @@
 
 
     --bpx: 1px;
-    --border-radius: 10px;
+    --border-radius: 6px;
     --box-shadow: 2px;
     /* --box-offset: 5px; */
 
     --title-font-size: 0.8rem;
     --title-padding1: 0.2rem;
-    --title-padding2: 0.1rem;
+    --title-padding2: 0.4rem;
 
 
 
@@ -39,7 +39,7 @@
     --img-border-radius: 15px;
 
 
-    --bar-menu-padding: 0.3rem;
+
 
 
     --tag-font-size: 0.4rem;
@@ -57,13 +57,14 @@
     --mb-navah-size: 0.8rem;
     --mb-link-size: 0.6rem;
     --mb-input-size: 0.6rem;
+    --bar-menu-padding: 0.3rem;
 
-    --row-gap: 0.3rem;
-    --col-gap: 0.8rem;
+    --row-gap: 0.0rem;
+    --col-gap: 0.3rem;
 
-    --dash: 2px;
-    --dash-frac: 25%;
-    --dash-width: 14px;
+    --dash: 1px;
+    --dash-frac: 20%;
+    --dash-width: 9px;
 
 
     --card-height: 3.5rem;
@@ -72,10 +73,27 @@
 
 
 
+    --lc-title-size: 0.8rem;
+    --lc-font-size: 0.6rem;
+    --lc-lh: 0.6rem;
+
+    --lc-div-mg1: 0.6rem;
+    --lc-div-mg2: auto;
+
+    --lc-padding: 0.2rem;
 
 
 
+    --pcard-outer-margin: 0.5rem;
+    --pcard-row-gap: 2rem;
+    --pcard-column-gap: 2rem;
 
+    --pcard-title-size: 1.0rem;
+    --pcard-title-padding1: 0.1rem;
+    --pcard-title-padding2: 0.1rem;
+
+    --pcard-text-padding1: 0.1rem;
+    --pcard-text-padding2: 0.1rem;
 
 
 
@@ -139,6 +157,7 @@
 
 
     --hover-tab-color: #e0a903;
+    /* --hover-tab-color-darker: darken(#e0a903,10%); */
     --hover-tab-color-dark: #b08606;
     --hover-tab-color-base: #c2c2c2;
 

@@ -55,55 +55,15 @@ function align(hashString,duration) {
     // $('.panel').text(tabText);
 
 
-
-
     $('.mid').removeClass('shaded-tab');
     $('.mid' + tabText).addClass('shaded-tab');
-
 
 
     $('.mid').removeClass('mid-moved');
     $('.mid' + tabText).addClass('mid-moved');
 
+$('.card-top').slideUp(duration);
 
-
-    $('.card-top').slideUp(duration, function() {
-
-        var base = $('.mid' + tabText).first();
-        var position = base.position();
-        var grad0 = "linear-gradient(to bottom, #ccc ";
-        var gradCalc = position.top + $('.mid' + tabText).outerHeight(true) + 10;
-        var grad1 =  gradCalc + "px";
-        var grad2 = ", #fff " + gradCalc + "px, #fff)";
-        $('body').css("background", grad0 + grad1 + grad2);
-        $('body').css("background-repeat", 'no-repeat');
-
-    });
-
-
-
-
-
-
-
-
-
-    var is_mobile = false;
-    if( $('.tag-wrap').css('visibility')=='hidden') {
-        is_mobile = true;
-    }
-    if (is_mobile == true) {
-        // $('.card-text').slideUp(duration);
-        // $('.divider-dash').slideUp(duration);
-    }
-
-
-    // $('.card-text').slideUp(duration);
-    // $('.divider-dash').slideUp(duration);
-
- // if (hash != "0") {
-
-// }
 
 
 
@@ -146,14 +106,6 @@ $(document).ready(function() {
     // show(location.hash);
 
 
-    var is_mobile = false;
-
-    if( $('.tag-wrap').css('visibility')=='hidden') {
-        is_mobile = true;
-    }
-
-    // now I can use is_mobile to run javascript conditionally
-
 
 
 
@@ -165,17 +117,6 @@ $(document).ready(function() {
 
         align(window.location.hash,0);
         show(location.hash);
-
-
-        var is_mobile = false;
-        if( $('.tag-wrap').css('visibility')=='hidden') {
-            is_mobile = true;
-        }
-        if (is_mobile == true) {
-            // $('.card-text').slideDown(0);
-            // $('.divider-dash').slideDown(0);
-        }
-
 
 
 
@@ -219,66 +160,14 @@ $(document).ready(function() {
 
             // $('.card-top').slideDown(300);
 
-            $('.card-top').slideDown(300, function() {
-
-                var base = $('.mid').first();
-                var position = base.position();
-                var grad0 = "linear-gradient(to bottom, #ccc ";
-                var gradCalc = position.top + $('.mid').outerHeight(true) + 10;
-                var grad1 =  gradCalc + "px";
-                var grad2 = ", #fff " + gradCalc + "px, #fff)";
-                $('body').css("background", grad0 + grad1 + grad2);
-                $('body').css("background-repeat", 'no-repeat');
-
-            });
-
             show(location.hash);
-
-
-            var is_mobile = false;
-            if( $('.tag-wrap').css('visibility')=='hidden') {
-                is_mobile = true;
-            }
-            if (is_mobile == true) {
-                // $('.card-text').slideDown(300);
-                // $('.divider-dash').slideDown(300);
-            }
-
-
-
-            // var base = $('.mid').first();
-            // var position = base.position();
-            // var grad0 = "linear-gradient(to bottom, #ccc ";
-            // var gradCalc = position.top + $('.mid').outerHeight(true);
-            // var grad1 =  gradCalc + "px";
-            // var grad2 = ", #fff " + gradCalc + "px, #fff)";
-            // $('body').css("background", grad0 + grad1 + grad2);
-
 
         }
 
 
         else {
             align(window.location.hash,500);
-
-
-            var is_mobile = false;
-            if( $('.tag-wrap').css('visibility')=='hidden') {
-                is_mobile = true;
-            }
-            if (is_mobile == true) {
-                $('.card-text').slideUp(500);
-                $('.divider-dash').slideUp(500);
-            }
-
-
             show(location.hash);
-
-
-
-
-
-
         }
 
 
@@ -291,22 +180,7 @@ $(document).ready(function() {
 
 
 
-// $(this).find(".card-text, .card-base").removeClass('shaded-tab');
 
-
-
-// make sure bg is in correct position
-// var base = $('.mid').last();
-// var position = base.position();
-// var grad0 = "linear-gradient(to bottom, #ccc ";
-// var gradCalc = position.top + $('.mid').outerHeight(true);
-// var grad1 =  gradCalc + "px";
-// var grad2 = ", #fff 200px, #fff)";
-// $('body').css("background", grad0 + grad1 + grad2);
-
-
-// $('.panel').text("left: " + position.left + ", top: " + position.top);
-// $('.panel').text(grad0 + grad1 + grad2)
 
 }); // outer-est loop
 
@@ -395,18 +269,22 @@ $(document).ready(function() {
 
                 <div class="header-tag"><p>numerical modeling</p></div>
                 <div class="header-tag"><p>fluid dynamics</p></div>
-                <div class="header-tag"><p>&nbsp;</p></div>
-                <div class="header-tag"><p>data viz.</p></div>
+                <!-- <div class="header-tag"><p>&nbsp;</p></div> -->
+                <div class="header-tag"><p>data visualization.</p></div>
+
+
                 <br>
 
-
-                <div class="header-tag"><p>web apps</p></div>
-                <div class="header-tag"><p>information design</p></div>
-                <div class="header-tag"><p>climate science</p></div>
-
-                <br>
 
                 <div class="header-tag"><p>parallel computing</p></div>
+                <div class="header-tag"><p>vector graphic design</p></div>
+                <div class="header-tag"><p>web apps</p></div>
+
+
+                <br>
+
+
+                <div class="header-tag"><p>climate science</p></div>
                 <div class="header-tag"><p>reactive transport</p></div>
                 <div class="header-tag"><p>science communication</p></div>
 
@@ -644,13 +522,79 @@ $(document).ready(function() {
 
 
 
+
+
     <div class="panel" id="0">
 
-      <p>
-          LANDING PAGE!
-      </p>
+      <!-- <p>LANDING PAGE!</p> -->
+
+
+      <div class='landing-grid'>
+          <!-- <div class='landing-card'> -->
+
+              <div class='landing-card lc-left'>
+
+                  <h2>welcome to navah.site :)</h2>
+
+                  <p>
+                      hi, my name is navah (NA-vah, rhymes with 'lava'). this website is a showcase (or storage space) for projects and activities.
+                  </p>
+
+                  <div class='divider'></div>
+
+                  <p>
+                      i am particularly interested in <a href="" class='lc-link'>numerical modeling</a> and <a href="" class='lc-link'>visualizing information</a>.
+                  </p>
+
+                  <div class='divider'></div>
+
+
+                  <p>
+                      my PhD research (<a href="" class='lc-link'>University of Chicago, 2020</a>) applied tried-and-true numerical methods to new questions at the intersection of climate sciences and seafloor geology. my other scientific exploits include mantle dynamics and evolutionary biology.
+                  </p>
+
+                  <div class='divider'></div>
+
+                  <p>
+                      if you came here looking for JokesByDad, Ted Cruz fanfiction, Ben Bernenke fanfiction, or Climate Shawty, i'm sorry to report that those projects have been retired. however, i am still the climate shawty and am happy to help with any climate science questions.
+                  </p>
+
+              </div>
+
+
+
+
+              <div class='landing-card lc-right'>
+
+                  <!-- <img src='double_sc3.png' width='90%'> -->
+
+              </div>
+              <!-- yes! -->
+          <!-- </div> -->
+      </div>
 
     </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     <div class="panel" id="1">
 
@@ -684,16 +628,23 @@ $(document).ready(function() {
 
 
 
+
+
+
+
+
 <div class="pcard">
+    <span class="badge b-1">graphic design</span>
 
     <div class="pcard-body">
+
       <h2>spider plots</h2>
       <p>Lorem ipsum dolor sit amet consectetur. Lorem, ipsum dolor. Lorem ipsum dolor sit amet consectetur. Lorem, ipsum dolor.</p>
     </div>
 
     <div class="pcard-image">
 
-        <span class="badge b-1">graphic design</span>
+
 
         <!-- <span class="badge">yum</span> -->
 
@@ -706,6 +657,7 @@ $(document).ready(function() {
 
 
 <div class="pcard">
+    <span class="badge b-1">graphic design</span>
 
     <div class="pcard-body">
       <h2>geotopics</h2>
@@ -714,7 +666,7 @@ $(document).ready(function() {
 
     <div class="pcard-image">
 
-        <span class="badge b-1">graphic design</span>
+
 
         <img class="pimage" src="card-stand01.png" alt="">
 
@@ -726,6 +678,7 @@ $(document).ready(function() {
 
 
 <div class="pcard">
+    <span class="badge b-2">data stuff</span>
 
     <div class="pcard-body">
       <h2>graphic design</h2>
@@ -733,7 +686,7 @@ $(document).ready(function() {
     </div>
 
     <div class="pcard-image">
-        <span class="badge b-2">data stuff</span>
+
         <img class="pimage" src="card-stand01.png" alt="">
     </div>
 
@@ -743,6 +696,7 @@ $(document).ready(function() {
 
 
 <div class="pcard">
+    <span class="badge">graphics</span>
 
     <div class="pcard-body">
       <h2>wireframing</h2>
@@ -750,7 +704,7 @@ $(document).ready(function() {
     </div>
 
     <div class="pcard-image">
-        <span class="badge">graphics</span>
+
         <img class="pimage" src="card-stand01.png" alt="">
     </div>
 
@@ -759,6 +713,7 @@ $(document).ready(function() {
 
 
 <div class="pcard">
+    <span class="badge">graphics</span>
 
     <div class="pcard-body">
       <h2>Lorem, ipsum dolor.</h2>
@@ -766,7 +721,7 @@ $(document).ready(function() {
     </div>
 
     <div class="pcard-image">
-        <span class="badge">graphics</span>
+
         <img class="pimage" src="card-stand01.png" alt="">
     </div>
 
@@ -775,13 +730,15 @@ $(document).ready(function() {
 
 
 <div class="pcard">
+    <span class="badge">graphics</span>
 
     <div class="pcard-body">
       <h2>Lorem, ipsum dolor.</h2>
       <p>Lorem ipsum dolor sit amet consectetur. Lorem, ipsum dolor.</p>
     </div>
+    
     <div class="pcard-image">
-        <span class="badge">graphics</span>
+
         <img class="pimage" src="card-stand01.png" alt="">
     </div>
 </div>

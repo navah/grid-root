@@ -37,7 +37,7 @@
          --img-border-radius: 15px;
 
 
-         --bar-menu-padding: 0.5rem;
+
 
 
          --tag-font-size: 0.8rem;
@@ -46,7 +46,7 @@
          --tag-padding2: 5px;
          --tag-spacing: 0.2rem;
          --tag-radius: 8px;
-         --tag-bpx: 2px;
+         --tag-bpx: 1px;
          --tag-v-spacing: 0.2rem;
 
          --tag-mg1: 0.8rem;
@@ -56,6 +56,8 @@
          --mb-navah-size: 1.0rem;
          --mb-link-size: 0.8rem;
          --mb-input-size: 0.6rem;
+         --bar-menu-padding: 0.5rem;
+
 
          --row-gap: 0.7rem;
          --col-gap: 0.7rem;
@@ -65,5 +67,19 @@
          --dash-width: 6px;
 
          --card-height: 6.4rem;
+
+
+
+
+         --lc-title-size: 1.0rem;
+         --lc-font-size: 0.8rem;
+         --lc-lh: 0.9rem;
+
+         --lc-div-mg1: 0.7rem;
+         --lc-div-mg2: auto;
+
+         --lc-padding: 0.2rem;
+
+
      }
 }
