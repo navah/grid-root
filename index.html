@@ -13,7 +13,7 @@
 
 <link rel="stylesheet" href="icofont/icofont.min.css">
 
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald">
+<!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald">
 
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Space+Mono">
 
@@ -27,7 +27,7 @@
 
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
 
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet"> -->
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
@@ -64,27 +64,7 @@ $('.card-top').slideUp(duration);
 
 
 
-function alignRHS(hashString,duration) {
 
-    var url = hashString
-    var hash = url.split('#')[1];
-    // var txt = '.' + hash;
-    var txt = '.' + hash;
-    var intOnly = parseInt(hash);
-
-    $('.pcard').removeClass('shaded-tab');
-    $('.pcard' + txt).addClass('shaded-tab');
-    // $('.pcard' + txt).css('background', 'yellow');
-
-    $('.pcard').removeClass('mid-moved');
-    $('.pcard' + txt).addClass('mid-moved');
-    // $('.pcard').css('background', 'transparent');
-    // $('.pcard' + txt).css('background', '#e0a903');
-
-// $('.card-top').slideUp(duration);
-
-
-}
 
 
 function show(id) {
@@ -94,32 +74,22 @@ function show(id) {
     }).addClass('selected');
 
     // selectively filter one specific panel
-    $('.panel').hide().filter(id).show();
+    var fSplit = id.split('#')[1];
+    var fText = '.f' + fSplit;
+
+    $('.panel').hide().filter(fText).show();
 }
 
 
 
-function showRHS(id) {
-
-    // selected off tabs, then on a tab
-    // $('.tab').removeClass('selected').filter(function () {
-    //     return (this.hash === id);
-    // }).addClass('selected');
-    $('.pcard').removeClass('selected').filter(function () {
-        return (this.hash === id);
-    }).addClass('selected');
-
-    // selectively filter one specific panel
-    $('.rhs').hide().filter(id).show();
-
-}
 
 
 // run no matter what
 $(document).ready(function() {
     if(window.location.hash == ''){
         // show(location.hash);
-        $('.panel').hide().filter("#0").show();
+        $('.panel').hide();
+        $('.panel').hide().filter(".f0").show();
     }
 
     // else {
@@ -140,7 +110,7 @@ $(document).ready(function() {
 
 
 
-    // if you start with project hash URL for some reason:
+    // // if you start with project hash URL for some reason:
     if ((window.location.hash === "#c1")
     || (window.location.hash === "#c2")
     || (window.location.hash === "#c3")
@@ -148,13 +118,8 @@ $(document).ready(function() {
     || (window.location.hash === "#c5")
     || (window.location.hash === "#c6")) {
 
-        // $('.rhs').hide().filter('#2').show();
-
-        $('.panel').hide().filter('#2').show(function() {
-            $('.rhs').hide().filter(window.location.hash).show();
-        });
-        alignRHS(window.location.hash,0);
-        // $('.pcard').hide();
+        align(window.location.hash,0);
+        show('#2');
 
     } // end starting with PROJECT hash
 
@@ -169,18 +134,6 @@ $(document).ready(function() {
         }, function() {
             $(this).removeClass('card-hover');
     }); // end hover
-
-
-
-    // animated hovering
-    // $('.pcard').hover(
-    //
-    //     function() {
-    //     // $(this).addClass('mid-moved');
-    //         $(this).addClass('card-hover');
-    //     }, function() {
-    //         $(this).removeClass('card-hover');
-    // }); // end hover
 
 
 
@@ -223,10 +176,22 @@ $(document).ready(function() {
         || (window.location.hash === "#c5")
         || (window.location.hash === "#c6")) {
 
-            $('.panel').hide().filter('#2').show(function() {
-                $('.rhs').hide().filter(window.location.hash).show();
-            });
-            alignRHS(window.location.hash,0);
+            var url = window.location.hash
+            var hash = url.split('#')[1];
+            var txt = '.' + hash;
+
+
+                $('.rhs').animate({height: 10, width: '100%'}, 100, function() {
+
+                    $('.rhs ').filter(txt).animate({height: 100, width: 600}, 300, function() {
+
+                        $('.rhs-content').hide().filter(txt).css('display', 'inline');
+
+                    });
+
+                });
+
+
         }
 
 
@@ -619,7 +584,7 @@ $('.c6').click(function() {
 
 
 
-    <div class="panel" id="0">
+    <div class="panel f0">
 
       <!-- <p>LANDING PAGE!</p> -->
 
@@ -691,7 +656,9 @@ $('.c6').click(function() {
 
 
 
-    <div class="panel" id="1">
+    <div class="panel f1">
+
+        <h1> -----panel f1 </h1>
 
   <p>
       tech stuff - atom-galv-ui with options, poster slider and exporter, possibly a symbols parser, matplotlib with negative space
@@ -708,7 +675,10 @@ $('.c6').click(function() {
 </div>
 
 
-<div class="panel" id="2">
+
+<div class="panel f2">
+
+    <h1> -----panel f2 </h1>
 
 
   <p>
@@ -716,7 +686,7 @@ $('.c6').click(function() {
   </p>
 
 
-<div class="pbody-wrap">
+<!-- <div class="pbody-wrap"> -->
 
 <div class="pbody">
 
@@ -729,8 +699,8 @@ $('.c6').click(function() {
 
 
 
-<a href='#c1'>
-<div class="pcard c1" style="grid-row: 1 / 2;">
+
+<div class="pcard c1">
 
 
 
@@ -748,9 +718,14 @@ $('.c6').click(function() {
 
       </p>
 
-
+      <a href='#c1' class='pcard-link'>
+          read more >>
+      </a>
 
     </div>
+    <!-- end pcard-body -->
+
+
 
     <div class="pcard-image">
 
@@ -758,15 +733,28 @@ $('.c6').click(function() {
 
     </div>
 
-</div>
+
+    <div class='rhs c1'>
+
+        <h2 class='rhs-content c1'>first c1</h2>
+
+        <p class='rhs-content c1'>
+            #c1, yeah
+        </p>
+
+    </div>
+
 </a>
+</div>
 
 
 
 
 
+
+
+<div class="pcard c2">
 <a href='#c2'>
-<div class="pcard c2" style="grid-row: 2 / 3;">
 
     <div class="pcard-body">
 
@@ -776,11 +764,13 @@ $('.c6').click(function() {
 
       <p>
 
-          Lorem ipsum dolor sit amet consectetur. Lorem, ipsum
-
-          <a class='pcard-link c2'>click c2</a>
+          Lorem ipsum dolor sit amet consectetur. Lorem, ipsumipsum dolor sit amet consectetur. Lorem, ipsumipsum dolor sit amet consectetur. Lorem, ipsum
 
       </p>
+
+      <a href='#c2' class='pcard-link'>
+          read more >>
+      </a>
 
 
     </div>
@@ -792,15 +782,28 @@ $('.c6').click(function() {
 
     </div>
 
-</div>
+    <div class='rhs c2'>
+
+        <h2 class='rhs-content c2'>second c2</h2>
+
+        <p class='rhs-content c2'>
+            #c2, yeah
+        </p>
+
+    </div>
+
 </a>
+</div>
 
 
 
 
 
+
+
+<div class="pcard c3">
 <a href='#c3'>
-<div class="pcard c3" style="grid-row: 3 / 4;">
+
 
     <div class="pcard-body">
 
@@ -812,9 +815,11 @@ $('.c6').click(function() {
 
           Lorem ipsum dolor sit amet consectetur. Lorem, ipsum
 
-          <a class='pcard-link c3'>click c3</a>
-
       </p>
+
+      <a href='#c3' class='pcard-link'>
+          read more >>
+      </a>
 
 
     </div>
@@ -826,15 +831,28 @@ $('.c6').click(function() {
 
     </div>
 
-</div>
+
+    <div class='rhs c3'>
+
+        <h2 class='rhs-content c3'>third c3</h2>
+
+        <p class='rhs-content c3'>
+            #c3, yeah
+        </p>
+
+    </div>
+
 </a>
+</div>
 
 
 
 
 
+
+
+<div class="pcard c4">
 <a href='#c4'>
-<div class="pcard c4" style="grid-row: 4 / 5;">
 
     <div class="pcard-body">
 
@@ -846,9 +864,11 @@ $('.c6').click(function() {
 
           Lorem ipsum dolor sit amet consectetur. Lorem, ipsum
 
-          <a class='pcard-link c4'>click c4</a>
-
       </p>
+
+      <a href='#c4' class='pcard-link'>
+          read more >>
+      </a>
 
 
     </div>
@@ -860,15 +880,26 @@ $('.c6').click(function() {
 
     </div>
 
-</div>
+
+    <div class='rhs c4'>
+
+        <h2>FOURTHHH c4</h2>
+
+        div id #c4
+
+    </div>
+
 </a>
+</div>
 
 
 
 
 
+
+
+<div class="pcard c5">
 <a href='#c5'>
-<div class="pcard c5" style="grid-row: 5 / 6;">
 
     <div class="pcard-body">
 
@@ -878,11 +909,13 @@ $('.c6').click(function() {
 
       <p>
 
-          Lorem ipsum dolor sit amet consectetur. Lorem, ipsum
-
-          <a class='pcard-link c5'>click c5</a>
+          Lorem ipsum dolor sit amet consectetur. Lorem, ipsumipsum dolor sit amet consectetur. Lorem, ipsumipsum dolor sit amet consectetur. Lorem, ipsumipsum dolor sit amet consectetur. Lorem, ipsum
 
       </p>
+
+      <a href='#c5' class='pcard-link'>
+          read more >>
+      </a>
 
 
     </div>
@@ -894,13 +927,24 @@ $('.c6').click(function() {
 
     </div>
 
-</div>
+    <div class='rhs c5'>
+
+        <h2>da fifth c5</h2>
+
+        div id #c5
+
+    </div>
+
 </a>
+</div>
 
 
 
+
+
+<div class="pcard c6">
 <a href='#c6'>
-<div class="pcard c6" style="grid-row: 6 / 7;">
+
 
     <div class="pcard-body">
 
@@ -912,9 +956,11 @@ $('.c6').click(function() {
 
           Lorem ipsum dolor sit amet consectetur. Lorem, ipsum
 
-          <a class='pcard-link c6'>click c6</a>
-
       </p>
+
+      <a href='#c6' class='pcard-link'>
+          read more >>
+      </a>
 
     </div>
 
@@ -925,8 +971,18 @@ $('.c6').click(function() {
 
     </div>
 
-</div>
+
+    <div class='rhs c6'>
+
+        <h2>finally, the sixth c6</h2>
+
+        div id #c6
+
+    </div>
+
 </a>
+</div>
+
 
 
 
@@ -943,98 +999,10 @@ $('.c6').click(function() {
 
 
 
-<div class='rhs' id='c0'>
-
-    <h2>something nice, c0</h2>
-
-    div id #c0, the landing page
-
-</div>
 
 
 
-
-<div class='rhs' id='c1'>
-
-    <h2>AND H2 switch to c1</h2>
-
-    dynamic div project, div id=#c1, first project :)
-
-</div>
-
-
-
-
-<div class='rhs' id='c2'>
-
-    SECOND!!dynamic div project, div id=#c1, first project :)
-
-    <br> SECOND!!dynamic div project, div id=#c1, first project :)
-
-    <br> SECOND!!dynamic div project, div id=#c1, first project :)
-
-    <br> SECOND!!dynamic div project, div id=#c1, first project :)
-
-    <br> SECOND!!dynamic div project, div id=#c1, first project :)
-
-    <br> SECOND!!dynamic div project, div id=#c1, first project :)
-
-    <br> SECOND!!dynamic div project, div id=#c1, first project :)
-
-    <br> SECOND!!dynamic div project, div id=#c1, first project :)
-
-    <br> SECOND!!dynamic div project, div id=#c1, first project :)
-
-    <br> SECOND!!dynamic div project, div id=#c1, first project :)
-
-    <br> SECOND!!dynamic div project, div id=#c1, first project :)
-
-    <br> SECOND!!dynamic div project, div id=#c1, first project :)
-
-    <br> SECOND!!dynamic div project, div id=#c1, first project :)
-
-    <br>
-
-</div>
-
-
-
-
-<div class='rhs' id='c3'>
-
-    THIRD
-
-</div>
-
-
-
-
-<div class='rhs' id='c4'>
-
-    AND FOURTH
-
-</div>
-
-
-
-<div class='rhs' id='c5'>
-
-    AND FITHHHHHHHHHHH
-
-</div>
-
-
-
-
-<div class='rhs' id='c5'>
-
-    THE SIXTH
-
-</div>
-
-
-
-</div>
+<!-- </div> -->
 <!-- end pbody-wrap -->
 
 
@@ -1053,7 +1021,9 @@ $('.c6').click(function() {
 
 
 
-<div class="panel" id="3">
+<div class="panel f3">
+
+    <h1> -----panel f3 </h1>
 
 
   <p>
@@ -1066,7 +1036,9 @@ $('.c6').click(function() {
 
 
 
-<div class="panel" id="4">
+<div class="panel f4">
+
+    <h> -----panel f4 </h1>
 
 
     <p>
