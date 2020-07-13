@@ -681,7 +681,7 @@ a {
           overflow: hidden;
           text-overflow: ellipsis;
           /* padding-bottom:  3px; */
-          padding-bottom: 0px;
+          padding-bottom: 3px;
     }
 
     .divider-dash {
@@ -851,7 +851,7 @@ background-color: var(--hover-tab-color);
 
 * {
   margin: 0;
-  box-sizing: border-box;
+  /* box-sizing: border-box; */
 }
 
 .pbody {
@@ -859,15 +859,9 @@ background-color: var(--hover-tab-color);
   margin: 0 var(--pcard-outer-margin);
   margin-bottom: 1rem;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
-  /* grid-template-columns: auto auto auto auto; */
-  /* grid-gap: 20px; */
+  grid-template-columns: repeat(auto-fit, minmax(16rem, auto));
   grid-row-gap: var(--pcard-row-gap);
   grid-column-gap: var(--pcard-column-gap);
-  /* grid-row-gap: 2rem; */
-  /* padding: 2rem; */
-  /* border: 1px solid red; */
-/* align-content: space-between; */
 
 }
 
@@ -877,66 +871,83 @@ background-color: var(--hover-tab-color);
 
 .pcard {
   /* border: 1px solid var(--border); */
-  /* border-radius: var(--border-radius); */
+  border-radius: var(--border-radius);
   border: 1px solid var(--border);
   display: grid;
-  grid-template-rows: 10em; /* image takes up 12rem of height, content takes up as much as it needs */
-  grid-template-columns: 30% 1fr;
-  /* grid-row-gap: 20px; */
-  /* justify-content: space-between; */
+  grid-template-rows: 5rem;
+  grid-template-columns: auto 1fr;
+
   background: var(--card-bg);
   position: relative;
-  /* align-content: end; */
+
+  padding: 4px;
+  width: auto;
+
+}
+
+.pcard h3 {
+    display: inline-block;
+    font-size: var(--pcard-cat-size);
+    padding: var(--pcard-cat-padding);
+    margin: var(--pcard-cat-margin1) var(--pcard-cat-margin2);
+    font-family: var(--ff-title);
+    background: var(--hover-tab-color);
 
 }
 
 .pcard h2 {
     font-size: var(--pcard-title-size);
+    padding: 0;
     margin: var(--pcard-title-padding1) var(--pcard-title-padding2);
     font-family: var(--ff-title);
+    line-height: var(--pcard-title-size);
+
+}
+
+
+.pcard-dash {
+    background-image: linear-gradient(to right, transparent var(--dash-frac), var(--border) 0%);
+    background-position: top;
+    background-size: var(--dash-width) var(--dash);
+    background-repeat: repeat-x;
+    margin: var(--pcard-dash-margin1) var(--pcard-title-padding2);
+    height: var(--dash);
+    /* display: none; */
 }
 
 .pcard-body {
-  padding: var(--pcard-text-padding1) var(--pcard-text-padding2);
-  /* border: 1px solid black; */
+    margin: 0;
   grid-column: 2 / 3;
-/* overflow: hidden; */
-/* text-overflow: ellipsis; */
 align-self: end;
+padding: var(--pcard-padding1) var(--pcard-padding2);
 
+}
+
+.pcard p {
+    font-sie: var(--pcard-text-size);
+    margin: var(--pcard-text-padding1) var(--pcard-text-padding2);
+    padding: 0; ;
 
 }
 
 .pcard-image {
     grid-row: 1 / 2;
     grid-column: 1 /2;
-  position: relative;
+
+  width: 5rem;
+  height: 5rem;
 }
 
 .pimage {
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    padding: 5px;
+    /* object-fit: cover; */
+    /* margin: 10px; */
     border-radius: var(--border-radius);
 
 }
 
-.badge {
-    position: absolute;
-    top: -0.5rem;
-    right: 15px;
-    background: #dd4ef5;
-    border: 1px solid var(--border);
 
-    font-size: 1rem;
-    padding: 2px 8px;
-    font-size: 0.7rem;
-    /* border-top-left-radius: var(--border-radius); */
-    /* border-bottom-left-radius: var(--border-radius); */
-    /* display: none; */
-    z-index: 5;
-}
 
 
 
@@ -954,15 +965,16 @@ align-self: end;
 
 
 .b-1 {
-    background: #3ad762;
+    /* background: #3ad762; */
+
 }
 
 .b-2 {
-    background: #439acb;
+    /* background: #439acb; */
 }
 
 .b-3 {
-    background: #5284f2;
+    /* background: #5284f2; */
 }
 
 
@@ -1012,15 +1024,23 @@ align-self: end;
 
 .lc-link {
     color: black;
-    background-image: linear-gradient(to bottom, white 90%, var(--hover-tab-color) 90%);
+    /* background-image: linear-gradient(to bottom, white 90%, var(--hover-tab-color) 90%); */
     font-weight: 500;
+
+    background-position-y: -0%;
+ background-image: linear-gradient( white 50%, var(--hover-tab-color) 50%);
+ transition: background 200ms ease;
+ background-size: 2px;
+ background-size: auto 175%;
 
 }
 
 .lc-link:hover {
-    color: var(--hover-tab-color);
+    /* color: var(--hover-tab-color); */
+    color: #4d4d4d;
     /* color: black; */
     /* padding: 3px 5px; */
+    /* background-position-y: 100%; */
 
 }
 

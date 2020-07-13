@@ -103,6 +103,36 @@ $(document).ready(function() {
     }
 
 
+
+
+
+
+    // project link
+    // var button = document.querySelector("#c2");
+
+    // button.addEventListener("click", function() {
+  //       var content = document.querySelector(".g-content");
+  // if (content.classList.contains("animate"))
+  //   content.classList.remove("animate");
+  // else
+  //   content.classList.add("animate");
+  $("#c2").click(function() {
+  // $('.pcard-image').css('display', 'none');
+  // $('.pcard').css('grid-template-columns', '0px 1fr');
+  // $('.pcard-image').css('width', '0px');
+  // $('.pcard-image').css('height', '0px');
+  // $('.pcard-image').animate({width: 0, height: 0});
+  // $('.pcard-image').slideUp();
+  $('.pcard-image').animate({width: 0});
+
+  $('.pbody').css('grid-template-columns', 'repeat(auto-fit, minmax(3rem, auto))');
+  // $('.pcard p').slideUp(200);
+  // $('.pcard p').hide();
+  $('.pcard').css('grid-template-rows', 'auto');
+
+});
+
+
     // show(location.hash);
 
 
@@ -617,7 +647,7 @@ $(document).ready(function() {
 
 
   <p>
-      science - recent poster, research summary (animations here or elsewhere), publications
+      <!-- science - recent poster, research summary (animations here or elsewhere), publications -->
   </p>
 
 
@@ -634,12 +664,13 @@ $(document).ready(function() {
 
 
 <div class="pcard">
-    <span class="badge b-1">graphic design</span>
+    <!-- <span class="badge b-1">data viz.</span> -->
 
     <div class="pcard-body">
-
+        <h3>data viz.</h3>
       <h2>spider plots</h2>
-      <p>Lorem ipsum dolor sit amet consectetur. Lorem, ipsum dolor. Lorem ipsum dolor sit amet consectetur. Lorem, ipsum dolor.</p>
+      <div class='pcard-dash'></div>
+      <p>Lorem ipsum dolor sit amet consectetur. Lorem, ipsum </p>
     </div>
 
     <div class="pcard-image">
@@ -657,11 +688,16 @@ $(document).ready(function() {
 
 
 <div class="pcard">
-    <span class="badge b-1">graphic design</span>
+    <!-- <span class="badge b-1">science visuals</span> -->
 
     <div class="pcard-body">
+        <h3>science viz.</h3>
       <h2>geotopics</h2>
-      <p>Lorem ipsum dolor sit amet consectetur. Lorem, ipsum dolor.</p>
+      <div class='pcard-dash'></div>
+      <p>Lorem ipsum dolor sit amet consectetur. Lorem, ipsum dolor.
+          <!-- <a href="#c2">start!</a> -->
+          <button id="c2">start</c2>
+      </p>
     </div>
 
     <div class="pcard-image">
@@ -678,10 +714,12 @@ $(document).ready(function() {
 
 
 <div class="pcard">
-    <span class="badge b-2">data stuff</span>
+    <!-- <span class="badge b-2">graphic design</span> -->
 
     <div class="pcard-body">
-      <h2>graphic design</h2>
+        <h3>graphic</h3>
+      <h2>graphics</h2>
+      <div class='pcard-dash'></div>
       <p>Lorem ipsum dolor sit amet consectetur. Lorem, ipsum dolor.</p>
     </div>
 
@@ -696,10 +734,12 @@ $(document).ready(function() {
 
 
 <div class="pcard">
-    <span class="badge">graphics</span>
+    <!-- <span class="badge">web dev/design</span> -->
 
     <div class="pcard-body">
-      <h2>wireframing</h2>
+        <h3>web dev</h3>
+      <h2>navah.site</h2>
+      <div class='pcard-dash'></div>
       <p>Lorem ipsum dolor sit amet consectetur. Lorem, ipsum dolor.</p>
     </div>
 
@@ -713,11 +753,13 @@ $(document).ready(function() {
 
 
 <div class="pcard">
-    <span class="badge">graphics</span>
+    <!-- <span class="badge">graphics</span> -->
 
     <div class="pcard-body">
-      <h2>Lorem, ipsum dolor.</h2>
-      <p>Lorem ipsum dolor sit amet consectetur. Lorem, ipsum dolor.Lorem ipsum dolor sit amet consectetur. Lorem, ipsum dolor.Lorem ipsum dolor sit amet consectetur. Lorem, ipsum dolor. ipsum dolor sit amet consectetur. Lorem, ipsum dolor.Lorem ipsum dolor sit amet consectetur. Lorem, ipsum dolor. ipsum dolor sit amet consectetur. Lorem, ipsum dolor.Lorem ipsum dolor sit amet consectetur. Lorem, ipsum dolor.</p>
+        <h3>graphic</h3>
+      <h2>project</h2>
+      <div class='pcard-dash'></div>
+      <p>Lorem ipsum dolor sit amet consectetur. Lorem, ipsum dolor.Lorem ipsum dolor sit amet consectetur. </p>
     </div>
 
     <div class="pcard-image">
@@ -730,13 +772,15 @@ $(document).ready(function() {
 
 
 <div class="pcard">
-    <span class="badge">graphics</span>
+    <!-- <span class="badge">graphics</span> -->
 
     <div class="pcard-body">
-      <h2>Lorem, ipsum dolor.</h2>
+        <h3>graphic</h3>
+      <h2>sci proj</h2>
+      <div class='pcard-dash'></div>
       <p>Lorem ipsum dolor sit amet consectetur. Lorem, ipsum dolor.</p>
     </div>
-    
+
     <div class="pcard-image">
 
         <img class="pimage" src="card-stand01.png" alt="">
