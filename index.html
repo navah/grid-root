@@ -46,18 +46,13 @@
 // move pointer and style tabs according to hash
 function align(hashString,duration) {
 
-    var myRem = parseFloat(getComputedStyle(document.documentElement).fontSize)
     var url = hashString
     var hash = url.split('#')[1];
     var tabText = '.t' + hash;
     var intOnly = parseInt(hash);
 
-    // $('.panel').text(tabText);
-
-
     $('.mid').removeClass('shaded-tab');
     $('.mid' + tabText).addClass('shaded-tab');
-
 
     $('.mid').removeClass('mid-moved');
     $('.mid' + tabText).addClass('mid-moved');
@@ -65,18 +60,34 @@ function align(hashString,duration) {
 $('.card-top').slideUp(duration);
 
 
+}
 
 
 
+function alignRHS(hashString,duration) {
 
+    var url = hashString
+    var hash = url.split('#')[1];
+    // var txt = '.' + hash;
+    var txt = '.' + hash;
+    var intOnly = parseInt(hash);
+
+    $('.pcard').removeClass('shaded-tab');
+    $('.pcard' + txt).addClass('shaded-tab');
+    // $('.pcard' + txt).css('background', 'yellow');
+
+    $('.pcard').removeClass('mid-moved');
+    $('.pcard' + txt).addClass('mid-moved');
+    // $('.pcard').css('background', 'transparent');
+    // $('.pcard' + txt).css('background', '#e0a903');
+
+// $('.card-top').slideUp(duration);
 
 
 }
 
 
-
 function show(id) {
-
     // selected off tabs, then on a tab
     $('.tab').removeClass('selected').filter(function () {
         return (this.hash === id);
@@ -84,59 +95,36 @@ function show(id) {
 
     // selectively filter one specific panel
     $('.panel').hide().filter(id).show();
+}
+
+
+
+function showRHS(id) {
+
+    // selected off tabs, then on a tab
+    // $('.tab').removeClass('selected').filter(function () {
+    //     return (this.hash === id);
+    // }).addClass('selected');
+    $('.pcard').removeClass('selected').filter(function () {
+        return (this.hash === id);
+    }).addClass('selected');
+
+    // selectively filter one specific panel
+    $('.rhs').hide().filter(id).show();
 
 }
 
 
 // run no matter what
 $(document).ready(function() {
-
-    if(window.location.hash != ''){
-        // $('.panel').show();
-        // $('.header-tag').hide();
-        show(location.hash);
-
-    } else {
-        // show("#0");
+    if(window.location.hash == ''){
+        // show(location.hash);
         $('.panel').hide().filter("#0").show();
-        // $('.header-tag').hide();
     }
 
+    // else {
 
-
-
-
-
-    // project link
-    // var button = document.querySelector("#c2");
-
-    // button.addEventListener("click", function() {
-  //       var content = document.querySelector(".g-content");
-  // if (content.classList.contains("animate"))
-  //   content.classList.remove("animate");
-  // else
-  //   content.classList.add("animate");
-  $("#c2").click(function() {
-  // $('.pcard-image').css('display', 'none');
-  // $('.pcard').css('grid-template-columns', '0px 1fr');
-  // $('.pcard-image').css('width', '0px');
-  // $('.pcard-image').css('height', '0px');
-  // $('.pcard-image').animate({width: 0, height: 0});
-  // $('.pcard-image').slideUp();
-  $('.pcard-image').animate({width: 0});
-
-  $('.pbody').css('grid-template-columns', 'repeat(auto-fit, minmax(3rem, auto))');
-  // $('.pcard p').slideUp(200);
-  // $('.pcard p').hide();
-  $('.pcard').css('grid-template-rows', 'auto');
-
-});
-
-
-    // show(location.hash);
-
-
-
+    // }
 
 
     // if you start with a hashed URL for some reason:
@@ -148,10 +136,27 @@ $(document).ready(function() {
         align(window.location.hash,0);
         show(location.hash);
 
-
-
     } // end starting with hash url
 
+
+
+    // if you start with project hash URL for some reason:
+    if ((window.location.hash === "#c1")
+    || (window.location.hash === "#c2")
+    || (window.location.hash === "#c3")
+    || (window.location.hash === "#c4")
+    || (window.location.hash === "#c5")
+    || (window.location.hash === "#c6")) {
+
+        // $('.rhs').hide().filter('#2').show();
+
+        $('.panel').hide().filter('#2').show(function() {
+            $('.rhs').hide().filter(window.location.hash).show();
+        });
+        alignRHS(window.location.hash,0);
+        // $('.pcard').hide();
+
+    } // end starting with PROJECT hash
 
 
 
@@ -159,14 +164,23 @@ $(document).ready(function() {
     $('.mid').hover(
 
         function() {
-
         // $(this).addClass('mid-moved');
-
             $(this).addClass('card-hover');
         }, function() {
             $(this).removeClass('card-hover');
-
     }); // end hover
+
+
+
+    // animated hovering
+    // $('.pcard').hover(
+    //
+    //     function() {
+    //     // $(this).addClass('mid-moved');
+    //         $(this).addClass('card-hover');
+    //     }, function() {
+    //         $(this).removeClass('card-hover');
+    // }); // end hover
 
 
 
@@ -178,9 +192,6 @@ $(document).ready(function() {
 
     // if you hashchange
     $(window).on('hashchange', function () {
-
-
-
 
 
         // if you go BACK to the homepage, from another page
@@ -195,9 +206,27 @@ $(document).ready(function() {
         }
 
 
-        else {
+        if ((window.location.hash === "#1")
+        || (window.location.hash === "#2")
+        || (window.location.hash === "#3")
+        || (window.location.hash === "#4")) {
             align(window.location.hash,500);
             show(location.hash);
+        }
+
+
+
+        if ((window.location.hash === "#c1")
+        || (window.location.hash === "#c2")
+        || (window.location.hash === "#c3")
+        || (window.location.hash === "#c4")
+        || (window.location.hash === "#c5")
+        || (window.location.hash === "#c6")) {
+
+            $('.panel').hide().filter('#2').show(function() {
+                $('.rhs').hide().filter(window.location.hash).show();
+            });
+            alignRHS(window.location.hash,0);
         }
 
 
@@ -218,6 +247,42 @@ $(document).ready(function() {
 
 
 
+
+
+<!-- <script>
+
+$('.rhs').hide().filter('#c0').show();
+
+$('.c1').click(function() {
+    $('.rhs').hide().filter('#c1').show();
+    return false;
+});
+
+$('.c2').click(function() {
+    $('.rhs').hide().filter('#c2').show();
+    return false;
+});
+
+$('.c3').click(function() {
+    $('.rhs').hide().filter('#c3').show();
+    return false;
+});
+
+$('.c4').click(function() {
+    $('.rhs').hide().filter('#c4').show();
+    return false;
+});
+
+$('.c5').click(function() {
+    $('.rhs').hide().filter('#c5').show();
+    return false;
+});
+
+$('.c6').click(function() {
+    $('.rhs').hide().filter('#c6').show();
+    return false;
+});
+</script> -->
 
 
 </head>
@@ -651,6 +716,8 @@ $(document).ready(function() {
   </p>
 
 
+<div class="pbody-wrap">
+
 <div class="pbody">
 
 
@@ -662,136 +729,313 @@ $(document).ready(function() {
 
 
 
+<a href='#c1'>
+<div class="pcard c1" style="grid-row: 1 / 2;">
 
-<div class="pcard">
-    <!-- <span class="badge b-1">data viz.</span> -->
+
 
     <div class="pcard-body">
-        <h3>data viz.</h3>
+
+      <h3>data viz.</h3>
       <h2>spider plots</h2>
       <div class='pcard-dash'></div>
-      <p>Lorem ipsum dolor sit amet consectetur. Lorem, ipsum </p>
+
+      <p>
+
+          Lorem ipsum dolor sit amet consectetur. Lorem, ipsum
+
+          <!-- <a class='pcard-link c1'>click c1</a> -->
+
+      </p>
+
+
+
     </div>
 
     <div class="pcard-image">
 
-
-
-        <!-- <span class="badge">yum</span> -->
-
         <img class="pimage" src="card-stand01.png" alt="">
+
     </div>
 
 </div>
+</a>
 
 
 
 
-<div class="pcard">
-    <!-- <span class="badge b-1">science visuals</span> -->
+
+<a href='#c2'>
+<div class="pcard c2" style="grid-row: 2 / 3;">
 
     <div class="pcard-body">
-        <h3>science viz.</h3>
+
+      <h3>science viz.</h3>
       <h2>geotopics</h2>
       <div class='pcard-dash'></div>
-      <p>Lorem ipsum dolor sit amet consectetur. Lorem, ipsum dolor.
-          <!-- <a href="#c2">start!</a> -->
-          <button id="c2">start</c2>
+
+      <p>
+
+          Lorem ipsum dolor sit amet consectetur. Lorem, ipsum
+
+          <a class='pcard-link c2'>click c2</a>
+
       </p>
+
+
     </div>
 
+
     <div class="pcard-image">
-
-
 
         <img class="pimage" src="card-stand01.png" alt="">
 
     </div>
 
 </div>
+</a>
 
 
 
 
-<div class="pcard">
-    <!-- <span class="badge b-2">graphic design</span> -->
+
+<a href='#c3'>
+<div class="pcard c3" style="grid-row: 3 / 4;">
 
     <div class="pcard-body">
-        <h3>graphic</h3>
+
+      <h3>graphic</h3>
       <h2>graphics</h2>
       <div class='pcard-dash'></div>
-      <p>Lorem ipsum dolor sit amet consectetur. Lorem, ipsum dolor.</p>
+
+      <p>
+
+          Lorem ipsum dolor sit amet consectetur. Lorem, ipsum
+
+          <a class='pcard-link c3'>click c3</a>
+
+      </p>
+
+
     </div>
+
 
     <div class="pcard-image">
 
         <img class="pimage" src="card-stand01.png" alt="">
+
     </div>
 
 </div>
+</a>
 
 
 
 
-<div class="pcard">
-    <!-- <span class="badge">web dev/design</span> -->
+
+<a href='#c4'>
+<div class="pcard c4" style="grid-row: 4 / 5;">
 
     <div class="pcard-body">
-        <h3>web dev</h3>
+
+      <h3>web dev</h3>
       <h2>navah.site</h2>
       <div class='pcard-dash'></div>
-      <p>Lorem ipsum dolor sit amet consectetur. Lorem, ipsum dolor.</p>
+
+      <p>
+
+          Lorem ipsum dolor sit amet consectetur. Lorem, ipsum
+
+          <a class='pcard-link c4'>click c4</a>
+
+      </p>
+
+
     </div>
+
 
     <div class="pcard-image">
 
         <img class="pimage" src="card-stand01.png" alt="">
+
     </div>
 
 </div>
+</a>
 
 
 
-<div class="pcard">
-    <!-- <span class="badge">graphics</span> -->
+
+
+<a href='#c5'>
+<div class="pcard c5" style="grid-row: 5 / 6;">
 
     <div class="pcard-body">
-        <h3>graphic</h3>
+
+      <h3>graphic</h3>
       <h2>project</h2>
       <div class='pcard-dash'></div>
-      <p>Lorem ipsum dolor sit amet consectetur. Lorem, ipsum dolor.Lorem ipsum dolor sit amet consectetur. </p>
+
+      <p>
+
+          Lorem ipsum dolor sit amet consectetur. Lorem, ipsum
+
+          <a class='pcard-link c5'>click c5</a>
+
+      </p>
+
+
     </div>
+
 
     <div class="pcard-image">
 
         <img class="pimage" src="card-stand01.png" alt="">
+
     </div>
 
 </div>
+</a>
 
 
 
-<div class="pcard">
-    <!-- <span class="badge">graphics</span> -->
+<a href='#c6'>
+<div class="pcard c6" style="grid-row: 6 / 7;">
 
     <div class="pcard-body">
-        <h3>graphic</h3>
+
+      <h3>graphic</h3>
       <h2>sci proj</h2>
       <div class='pcard-dash'></div>
-      <p>Lorem ipsum dolor sit amet consectetur. Lorem, ipsum dolor.</p>
+
+      <p>
+
+          Lorem ipsum dolor sit amet consectetur. Lorem, ipsum
+
+          <a class='pcard-link c6'>click c6</a>
+
+      </p>
+
     </div>
+
 
     <div class="pcard-image">
 
         <img class="pimage" src="card-stand01.png" alt="">
+
     </div>
+
 </div>
+</a>
+
+
+
+
 
 
 
 
 </div>
 <!-- end pbody -->
+
+
+
+
+
+
+<div class='rhs' id='c0'>
+
+    <h2>something nice, c0</h2>
+
+    div id #c0, the landing page
+
+</div>
+
+
+
+
+<div class='rhs' id='c1'>
+
+    <h2>AND H2 switch to c1</h2>
+
+    dynamic div project, div id=#c1, first project :)
+
+</div>
+
+
+
+
+<div class='rhs' id='c2'>
+
+    SECOND!!dynamic div project, div id=#c1, first project :)
+
+    <br> SECOND!!dynamic div project, div id=#c1, first project :)
+
+    <br> SECOND!!dynamic div project, div id=#c1, first project :)
+
+    <br> SECOND!!dynamic div project, div id=#c1, first project :)
+
+    <br> SECOND!!dynamic div project, div id=#c1, first project :)
+
+    <br> SECOND!!dynamic div project, div id=#c1, first project :)
+
+    <br> SECOND!!dynamic div project, div id=#c1, first project :)
+
+    <br> SECOND!!dynamic div project, div id=#c1, first project :)
+
+    <br> SECOND!!dynamic div project, div id=#c1, first project :)
+
+    <br> SECOND!!dynamic div project, div id=#c1, first project :)
+
+    <br> SECOND!!dynamic div project, div id=#c1, first project :)
+
+    <br> SECOND!!dynamic div project, div id=#c1, first project :)
+
+    <br> SECOND!!dynamic div project, div id=#c1, first project :)
+
+    <br>
+
+</div>
+
+
+
+
+<div class='rhs' id='c3'>
+
+    THIRD
+
+</div>
+
+
+
+
+<div class='rhs' id='c4'>
+
+    AND FOURTH
+
+</div>
+
+
+
+<div class='rhs' id='c5'>
+
+    AND FITHHHHHHHHHHH
+
+</div>
+
+
+
+
+<div class='rhs' id='c5'>
+
+    THE SIXTH
+
+</div>
+
+
+
+</div>
+<!-- end pbody-wrap -->
 
 
 
