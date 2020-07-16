@@ -9,27 +9,24 @@
 <link rel="stylesheet" href="var-mobile.css">
 <link rel="stylesheet" href="var-desktop.css">
 <link rel="stylesheet" href="sass.css">
-<link rel='stylesheet' href='typicons_font/src/font/typicons.min.css' />
+<!-- <link rel='stylesheet' href='typicons_font/src/font/typicons.min.css' /> -->
 
-<link rel="stylesheet" href="icofont/icofont.min.css">
+<!-- <link rel="stylesheet" href="icofont/icofont.min.css"> -->
+<script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
 
-<!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald">
 
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Space+Mono">
-
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Work+Sans">
-
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata">
-
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Courier+Prime">
 
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Share+Tech+Mono">
 
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
 
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet"> -->
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 
 <script src="https://navah.site/transit.min.js"></script>
 
@@ -38,9 +35,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 
-<!-- ! new jquery -->
+<!-- ! jquery -->
 
 <script>
+
+
+
 
 
 // move pointer and style tabs according to hash
@@ -84,24 +84,121 @@ function show(id) {
 
 
 
+
+
+
 // run no matter what
 $(document).ready(function() {
+
+
+    // Set up HTML elements into variables
+var $overlay	= $('<div id="lightboxOverlay"></div>');
+var $image		= $('<img>');
+var $caption	= $('<h3></h3>');
+var $close		= $('<i class="fa fa-times"></i>');
+
+// Just more variables
+var imageUrl;
+var imageAlt;
+
+// Adding HTML stuff
+$('body').append($overlay);		// Add the overlay to the document
+$overlay.hide();				// Hide the overlay
+
+// When a user clicks on an image
+$('#lightbox img').click(function(){
+	imageUrl = $(this).attr('src');		// Find the image URL
+	imageAlt = $(this).attr('alt');		// Find the image Alt text
+
+	$overlay.append($image);			// Add the image to the overlay
+	$overlay.append($caption);			// Add the image caption to the overlay
+	$overlay.append($close);			// Add the close button to the overlay
+	$image.attr('src', imageUrl);		// Add the link to the image attribute
+	$caption.text(imageAlt);			// Add text to the <p> tag
+	$overlay.fadeIn('1000');			// Show the overlay
+	$image.fadeIn('1000');
+});
+
+// If the users clicks anywhere on the click iccon, hide  the overlay.
+$close.click( function() {
+	$overlay.fadeOut('1000');
+} );
+
+
+
+
+
+    // var pcardLinkClass = $('#sidebar div:eq(14)').attr('class');
+    $('.pcard-link').click(function(){
+
+        var class2 = '.' + $(this).attr('class').split(' ').slice(-1);
+
+        // document.write(class2);
+
+        if (!$('.rhs').filter(class2).hasClass('rhs-expand')) {
+            $('.rhs').filter(class2).addClass('rhs-expand',300);
+            $('.rhs-content').filter(class2).css('display', 'inline',300);
+
+            var readLess2 = 'READ LESS <span class="iconify" data-icon="feather:chevrons-up" data-inline="false"></span>';
+
+            $('.pcard-link').filter(class2).html(readLess2);
+        }
+
+
+        else { //($('.rhs').filter(class2).hasClass('rhs-expand'))
+
+            $('.rhs').filter(class2).removeClass('rhs-expand',300);
+            $('.rhs-content').filter(class2).css('display', 'none',300);
+            // document.write(class2);
+
+            var readLess2 = 'READ MORE <span class="iconify" data-icon="feather:chevrons-down" data-inline="false"></span>';
+
+            $('.pcard-link').filter(class2).html(readLess2);
+        }
+
+        // var readLess = "READ MORE";
+
+
+
+
+
+
+
+
+
+        // $('.rhs').filter(class2).toggleClass('rhs-expand',200);
+
+
+        // if ($('.pcard-link').hasClass('c1')) {
+        //
+
+        //
+        // }
+
+
+        // if ($('.pcard-link').hasClass('c2')) {
+        //
+        //     if ($('.rhs').filter('.c2').hasClass('rhs-expand')) {
+        //         $('.rhs').filter('.c2').removeClass('rhs-expand');
+        //     }
+        //
+        //     if (!$('.rhs').filter('.c2').hasClass('rhs-expand')) {
+        //         $('.rhs').filter('.c2'.addClass('rhs-expand');
+        //     }
+        //
+        // }
+
+
+
+    }); // end pcard-link click
+
     if(window.location.hash == ''){
         // show(location.hash);
         $('.panel').hide();
         $('.panel').hide().filter(".f0").show();
     }
 
-    // else {
-
-    // }
-
-
-    // if you start with a hashed URL for some reason:
-    if((window.location.hash === "#1")
-    || (window.location.hash === "#2")
-    || (window.location.hash === "#3")
-    || (window.location.hash === "#4")) {
+    else {
 
         align(window.location.hash,0);
         show(location.hash);
@@ -110,18 +207,7 @@ $(document).ready(function() {
 
 
 
-    // // if you start with project hash URL for some reason:
-    if ((window.location.hash === "#c1")
-    || (window.location.hash === "#c2")
-    || (window.location.hash === "#c3")
-    || (window.location.hash === "#c4")
-    || (window.location.hash === "#c5")
-    || (window.location.hash === "#c6")) {
 
-        align(window.location.hash,0);
-        show('#2');
-
-    } // end starting with PROJECT hash
 
 
 
@@ -169,30 +255,7 @@ $(document).ready(function() {
 
 
 
-        if ((window.location.hash === "#c1")
-        || (window.location.hash === "#c2")
-        || (window.location.hash === "#c3")
-        || (window.location.hash === "#c4")
-        || (window.location.hash === "#c5")
-        || (window.location.hash === "#c6")) {
 
-            var url = window.location.hash
-            var hash = url.split('#')[1];
-            var txt = '.' + hash;
-
-
-                $('.rhs').animate({height: 10, width: '100%'}, 100, function() {
-
-                    $('.rhs ').filter(txt).animate({height: 100, width: 600}, 300, function() {
-
-                        $('.rhs-content').hide().filter(txt).css('display', 'inline');
-
-                    });
-
-                });
-
-
-        }
 
 
 
@@ -582,9 +645,9 @@ $('.c6').click(function() {
 
 
 
+<!-- ! panel f0 -->
 
-
-    <div class="panel f0">
+<div class="panel f0">
 
       <!-- <p>LANDING PAGE!</p> -->
 
@@ -633,7 +696,8 @@ $('.c6').click(function() {
           <!-- </div> -->
       </div>
 
-    </div>
+</div>
+<!-- end panel f0 -->
 
 
 
@@ -655,10 +719,11 @@ $('.c6').click(function() {
 
 
 
+<!-- ! panel f1 -->
 
-    <div class="panel f1">
+<div class="panel f1">
 
-        <h1> -----panel f1 </h1>
+
 
   <p>
       tech stuff - atom-galv-ui with options, poster slider and exporter, possibly a symbols parser, matplotlib with negative space
@@ -676,9 +741,12 @@ $('.c6').click(function() {
 
 
 
+
+<!-- ! panel f2 -->
+
 <div class="panel f2">
 
-    <h1> -----panel f2 </h1>
+
 
 
   <p>
@@ -686,7 +754,9 @@ $('.c6').click(function() {
   </p>
 
 
-<!-- <div class="pbody-wrap"> -->
+<div class="pbody-wrap">
+
+<div class="pbody-wrap-left">
 
 <div class="pbody">
 
@@ -699,7 +769,7 @@ $('.c6').click(function() {
 
 
 
-
+<!-- ! pcard c1 -->
 <div class="pcard c1">
 
 
@@ -718,12 +788,14 @@ $('.c6').click(function() {
 
       </p>
 
-      <a href='#c1' class='pcard-link'>
+      <!-- <a class='pcard-link c1'>
           read more >>
-      </a>
+      </a> -->
 
     </div>
     <!-- end pcard-body -->
+
+
 
 
 
@@ -736,11 +808,43 @@ $('.c6').click(function() {
 
     <div class='rhs c1'>
 
-        <h2 class='rhs-content c1'>first c1</h2>
+
+        <a class='pcard-link c1'>
+            READ MORE
+            <span class="iconify" data-icon="feather:chevrons-down" data-inline="false"></span>
+        </a>
+
+
+
+        <p class='rhs-content c1'>
+            <br>
+        </p>
+
+
+
+        <div class='mini-gallery'>
+
+            <div id="lightbox" class="rhs-content c1">
+
+        		<img src="figz-web/p-topics-p1.png" alt="" width='100%'>
+
+            </div>
+
+            <div id="lightbox" class="rhs-content c1">
+
+        		<img src="figz-web/p-topics-p2.png" alt="" width='100%'>
+
+            </div>
+
+        </div>
+
+
 
         <p class='rhs-content c1'>
             #c1, yeah
         </p>
+
+
 
     </div>
 
@@ -752,9 +856,8 @@ $('.c6').click(function() {
 
 
 
-
+<!-- ! pcard c2 -->
 <div class="pcard c2">
-<a href='#c2'>
 
     <div class="pcard-body">
 
@@ -768,9 +871,6 @@ $('.c6').click(function() {
 
       </p>
 
-      <a href='#c2' class='pcard-link'>
-          read more >>
-      </a>
 
 
     </div>
@@ -784,15 +884,20 @@ $('.c6').click(function() {
 
     <div class='rhs c2'>
 
-        <h2 class='rhs-content c2'>second c2</h2>
+        <a class='pcard-link c2'>
+            READ MORE
+            <span class="iconify" data-icon="feather:chevrons-down" data-inline="false"></span>
+        </a>
+
+        <!-- <h2 class='rhs-content c2'>second c2</h2> -->
 
         <p class='rhs-content c2'>
+            <br>
             #c2, yeah
         </p>
 
     </div>
 
-</a>
 </div>
 
 
@@ -800,10 +905,8 @@ $('.c6').click(function() {
 
 
 
-
+<!-- ! pcard c3 -->
 <div class="pcard c3">
-<a href='#c3'>
-
 
     <div class="pcard-body">
 
@@ -817,9 +920,6 @@ $('.c6').click(function() {
 
       </p>
 
-      <a href='#c3' class='pcard-link'>
-          read more >>
-      </a>
 
 
     </div>
@@ -834,6 +934,11 @@ $('.c6').click(function() {
 
     <div class='rhs c3'>
 
+        <a class='pcard-link c3'>
+            READ MORE
+            <span class="iconify" data-icon="feather:chevrons-down" data-inline="false"></span>
+        </a>
+
         <h2 class='rhs-content c3'>third c3</h2>
 
         <p class='rhs-content c3'>
@@ -842,17 +947,26 @@ $('.c6').click(function() {
 
     </div>
 
-</a>
 </div>
 
 
 
+</div>
+<!-- end pbody -->
+
+</div>
+<!-- end pbody-wrap-left -->
+
+<div class="pbody-wrap-right">
+
+<div class="pbody">
 
 
 
 
+
+<!-- ! pcard c4 -->
 <div class="pcard c4">
-<a href='#c4'>
 
     <div class="pcard-body">
 
@@ -862,13 +976,11 @@ $('.c6').click(function() {
 
       <p>
 
-          Lorem ipsum dolor sit amet consectetur. Lorem, ipsum
+          Lorem ipsum dolor sit amet consectetur. Lorem, ipsumdolor sit amet consectetur. Lorem, ipsumdolor sit amet consectetur. Lorem, ipsumdolor sit amet consectetur. Lorem, ipsum
 
       </p>
 
-      <a href='#c4' class='pcard-link'>
-          read more >>
-      </a>
+
 
 
     </div>
@@ -883,13 +995,19 @@ $('.c6').click(function() {
 
     <div class='rhs c4'>
 
-        <h2>FOURTHHH c4</h2>
+        <a class='pcard-link c4'>
+            READ MORE
+            <span class="iconify" data-icon="feather:chevrons-down" data-inline="false"></span>
+        </a>
 
-        div id #c4
+        <h2 class='rhs-content c4'>FOURTH c4</h2>
+
+        <p class='rhs-content c4'>
+            #c4, yeah
+        </p>
 
     </div>
 
-</a>
 </div>
 
 
@@ -897,9 +1015,8 @@ $('.c6').click(function() {
 
 
 
-
+<!-- ! pcard c5 -->
 <div class="pcard c5">
-<a href='#c5'>
 
     <div class="pcard-body">
 
@@ -909,13 +1026,11 @@ $('.c6').click(function() {
 
       <p>
 
-          Lorem ipsum dolor sit amet consectetur. Lorem, ipsumipsum dolor sit amet consectetur. Lorem, ipsumipsum dolor sit amet consectetur. Lorem, ipsumipsum dolor sit amet consectetur. Lorem, ipsum
+          Lorem ipsum dolor sit amet
 
       </p>
 
-      <a href='#c5' class='pcard-link'>
-          read more >>
-      </a>
+
 
 
     </div>
@@ -929,22 +1044,26 @@ $('.c6').click(function() {
 
     <div class='rhs c5'>
 
-        <h2>da fifth c5</h2>
+        <a class='pcard-link c5'>
+            READ MORE
+            <span class="iconify" data-icon="feather:chevrons-down" data-inline="false"></span>
+        </a>
 
-        div id #c5
+        <h2 class='rhs-content c5'>fifth c5</h2>
+
+        <p class='rhs-content c5'>
+            #c5, yeah
+        </p>
 
     </div>
 
-</a>
 </div>
 
 
 
 
-
+<!-- ! pcard c6 -->
 <div class="pcard c6">
-<a href='#c6'>
-
 
     <div class="pcard-body">
 
@@ -958,9 +1077,7 @@ $('.c6').click(function() {
 
       </p>
 
-      <a href='#c6' class='pcard-link'>
-          read more >>
-      </a>
+
 
     </div>
 
@@ -974,13 +1091,24 @@ $('.c6').click(function() {
 
     <div class='rhs c6'>
 
-        <h2>finally, the sixth c6</h2>
+        <a class='pcard-link c6'>
+            READ MORE
+            <span class="iconify" data-icon="feather:chevrons-down" data-inline="false"></span>
+        </a>
 
-        div id #c6
+        <p class='rhs-content c6'>
+            <br>
+        </p>
+
+        <h2 class='rhs-content c6'>sixthhhh c6</h2>
+
+        <p class='rhs-content c6'>
+            #c6, yeah
+        </p>
 
     </div>
 
-</a>
+
 </div>
 
 
@@ -1000,9 +1128,11 @@ $('.c6').click(function() {
 
 
 
+</div>
+<!-- end pbody-wrap-right -->
 
 
-<!-- </div> -->
+</div>
 <!-- end pbody-wrap -->
 
 
@@ -1019,11 +1149,9 @@ $('.c6').click(function() {
 
 
 
-
+<!-- ! panel f3 -->
 
 <div class="panel f3">
-
-    <h1> -----panel f3 </h1>
 
 
   <p>
@@ -1035,6 +1163,8 @@ $('.c6').click(function() {
 
 
 
+
+<!-- ! panel f4 -->
 
 <div class="panel f4">
 
