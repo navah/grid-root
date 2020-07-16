@@ -2,185 +2,155 @@
 
 <head>
 
-    <title>navah.site----</title>
+  <title>navah.site----</title>
 
-<link rel="stylesheet" href="reset.css">
-<link rel="stylesheet" href="stylesheet.css">
-<link rel="stylesheet" href="var-mobile.css">
-<link rel="stylesheet" href="var-desktop.css">
-<link rel="stylesheet" href="sass.css">
-<!-- <link rel='stylesheet' href='typicons_font/src/font/typicons.min.css' /> -->
+  <link rel="stylesheet" href="reset.css">
+  <link rel="stylesheet" href="stylesheet.css">
+  <link rel="stylesheet" href="var-mobile.css">
+  <link rel="stylesheet" href="var-desktop.css">
+  <link rel="stylesheet" href="sass.css">
+  <!-- <link rel='stylesheet' href='typicons_font/src/font/typicons.min.css' /> -->
 
-<!-- <link rel="stylesheet" href="icofont/icofont.min.css"> -->
-<script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
-
-
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Space+Mono">
-
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Share+Tech+Mono">
-
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
-
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-
-<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-
-<script src="https://navah.site/transit.min.js"></script>
-
-<!-- <script src="scripts.js"></script> -->
-
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- <link rel="stylesheet" href="icofont/icofont.min.css"> -->
+  <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
 
 
-<!-- ! jquery -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Space+Mono">
 
-<script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Share+Tech+Mono">
 
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
 
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
 
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
+  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 
-// move pointer and style tabs according to hash
-function align(hashString,duration) {
+  <script src="https://navah.site/transit.min.js"></script>
 
-    var url = hashString
-    var hash = url.split('#')[1];
-    var tabText = '.t' + hash;
-    var intOnly = parseInt(hash);
+  <!-- <script src="scripts.js"></script> -->
 
-    $('.mid').removeClass('shaded-tab');
-    $('.mid' + tabText).addClass('shaded-tab');
-
-    $('.mid').removeClass('mid-moved');
-    $('.mid' + tabText).addClass('mid-moved');
-
-$('.card-top').slideUp(duration);
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 
-}
+  <!-- ! jquery -->
 
+  <script>
+    // move pointer and style tabs according to hash
+    function align(hashString, duration) {
 
+      var url = hashString
+      var hash = url.split('#')[1];
+      var tabText = '.t' + hash;
+      var intOnly = parseInt(hash);
 
+      $('.mid').removeClass('shaded-tab');
+      $('.mid' + tabText).addClass('shaded-tab');
 
+      $('.mid').removeClass('mid-moved');
+      $('.mid' + tabText).addClass('mid-moved');
 
+      $('.card-top').slideUp(duration);
 
-function show(id) {
-    // selected off tabs, then on a tab
-    $('.tab').removeClass('selected').filter(function () {
+    }
+
+    function show(id) {
+      // selected off tabs, then on a tab
+      $('.tab').removeClass('selected').filter(function() {
         return (this.hash === id);
-    }).addClass('selected');
+      }).addClass('selected');
 
-    // selectively filter one specific panel
-    var fSplit = id.split('#')[1];
-    var fText = '.f' + fSplit;
+      // selectively filter one specific panel
+      var fSplit = id.split('#')[1];
+      var fText = '.f' + fSplit;
 
-    $('.panel').hide().filter(fText).show();
-}
+      $('.panel').hide().filter(fText).show();
+    }
 
+    // run no matter what
+    $(document).ready(function() {
 
+      // overlay vars
+      var $overlay = $('<div id="lightboxOverlay"></div>');
+      var $image = $('<img>');
+      var $caption = $('<h3></h3>');
+      var $close = $('<i class="fa fa-times"></i>');
 
+      var imageUrl;
+      var imageAlt;
 
+      // add overlay
+      $('body').append($overlay);
 
+      // hide overlay
+      $overlay.hide();
 
+      // When a user clicks on an image
+      $('#lightbox img').click(function() {
 
+        // grab url
+        imageUrl = $(this).attr('full');
+        // grab alt text
+        imageAlt = $(this).attr('alt');
 
-// run no matter what
-$(document).ready(function() {
+        // add img to overlay
+        $overlay.append($image);
 
+        // add caption to overlay
+        $overlay.append($caption);
 
+        // add close 'button' lol
+        $overlay.append($close);
 
+        // make img a link
+        $image.attr('src', imageUrl);
 
-// overlay vars
-var $overlay	= $('<div id="lightboxOverlay"></div>');
-var $image		= $('<img>');
-var $caption	= $('<h3></h3>');
-var $close		= $('<i class="fa fa-times"></i>');
+        // do a paragraph
+        $caption.text(imageAlt);
 
+        // fade
+        $overlay.fadeIn('1000');
+        $image.fadeIn('1000');
+      });
 
-var imageUrl;
-var imageAlt;
-
-
-
-
-
-
-// add overlay
-$('body').append($overlay);
-
-// hide overlay
-$overlay.hide();
-
-// When a user clicks on an image
-$('#lightbox img').click(function(){
-
-    // grab url
-	imageUrl = $(this).attr('src');
-    // grab alt text
-	imageAlt = $(this).attr('alt');
-
-
-    // add img to overlay
-	$overlay.append($image);
-
-    // add caption to overlay
-	$overlay.append($caption);
-
-    // add close 'button' lol
-	$overlay.append($close);
-
-    // make img a link
-	$image.attr('src', imageUrl);
-
-    // do a paragraph
-	$caption.text(imageAlt);
-
-    // fade
-	$overlay.fadeIn('1000');
-	$image.fadeIn('1000');
-});
-
-// click on enormous block to hide
-$close.click( function() {
-	$overlay.fadeOut('1000');
-} );
+      // click on enormous block to hide
+      $close.click(function() {
+        $overlay.fadeOut('1000');
+      });
 
 
 
 
 
-    // var pcardLinkClass = $('#sidebar div:eq(14)').attr('class');
-    $('.pcard-link').click(function(){
 
-        var class2 = '.' + $(this).attr('class').split(' ').slice(-1);
 
-        // document.write(class2);
+      // var pcardLinkClass = $('#sidebar div:eq(14)').attr('class');
+      $('.pcard-link').click(function() {
 
-        if (!$('.rhs').filter(class2).hasClass('rhs-expand')) {
-            $('.rhs').filter(class2).addClass('rhs-expand',300);
-            $('.rhs-content').filter(class2).css('display', 'inline',300);
+        var classNum = '.' + $(this).attr('class').split(' ').slice(-1);
 
-            var readLess2 = 'READ LESS <span class="iconify" data-icon="feather:chevrons-up" data-inline="false"></span>';
+        // if smooth is not visible
+        if ($('.smooth').filter(classNum).css('display') == 'none') {
+          $('.smooth').filter(classNum).slideDown();
 
-            $('.pcard-link').filter(class2).html(readLess2);
+          var readLess2 = 'READ LESS <span class="iconify" data-icon="feather:chevrons-up" data-inline="false"></span>';
+
+          $('.pcard-link').filter(classNum).html(readLess2);
+
+          // if smooth is visible
+        } else {
+          $('.smooth').filter(classNum).slideUp();
+
+
+          var readLess2 = 'READ MORE <span class="iconify" data-icon="feather:chevrons-down" data-inline="false"></span>';
+
+          $('.pcard-link').filter(classNum).html(readLess2);
+
         }
 
-
-        else { //($('.rhs').filter(class2).hasClass('rhs-expand'))
-
-            $('.rhs').filter(class2).removeClass('rhs-expand',300);
-            $('.rhs-content').filter(class2).css('display', 'none',300);
-            // document.write(class2);
-
-            var readLess2 = 'READ MORE <span class="iconify" data-icon="feather:chevrons-down" data-inline="false"></span>';
-
-            $('.pcard-link').filter(class2).html(readLess2);
-        }
-
-        // var readLess = "READ MORE";
+      }); // end pcard-link click
 
 
 
@@ -189,269 +159,150 @@ $close.click( function() {
 
 
 
-
-        // $('.rhs').filter(class2).toggleClass('rhs-expand',200);
-
-
-        // if ($('.pcard-link').hasClass('c1')) {
-        //
-
-        //
-        // }
-
-
-        // if ($('.pcard-link').hasClass('c2')) {
-        //
-        //     if ($('.rhs').filter('.c2').hasClass('rhs-expand')) {
-        //         $('.rhs').filter('.c2').removeClass('rhs-expand');
-        //     }
-        //
-        //     if (!$('.rhs').filter('.c2').hasClass('rhs-expand')) {
-        //         $('.rhs').filter('.c2'.addClass('rhs-expand');
-        //     }
-        //
-        // }
-
-
-
-    }); // end pcard-link click
-
-    if(window.location.hash == ''){
+      if (window.location.hash == '') {
         // show(location.hash);
         $('.panel').hide();
         $('.panel').hide().filter(".f0").show();
-    }
+      } else {
 
-    else {
-
-        align(window.location.hash,0);
+        align(window.location.hash, 0);
         show(location.hash);
 
-    } // end starting with hash url
+      } // end starting with hash url
 
-
-
-
-
-
-
-    // animated hovering
-    $('.mid').hover(
+      // animated hovering
+      $('.mid').hover(
 
         function() {
-        // $(this).addClass('mid-moved');
-            $(this).addClass('card-hover');
-        }, function() {
-            $(this).removeClass('card-hover');
-    }); // end hover
+          // $(this).addClass('mid-moved');
+          $(this).addClass('card-hover');
+        },
+        function() {
+          $(this).removeClass('card-hover');
+        }); // end hover
 
-
-
-
-
-
-
-
-
-    // if you hashchange
-    $(window).on('hashchange', function () {
-
+      // if you hashchange
+      $(window).on('hashchange', function() {
 
         // if you go BACK to the homepage, from another page
-        if(window.location.hash === "#0") {
-            $('.mid').removeClass('shaded-tab');
-            $('.mid').removeClass('mid-moved');
+        if (window.location.hash === "#0") {
+          $('.mid').removeClass('shaded-tab');
+          $('.mid').removeClass('mid-moved');
 
-            // $('.card-top').slideDown(300);
+          // $('.card-top').slideDown(300);
 
-            show(location.hash);
+          show(location.hash);
 
         }
 
-
-        if ((window.location.hash === "#1")
-        || (window.location.hash === "#2")
-        || (window.location.hash === "#3")
-        || (window.location.hash === "#4")) {
-            align(window.location.hash,500);
-            show(location.hash);
+        if ((window.location.hash === "#1") ||
+          (window.location.hash === "#2") ||
+          (window.location.hash === "#3") ||
+          (window.location.hash === "#4")) {
+          align(window.location.hash, 500);
+          show(location.hash);
         }
 
+      }); // end if-you-haschange loop
 
-
-
-
-
-
-
-
-
-
-    }); // end if-you-haschange loop
-
-
-
-
-
-}); // outer-est loop
-
-</script>
-
-
-
-
-
-<!-- <script>
-
-$('.rhs').hide().filter('#c0').show();
-
-$('.c1').click(function() {
-    $('.rhs').hide().filter('#c1').show();
-    return false;
-});
-
-$('.c2').click(function() {
-    $('.rhs').hide().filter('#c2').show();
-    return false;
-});
-
-$('.c3').click(function() {
-    $('.rhs').hide().filter('#c3').show();
-    return false;
-});
-
-$('.c4').click(function() {
-    $('.rhs').hide().filter('#c4').show();
-    return false;
-});
-
-$('.c5').click(function() {
-    $('.rhs').hide().filter('#c5').show();
-    return false;
-});
-
-$('.c6').click(function() {
-    $('.rhs').hide().filter('#c6').show();
-    return false;
-});
-</script> -->
+    }); // outer-est loop
+  </script>
 
 
 </head>
 
 
-
-
-
 <body>
 
 
-
-
-<!-- <div class="bg-placement"></div> -->
-
-
-
-
-
-<main class="grid">
-
+  <main class="grid">
 
 
     <div class="header">
 
 
+      <div class="bar-menu">
+
+        <div class="navah">
+          <a class="tab" href="#0">navah x. farahat</a>
+        </div>
 
 
-        <div class="bar-menu">
-
-            <div class="navah">
-                <a class="tab" href="#0">navah x. farahat</a>
-            </div>
-
-
-            <div class="home">
-                <a href="#0">home</a>
-                <!-- <a href="#0">contact</a> -->
-                <a href="#0">contact</a>
+        <div class="home">
+          <a href="#0">home</a>
+          <!-- <a href="#0">contact</a> -->
+          <a href="#0">contact</a>
 
 
-                <!-- <input type="text" id="send" value="ask a question">
+          <!-- <input type="text" id="send" value="ask a question">
 
                 <input type="submit" value="send"> -->
 
-                <!-- <a href="#0">(see answers)</a> -->
-            </div>
+          <!-- <a href="#0">(see answers)</a> -->
+        </div>
 
+
+      </div>
+
+      <div class="header-bg">
+
+
+
+        <div class="tag-wrap">
+
+          <div class="header-tag">
+            <p>numerical modeling</p>
+          </div>
+          <div class="header-tag">
+            <p>fluid dynamics</p>
+          </div>
+          <!-- <div class="header-tag"><p>&nbsp;</p></div> -->
+          <div class="header-tag">
+            <p>data visualization.</p>
+          </div>
+
+
+          <br>
+
+
+          <div class="header-tag">
+            <p>parallel computing</p>
+          </div>
+          <div class="header-tag">
+            <p>vector graphic design</p>
+          </div>
+          <div class="header-tag">
+            <p>web apps</p>
+          </div>
+
+
+          <br>
+
+
+          <div class="header-tag">
+            <p>climate science</p>
+          </div>
+          <div class="header-tag">
+            <p>reactive transport</p>
+          </div>
+          <div class="header-tag">
+            <p>science communication</p>
+          </div>
+
+
+          <br>
 
 
         </div>
 
-        <div class="header-bg">
-
-            <!-- <div class="tag-wrap">
-
-                <div class="header-tag">numerical modeling</div>
-                <div class="header-tag">data visualization</div>
-                <br>
-
-                <div class="header-tag">fluid dynamics</div>
-                <div class="header-tag">information design</div>
-                <div class="header-tag">climate science</div>
-
-                <br>
-
-                <div class="header-tag">reactive transport</div>
-                <div class="header-tag">parallel computing</div>
-                <div class="header-tag">web apps</div>
-
-                <br>
-
-                <div class="header-tag">science communication</div>
-
-            </div> -->
+      </div>
 
 
-            <div class="tag-wrap">
-
-                <div class="header-tag"><p>numerical modeling</p></div>
-                <div class="header-tag"><p>fluid dynamics</p></div>
-                <!-- <div class="header-tag"><p>&nbsp;</p></div> -->
-                <div class="header-tag"><p>data visualization.</p></div>
+      <!-- <div class="header-divider"></div> -->
 
 
-                <br>
-
-
-                <div class="header-tag"><p>parallel computing</p></div>
-                <div class="header-tag"><p>vector graphic design</p></div>
-                <div class="header-tag"><p>web apps</p></div>
-
-
-                <br>
-
-
-                <div class="header-tag"><p>climate science</p></div>
-                <div class="header-tag"><p>reactive transport</p></div>
-                <div class="header-tag"><p>science communication</p></div>
-
-
-                <br>
-
-
-
-            </div>
-
-        </div>
-
-
-        <!-- <div class="header-divider"></div> -->
-
-
-        <!-- end header -->
+      <!-- end header -->
     </div>
-
-
 
 
     <div class="side left"> </div>
@@ -459,56 +310,42 @@ $('.c6').click(function() {
     <div class="side right"> </div>
 
 
-
-
-
-
     <!-- ! CARD 1 -->
     <div class="mid mid-top mid-1 t1">
 
 
+      <div class="card-container">
 
 
-        <div class="card-container">
-
-
-                <div class="card card-title t1">
-                     <a class="tab" href="#1">about me</a>
-                </div>
-
-
-
-                <div class="divider-dash"></div>
-
-                <a class="tab" href="#1">
-                    <div class="card card-text">
-                        cv, bio, WIPs, etc.
-
-
-
-                    </div>
-                </a>
-
-
-                    <div class="card card-top c-1">
-                        <!-- <div class="corner"></div> -->
-                    </div>
-
-
-                <!-- <div class="corner"></div> -->
-
-
-
-
-
-        <!-- end card-container -->
+        <div class="card card-title t1">
+          <a class="tab" href="#1">about me</a>
         </div>
 
 
+        <div class="divider-dash"></div>
+
+        <a class="tab" href="#1">
+          <div class="card card-text">
+            cv, bio, WIPs, etc.
 
 
+          </div>
+        </a>
 
-        <!-- <div class="moved">
+
+        <div class="card card-top c-1">
+          <!-- <div class="corner"></div> -->
+        </div>
+
+
+        <!-- <div class="corner"></div> -->
+
+
+        <!-- end card-container -->
+      </div>
+
+
+      <!-- <div class="moved">
             <span class="if-mod icofont-chart-flow-2"></span>
         </div> -->
 
@@ -516,704 +353,749 @@ $('.c6').click(function() {
     </div>
 
 
-
-
     <!-- ! CARD 2 -->
     <div class="mid mid-top mid-2 t2">
 
 
+      <div class="card-container">
 
 
-        <div class="card-container">
+        <div class="card card-title t2">
+          <a class="tab" href="#2">projects</a>
+        </div>
+
+        <div class="divider-dash"></div>
+
+        <a class="tab" href="#2">
+          <div class="card card-text">
+            graphics, tools, etc.
+          </div>
+        </a>
 
 
-
-                <div class="card card-title t2">
-                     <a class="tab" href="#2">projects</a>
-                </div>
-
-                <div class="divider-dash"></div>
-
-                <a class="tab" href="#2">
-                    <div class="card card-text">
-                        graphics, tools, etc.
-                    </div>
-                </a>
-
-
-                    <div class="card card-top c-2" style="">
-                    </div>
-
-
-
-        <!-- end card-container -->
+        <div class="card card-top c-2" style="">
         </div>
 
 
-
+        <!-- end card-container -->
+      </div>
 
 
     </div>
-
-
-
 
 
     <!-- ! CARD 3 -->
     <div class="mid mid-top mid-3 t3">
 
 
-
-        <div class="card-container">
-
-
-                <div class="card card-title t3">
-                     <a class="tab" href="#3">science</a>
-                </div>
-
-                <div class="divider-dash"></div>
-
-                <a class="tab" href="#3">
-                    <div class="card card-text">
-                        research, figures, etc.
-                    </div>
-                </a>
+      <div class="card-container">
 
 
-                    <div class="card card-top c-3">
-                    </div>
+        <div class="card card-title t3">
+          <a class="tab" href="#3">science</a>
+        </div>
+
+        <div class="divider-dash"></div>
+
+        <a class="tab" href="#3">
+          <div class="card card-text">
+            research, figures, etc.
+          </div>
+        </a>
 
 
-
-        <!-- end card-container -->
+        <div class="card card-top c-3">
         </div>
 
 
-
-
-
+        <!-- end card-container -->
+      </div>
 
 
     </div>
-
-
 
 
     <!-- ! CARD 4 -->
     <div class="mid mid-top mid-4 t4">
 
 
-
-        <div class="card-container">
-
+      <div class="card-container">
 
 
-                <div class="card card-title t4">
-                     <a class="tab hide-menu-link" href="#4">www</a>
-                </div>
+        <div class="card card-title t4">
+          <a class="tab hide-menu-link" href="#4">www</a>
+        </div>
 
-                <div class="divider-dash"></div>
+        <div class="divider-dash"></div>
 
-                <a class="tab" href="#4">
-                <div class="card card-text">
+        <a class="tab" href="#4">
+          <div class="card card-text">
 
-                    ig, links, wiki, etc.
+            ig, links, wiki, etc.
 
-                </div>
-                </a>
-
-
-                    <div class="card card-top">
-                    </div>
+          </div>
+        </a>
 
 
-
-
-        <!-- end card-container -->
+        <div class="card card-top">
         </div>
 
 
-
-
-        <!-- LINE UPS -->
-
-               <!-- ! CARD 3 -->
-               <!-- <div class="line-up mid mid-bottom mid-3 t3">
-                   <div class="card-container">
-                       <div class="card card-title t3">
-                            <a class="tab" href="#3">science</a>
-                       </div>
-                   </div>
-               </div> -->
-
-
-               <!-- ! CARD 4 -->
-               <!-- <div class="line-up mid mid-bottom mid-4 t4">
-                   <div class="card-container">
-                       <div class="card card-title t4">
-                            <a class="tab" href="#4">www</a>
-                       </div>
-                   </div>
-               </div> -->
-
-
+        <!-- end card-container -->
+      </div>
 
 
     </div>
 
 
+    <!-- ! panel f0 -->
 
-
-
-<!-- <div class="menu-divide"></div> -->
-
-
-
-<!-- ! panel f0 -->
-
-<div class="panel f0">
+    <div class="panel f0">
 
       <!-- <p>LANDING PAGE!</p> -->
 
 
       <div class='landing-grid'>
-          <!-- <div class='landing-card'> -->
+        <!-- <div class='landing-card'> -->
 
-              <div class='landing-card lc-left'>
+        <div class='landing-card lc-left'>
 
-                  <h2>welcome to navah.site :)</h2>
+          <h2>welcome to navah.site :)</h2>
 
-                  <p>
-                      hi, my name is navah (NA-vah, rhymes with 'lava'). this website is a showcase (or storage space) for projects and activities.
-                  </p>
+          <p>
+            hi, my name is navah (NA-vah, rhymes with 'lava'). this website is a showcase (or storage space) for projects and activities.
+          </p>
 
-                  <div class='divider'></div>
+          <div class='divider'></div>
 
-                  <p>
-                      i am particularly interested in <a href="" class='lc-link'>numerical modeling</a> and <a href="" class='lc-link'>visualizing information</a>.
-                  </p>
+          <p>
+            i am particularly interested in <a href="" class='lc-link'>numerical modeling</a> and <a href="" class='lc-link'>visualizing information</a>.
+          </p>
 
-                  <div class='divider'></div>
-
-
-                  <p>
-                      my PhD research (<a href="" class='lc-link'>University of Chicago, 2020</a>) applied tried-and-true numerical methods to new questions at the intersection of climate sciences and seafloor geology. my other scientific exploits include mantle dynamics and evolutionary biology.
-                  </p>
-
-                  <div class='divider'></div>
-
-                  <p>
-                      if you came here looking for JokesByDad, Ted Cruz fanfiction, Ben Bernenke fanfiction, or Climate Shawty, i'm sorry to report that those projects have been retired. however, i am still the climate shawty and am happy to help with any climate science questions.
-                  </p>
-
-              </div>
+          <div class='divider'></div>
 
 
+          <p>
+            my PhD research (<a href="" class='lc-link'>University of Chicago, 2020</a>) applied tried-and-true numerical methods to new questions at the intersection of climate sciences and seafloor geology. my other scientific exploits
+            include mantle dynamics and evolutionary biology.
+          </p>
+
+          <div class='divider'></div>
+
+          <p>
+            if you came here looking for JokesByDad, Ted Cruz fanfiction, Ben Bernenke fanfiction, or Climate Shawty, i'm sorry to report that those projects have been retired. however, i am still the climate shawty and am happy to help
+            with any climate science questions.
+          </p>
+
+        </div>
 
 
-              <div class='landing-card lc-right'>
+        <div class='landing-card lc-right'>
 
-                  <!-- <img src='double_sc3.png' width='90%'> -->
+          <!-- <img src='double_sc3.png' width='90%'> -->
 
-              </div>
-              <!-- yes! -->
-          <!-- </div> -->
+        </div>
+        <!-- yes! -->
+        <!-- </div> -->
       </div>
 
-</div>
-<!-- end panel f0 -->
+    </div>
+    <!-- end panel f0 -->
 
 
+    <!-- ! panel f1 -->
+
+    <div class="panel f1">
 
 
+      <p>
+        tech stuff - atom-galv-ui with options, poster slider and exporter, possibly a symbols parser, matplotlib with negative space
+      </p>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- ! panel f1 -->
-
-<div class="panel f1">
-
-
-
-  <p>
-      tech stuff - atom-galv-ui with options, poster slider and exporter, possibly a symbols parser, matplotlib with negative space
-  </p>
-
-
-  <!-- <article class='noproc'>
+      <!-- <article class='noproc'>
   <section>
     <div class='halftone'></div>
   </section>
   </article> -->
 
 
-</div>
+    </div>
 
 
+    <!-- ! panel f2 -->
 
+    <div class="panel f2">
 
-<!-- ! panel f2 -->
-
-<div class="panel f2">
-
-
-
-
-  <p>
-      <!-- science - recent poster, research summary (animations here or elsewhere), publications -->
-  </p>
-
-
-<div class="pbody-wrap">
-
-<div class="pbody-wrap-left">
-
-<div class="pbody">
-
-
-
-
-
-
-
-
-
-
-<!-- ! pcard c1 -->
-<div class="pcard c1">
-
-
-
-    <div class="pcard-body">
-
-      <h3>data viz.</h3>
-      <h2>spider plots</h2>
-      <div class='pcard-dash'></div>
 
       <p>
-
-          Lorem ipsum dolor sit amet consectetur. Lorem, ipsum
-
-          <!-- <a class='pcard-link c1'>click c1</a> -->
-
+        <!-- science - recent poster, research summary (animations here or elsewhere), publications -->
       </p>
 
-      <!-- <a class='pcard-link c1'>
-          read more >>
-      </a> -->
 
-    </div>
-    <!-- end pcard-body -->
+      <div class="pbody-wrap">
 
+        <div class="pbody-wrap-left">
 
+          <div class="pbody">
 
 
 
-    <div class="pcard-image">
-
-        <img class="pimage" src="card-stand01.png" alt="">
-
-    </div>
+<!-- ////////////////////////////////// -->
+<!-- ////////////////////////////////// -->
+<!-- ////////////////////////////////// -->
 
 
-    <div class='rhs c1'>
+            <!-- ! pcard c1 -->
+            <div class="pcard c1">
 
 
-        <a class='pcard-link c1'>
-            READ MORE
-            <span class="iconify" data-icon="feather:chevrons-down" data-inline="false"></span>
-        </a>
+              <div class="pcard-image c1">
+                <img class="pimage" src="card-stand01.png" alt="">
+              </div>
+
+
+              <div class="pcard-body">
+
+                <h3>data viz.</h3>
+                <h2>spider plots</h2>
+
+                <p>
+                  rating lifetime movies based on unusual criteria, a great and important (and fun) way to look at how weird these movies are.
+                </p>
+
+              </div>
+              <!-- end pcard-body -->
 
 
 
-        <p class='rhs-content c1'>
-            <br>
-        </p>
+
+              <div class='rhs c1'>
 
 
+                <!-- ! c1 SMOOTH -->
+                <div class='smooth c1'>
 
-        <div class='mini-gallery'>
 
-            <div id="lightbox" class="rhs-content c1">
+                  <div class='mini-gallery'>
 
-        		<img src="figz-web/p-topics-p1.png" alt="" width='100%'>
+                    <div id="lightbox">
+                      <img src="figz-web/p-p1-thumb0.png" alt="" width='100%' full="figz-web/p-topics-p1.png">
+                    </div>
+
+                    <div id="lightbox">
+                      <img src="figz-web/p-p2-thumb0.png" alt="" width='100%' full="figz-web/p-topics-p2.png">
+                    </div>
+
+                  </div>
+
+
+                  <p>
+                    #c1, yeah
+                  </p>
+
+
+                </div>
+                <!-- end smooth div -->
+
+
+                <div class='pcard-dash'></div>
+
+                <div class='pcard-body'>
+
+                    <a class='pcard-link c1'>
+                      READ MORE
+                      <span class="iconify" data-icon="feather:chevrons-down" data-inline="false"></span>
+                    </a>
+
+                </div>
+
+
+              </div>
+              <!-- end rhs c1 -->
+
 
             </div>
+            <!-- end pcard 1 -->
 
-            <div id="lightbox" class="rhs-content c1">
 
-        		<img src="figz-web/p-topics-p2.png" alt="" width='100%'>
+<!-- ////////////////////////////////// -->
+<!-- ////////////////////////////////// -->
+<!-- ////////////////////////////////// -->
+
+
+            <!-- ! pcard c2 -->
+            <div class="pcard c2">
+
+
+              <div class="pcard-image c2">
+                <img class="pimage" src="card-stand01.png" alt="">
+              </div>
+
+
+              <div class="pcard-body">
+
+                <h3>science viz.</h3>
+                <h2>geotopics</h2>
+
+                <p>
+                  rating lifetime movies based on unusual criteria, a great and important (and fun) way to look at how weird these movies are.
+                </p>
+
+              </div>
+              <!-- end pcard-body -->
+
+
+
+
+              <div class='rhs c2'>
+
+
+                <!-- ! c1 SMOOTH -->
+                <div class='smooth c2'>
+
+
+                  <div class='mini-gallery'>
+
+                    <div id="lightbox">
+                      <img src="figz-web/p-p1-thumb0.png" alt="" width='100%' full="figz-web/p-topics-p1.png">
+                    </div>
+
+                    <div id="lightbox">
+                      <img src="figz-web/p-p2-thumb0.png" alt="" width='100%' full="figz-web/p-topics-p2.png">
+                    </div>
+
+                  </div>
+
+
+                  <p>
+                    #c2, yeah
+                  </p>
+
+
+                </div>
+                <!-- end smooth div -->
+
+
+                <div class='pcard-dash'></div>
+
+                <div class='pcard-body'>
+
+                    <a class='pcard-link c2'>
+                      READ MORE
+                      <span class="iconify" data-icon="feather:chevrons-down" data-inline="false"></span>
+                    </a>
+
+                </div>
+
+
+              </div>
+              <!-- end rhs c2 -->
+
 
             </div>
+            <!-- end pcard 2 -->
+
+
+<!-- ////////////////////////////////// -->
+<!-- ////////////////////////////////// -->
+<!-- ////////////////////////////////// -->
+
+
+            <!-- ! pcard c3 -->
+            <div class="pcard c3">
+
+
+              <div class="pcard-image c3">
+                <img class="pimage" src="card-stand01.png" alt="">
+              </div>
+
+
+              <div class="pcard-body">
+
+                <h3>graphic design</h3>
+                <h2>graphics</h2>
+
+                <p>
+                  rating lifetime movies based on unusual criteria, a great and important (and fun) way to look at how weird these movies are.
+                </p>
+
+              </div>
+              <!-- end pcard-body -->
+
+
+
+
+              <div class='rhs c3'>
+
+
+                <!-- ! c1 SMOOTH -->
+                <div class='smooth c3'>
+
+
+                  <div class='mini-gallery'>
+
+                    <div id="lightbox">
+                      <img src="figz-web/p-p1-thumb0.png" alt="" width='100%' full="figz-web/p-topics-p1.png">
+                    </div>
+
+                    <div id="lightbox">
+                      <img src="figz-web/p-p2-thumb0.png" alt="" width='100%' full="figz-web/p-topics-p2.png">
+                    </div>
+
+                  </div>
+
+
+                  <p>
+                    #c3, yeah
+                  </p>
+
+
+                </div>
+                <!-- end smooth div -->
+
+
+                <div class='pcard-dash'></div>
+
+                <div class='pcard-body'>
+
+                    <a class='pcard-link c3'>
+                      READ MORE
+                      <span class="iconify" data-icon="feather:chevrons-down" data-inline="false"></span>
+                    </a>
+
+                </div>
+
+
+              </div>
+              <!-- end rhs c3 -->
+
+
+            </div>
+            <!-- end pcard 3 -->
+
+
+
 
         </div>
+        <!-- end pbody -->
+
+    </div>
+    <!-- end left -->
+
+        <!-- ! LEFT TO RIGHT!!! -->
+            <div class="pbody-wrap-right">
+
+              <div class="pbody">
 
 
 
-        <p class='rhs-content c1'>
-            #c1, yeah
-        </p>
+            <!-- ! pcard c4 -->
+            <div class="pcard c4">
 
+
+              <div class="pcard-image c4">
+                <img class="pimage" src="card-stand01.png" alt="">
+              </div>
+
+
+              <div class="pcard-body">
+
+                <h3>web design/dev</h3>
+                <h2>navah.site</h2>
+
+                <p>
+                  rating lifetime movies based on unusual criteria, a great and important (and fun) way to look at how weird these movies are.
+                </p>
+
+              </div>
+              <!-- end pcard-body -->
+
+
+
+
+              <div class='rhs c4'>
+
+
+                <!-- ! c1 SMOOTH -->
+                <div class='smooth c4'>
+
+
+                  <div class='mini-gallery'>
+
+                    <div id="lightbox">
+                      <img src="figz-web/p-p1-thumb0.png" alt="" width='100%' full="figz-web/p-topics-p1.png">
+                    </div>
+
+                    <div id="lightbox">
+                      <img src="figz-web/p-p2-thumb0.png" alt="" width='100%' full="figz-web/p-topics-p2.png">
+                    </div>
+
+                  </div>
+
+
+                  <p>
+                    #c4, yeah
+                  </p>
+
+
+                </div>
+                <!-- end smooth div -->
+
+
+                <div class='pcard-dash'></div>
+
+                <div class='pcard-body'>
+
+                    <a class='pcard-link c4'>
+                      READ MORE
+                      <span class="iconify" data-icon="feather:chevrons-down" data-inline="false"></span>
+                    </a>
+
+                </div>
+
+
+              </div>
+              <!-- end rhs c4 -->
+
+
+            </div>
+            <!-- end pcard 4 -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <!-- ! pcard c5 -->
+            <div class="pcard c5">
+
+
+              <div class="pcard-image c5">
+                <img class="pimage" src="card-stand01.png" alt="">
+              </div>
+
+
+              <div class="pcard-body">
+
+                <h3>science viz.</h3>
+                <h2>matplotlib 3d</h2>
+
+                <p>
+                  matplotlib 3d are amazing, but need some styling to be more useful, appealing and fun to actually use :)
+                </p>
+
+              </div>
+              <!-- end pcard-body -->
+
+
+
+
+              <div class='rhs c5'>
+
+
+                <!-- ! c1 SMOOTH -->
+                <div class='smooth c5'>
+
+
+
+                    <div id="lightbox">
+                      <img src="figz-web/p-3d-style.png" alt="" width='100%' full="figz-web/p-3d-style.png">
+                    </div>
+
+<!--
+                  <div class='mini-gallery'>
+
+                    <div id="lightbox">
+                      <img src="figz-web/p-p1-thumb0.png" alt="" width='100%' full="figz-web/p-topics-p1.png">
+                    </div>
+
+                    <div id="lightbox">
+                      <img src="figz-web/p-p2-thumb0.png" alt="" width='100%' full="figz-web/p-topics-p2.png">
+                    </div>
+
+                  </div> -->
+
+
+                  <p>
+                    #c5, yeah
+                  </p>
+
+
+                </div>
+                <!-- end smooth div -->
+
+
+                <div class='pcard-dash'></div>
+
+                <div class='pcard-body'>
+
+                    <a class='pcard-link c5'>
+                      READ MORE
+                      <span class="iconify" data-icon="feather:chevrons-down" data-inline="false"></span>
+                    </a>
+
+                </div>
+
+
+              </div>
+              <!-- end rhs c5 -->
+
+
+            </div>
+            <!-- end pcard 5 -->
+
+
+
+
+
+
+
+
+
+
+
+
+            <!-- ! pcard c6 -->
+            <div class="pcard c6">
+
+
+              <div class="pcard-image c6">
+                <img class="pimage" src="card-stand01.png" alt="">
+              </div>
+
+
+              <div class="pcard-body">
+
+                <h3>graphic design</h3>
+                <h2>project 6</h2>
+
+                <p>
+                  rating lifetime movies based on unusual criteria, a great and important (and fun) way to look at how weird these movies are.
+                </p>
+
+              </div>
+              <!-- end pcard-body -->
+
+
+
+
+              <div class='rhs c6'>
+
+
+                <!-- ! c1 SMOOTH -->
+                <div class='smooth c6'>
+
+
+                  <div class='mini-gallery'>
+
+                    <div id="lightbox">
+                      <img src="figz-web/p-p1-thumb0.png" alt="" width='100%' full="figz-web/p-topics-p1.png">
+                    </div>
+
+                    <div id="lightbox">
+                      <img src="figz-web/p-p2-thumb0.png" alt="" width='100%' full="figz-web/p-topics-p2.png">
+                    </div>
+
+                  </div>
+
+
+                  <p>
+                    #c5, yeah
+                  </p>
+
+
+                </div>
+                <!-- end smooth div -->
+
+
+                <div class='pcard-dash'></div>
+
+                <div class='pcard-body'>
+
+                    <a class='pcard-link c5'>
+                      READ MORE
+                      <span class="iconify" data-icon="feather:chevrons-down" data-inline="false"></span>
+                    </a>
+
+                </div>
+
+
+              </div>
+              <!-- end rhs c6 -->
+
+
+            </div>
+            <!-- end pcard 6 -->
+
+
+
+
+
+
+
+
+
+
+            <!-- </div> -->
+
+
+          </div>
+          <!-- end pbody -->
+
+
+        </div>
+        <!-- end pbody-wrap-right -->
+
+
+      </div>
+      <!-- end pbody-wrap -->
 
 
     </div>
-
-</a>
-</div>
+    <!-- end panel2 -->
 
 
+    <!-- ! panel f3 -->
 
+    <div class="panel f3">
 
-
-
-<!-- ! pcard c2 -->
-<div class="pcard c2">
-
-    <div class="pcard-body">
-
-      <h3>science viz.</h3>
-      <h2>geotopics</h2>
-      <div class='pcard-dash'></div>
 
       <p>
-
-          Lorem ipsum dolor sit amet consectetur. Lorem, ipsumipsum dolor sit amet consectetur. Lorem, ipsumipsum dolor sit amet consectetur. Lorem, ipsum
-
+        visuals - mmis radar, projects for ppl (rossby, ocean, penultima), wireframing duh, topics in geosci
       </p>
 
 
-
     </div>
 
 
-    <div class="pcard-image">
+    <!-- ! panel f4 -->
 
-        <img class="pimage" src="card-stand01.png" alt="">
+    <div class="panel f4">
 
-    </div>
+      <h> -----panel f4 </h1>
 
-    <div class='rhs c2'>
 
-        <a class='pcard-link c2'>
-            READ MORE
-            <span class="iconify" data-icon="feather:chevrons-down" data-inline="false"></span>
-        </a>
-
-        <!-- <h2 class='rhs-content c2'>second c2</h2> -->
-
-        <p class='rhs-content c2'>
-            <br>
-            #c2, yeah
+        <p>
+          www - important links via nnn, wikipedia nnn, elsewheres, form,
         </p>
 
-    </div>
-
-</div>
-
-
-
-
-
-
-<!-- ! pcard c3 -->
-<div class="pcard c3">
-
-    <div class="pcard-body">
-
-      <h3>graphic</h3>
-      <h2>graphics</h2>
-      <div class='pcard-dash'></div>
-
-      <p>
-
-          Lorem ipsum dolor sit amet consectetur. Lorem, ipsum
-
-      </p>
-
-
 
     </div>
 
 
-    <div class="pcard-image">
-
-        <img class="pimage" src="card-stand01.png" alt="">
-
-    </div>
-
-
-    <div class='rhs c3'>
-
-        <a class='pcard-link c3'>
-            READ MORE
-            <span class="iconify" data-icon="feather:chevrons-down" data-inline="false"></span>
-        </a>
-
-        <h2 class='rhs-content c3'>third c3</h2>
-
-        <p class='rhs-content c3'>
-            #c3, yeah
-        </p>
-
-    </div>
-
-</div>
-
-
-
-</div>
-<!-- end pbody -->
-
-</div>
-<!-- end pbody-wrap-left -->
-
-<div class="pbody-wrap-right">
-
-<div class="pbody">
-
-
-
-
-
-<!-- ! pcard c4 -->
-<div class="pcard c4">
-
-    <div class="pcard-body">
-
-      <h3>web dev</h3>
-      <h2>navah.site</h2>
-      <div class='pcard-dash'></div>
-
-      <p>
-
-          Lorem ipsum dolor sit amet consectetur. Lorem, ipsumdolor sit amet consectetur. Lorem, ipsumdolor sit amet consectetur. Lorem, ipsumdolor sit amet consectetur. Lorem, ipsum
-
-      </p>
-
-
-
-
-    </div>
-
-
-    <div class="pcard-image">
-
-        <img class="pimage" src="card-stand01.png" alt="">
-
-    </div>
-
-
-    <div class='rhs c4'>
-
-        <a class='pcard-link c4'>
-            READ MORE
-            <span class="iconify" data-icon="feather:chevrons-down" data-inline="false"></span>
-        </a>
-
-        <h2 class='rhs-content c4'>FOURTH c4</h2>
-
-        <p class='rhs-content c4'>
-            #c4, yeah
-        </p>
-
-    </div>
-
-</div>
-
-
-
-
-
-
-<!-- ! pcard c5 -->
-<div class="pcard c5">
-
-    <div class="pcard-body">
-
-      <h3>graphic</h3>
-      <h2>project</h2>
-      <div class='pcard-dash'></div>
-
-      <p>
-
-          Lorem ipsum dolor sit amet
-
-      </p>
-
-
-
-
-    </div>
-
-
-    <div class="pcard-image">
-
-        <img class="pimage" src="card-stand01.png" alt="">
-
-    </div>
-
-    <div class='rhs c5'>
-
-        <a class='pcard-link c5'>
-            READ MORE
-            <span class="iconify" data-icon="feather:chevrons-down" data-inline="false"></span>
-        </a>
-
-        <h2 class='rhs-content c5'>fifth c5</h2>
-
-        <p class='rhs-content c5'>
-            #c5, yeah
-        </p>
-
-    </div>
-
-</div>
-
-
-
-
-<!-- ! pcard c6 -->
-<div class="pcard c6">
-
-    <div class="pcard-body">
-
-      <h3>graphic</h3>
-      <h2>sci proj</h2>
-      <div class='pcard-dash'></div>
-
-      <p>
-
-          Lorem ipsum dolor sit amet consectetur. Lorem, ipsum
-
-      </p>
-
-
-
-    </div>
-
-
-    <div class="pcard-image">
-
-        <img class="pimage" src="card-stand01.png" alt="">
-
-    </div>
-
-
-    <div class='rhs c6'>
-
-        <a class='pcard-link c6'>
-            READ MORE
-            <span class="iconify" data-icon="feather:chevrons-down" data-inline="false"></span>
-        </a>
-
-        <p class='rhs-content c6'>
-            <br>
-        </p>
-
-        <h2 class='rhs-content c6'>sixthhhh c6</h2>
-
-        <p class='rhs-content c6'>
-            #c6, yeah
-        </p>
-
-    </div>
-
-
-</div>
-
-
-
-
-
-
-
-
-
-</div>
-<!-- end pbody -->
-
-
-
-
-
-
-
-</div>
-<!-- end pbody-wrap-right -->
-
-
-</div>
-<!-- end pbody-wrap -->
-
-
-
-</div>
-<!-- end panel2 -->
-
-
-
-
-
-
-
-
-
-
-<!-- ! panel f3 -->
-
-<div class="panel f3">
-
-
-  <p>
-      visuals - mmis radar, projects for ppl (rossby, ocean, penultima), wireframing duh, topics in geosci
-  </p>
-
-
-</div>
-
-
-
-
-<!-- ! panel f4 -->
-
-<div class="panel f4">
-
-    <h> -----panel f4 </h1>
-
-
-    <p>
-        www - important links via nnn, wikipedia nnn, elsewheres, form,
-    </p>
-
-
-</div>
-
-
-
-
-</main>
-
-
-
+  </main>
 
 
 </body>
-
-
 
 
 </html>
