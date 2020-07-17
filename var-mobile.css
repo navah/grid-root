@@ -6,6 +6,8 @@
 
     /* lightstripe */
 
+    --the-bg: #ffffff;
+
 
 
     --bg-url: var(--main-bg);
@@ -85,31 +87,45 @@
 
 
     --pcard-outer-margin: 0.0rem;
-    --pcard-row-gap: 0.5rem;
+    --pcard-row-gap: 1.5rem;
     --pcard-column-gap: .5rem;
 
-    --pcard-padding1: 0.0rem;
-    --pcard-padding2: 0.1rem;
 
-    --pcard-cat-size: 0.5rem;
+
+    --pcard-padding1: 0.9rem;
+    --pcard-padding2: 0.9rem;
+    --pcard-padding3: 0.3rem;
+
+    --pcard-cat-size: 0.6rem;
     --pcard-cat-padding: 2px;
-    --pcard-cat-margin1: 0.1rem;
-    --pcard-cat-margin2: 0.1rem;
+    --pcard-cat-margin1: -0.2rem;
+    --pcard-cat-margin2: 0.3rem;
 
-    --pcard-title-size: 0.6rem;
-    --pcard-title-padding1: 0.0rem;
-    --pcard-title-padding2: 0.1rem;
+    --pcard-title-size: 1.0rem;
+    --pcard-title-padding1: 0.3rem;
+    --pcard-title-padding2: 0.3rem;
 
-    --pcard-dash-margin1: 0.2rem;
+    --pcard-dash-margin1: 0.0rem;
 
-    --pcard-text-size: 0.5rem;
+    --pcard-text-size: 0.65rem;
     --pcard-text-padding1: 0.0rem;
-    --pcard-text-padding2: 0.-rem;
+    --pcard-text-padding2: 0.3rem;
+
+    --pcard-link-padding1: 0.3rem;
+    --pcard-link-padding2: 0rem;
 
 
 
 
     --rhs-padding: .5rem;
+
+
+
+    --pcard-inner-padding: 0.5rem;
+
+
+    --contact-card-width: 100%;
+    --contact-width: 100%;
 
 
 

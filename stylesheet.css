@@ -646,16 +646,15 @@ a {
 }
 
 .pcard p > a {
-    /* text-decoration: underline; */
     font-weight: 500;
     background:
-    linear-gradient(to bottom, var(--hover-tab-color) 0%,
+    linear-gradient(to bottom,
+      var(--hover-tab-color) 0%,
       var(--hover-tab-color) 100%);
-      background-position: 0 100%;
-      background-repeat: repeat-x;
-      background-size: 4px 2px;
-      text-decoration: none;
-      /* transition: background-size .2s; */
+    background-position: 0 100%;
+    background-repeat: repeat-x;
+    background-size: 4px 2px;
+    text-decoration: none;
 }
 
 .pcard p > a:hover {
@@ -663,13 +662,12 @@ a {
     background:
     linear-gradient(
       to bottom, var(--hover-tab-color) 0%,
-      var(--hover-tab-color) 100%
-    );
-   background-position: 0 100%;
-   background-repeat: repeat-x;
-   background-size: 4px 100%;
-   text-decoration: none;
-   transition: background-size .4s;
+      var(--hover-tab-color) 100%);
+    background-position: 0 100%;
+    background-repeat: repeat-x;
+    background-size: 4px 100%;
+    text-decoration: none;
+    transition: background-size .4s;
 }
 
 .pcard-image {
@@ -927,7 +925,7 @@ a {
     font-size: var(--lc-title-size);
 }
 
-.lc-link {
+/* .lc-link {
     color: black;
     font-weight: 500;
 }
@@ -944,6 +942,32 @@ a {
    background-size: 4px 4px;
  text-decoration: none;
  transition: background-size .2s;
+} */
+
+
+.lc-link {
+    font-weight: 500;
+    background:
+    linear-gradient(to bottom,
+      var(--hover-tab-color) 0%,
+      var(--hover-tab-color) 100%);
+    background-position: 0 100%;
+    background-repeat: repeat-x;
+    background-size: 4px 2px;
+    text-decoration: none;
+}
+
+.lc-link:hover {
+    color: #4d4d4d;
+    background:
+    linear-gradient(
+      to bottom, var(--hover-tab-color) 0%,
+      var(--hover-tab-color) 100%);
+    background-position: 0 100%;
+    background-repeat: repeat-x;
+    background-size: 4px 100%;
+    text-decoration: none;
+    transition: background-size .3s;
 }
 
 .landing-card p {
@@ -1003,6 +1027,7 @@ a {
         grid-template-rows: auto;
     }
 
+
     .lc-left {
         grid-column: 1 / 2;
         grid-row: 1 / 2;
@@ -1013,5 +1038,156 @@ a {
         background-size: contain;
         grid-column: 2 / 3;
         grid-row: 1 / 2;
+        /* clip-path: circle(30% at 20% 25%); */
     }
+/*
+    .clipping img {
+        clip-path: circle(100px at center);
+    } */
+}
+
+
+
+
+
+/* -----------------------
+"CONTACT FORM mobile"
+----------------------- */
+
+.contact-card {
+    background: #fff;
+    border-radius: var(--border-radius);
+    width: var(--contact-card-width);
+    padding: 1rem;
+    margin: auto;
+    margin-bottom: 1rem;
+}
+
+.contact-card h2 {
+    /* margin-top: 0.5rem; */
+    padding: 0;
+    font-family: var(--ff-title);
+    font-size: var(--lc-title-size);
+    width: var(--contact-width);
+    display: block;
+    margin: auto;
+}
+
+
+.contact-divider {
+    width: var(--contact-width);
+    height: var(--dash);
+    margin: var(--lc-div-mg1) var(--lc-div-mg2);
+    background-image: linear-gradient(to right,
+        transparent var(--dash-frac),
+        var(--border) 0%);
+    background-repeat: repeat-x;
+    background-position: top;
+    background-size: var(--dash-width) var(--dash);
+}
+
+.contact-card p {
+    width: var(--contact-width);
+    margin: auto;
+    font-size: var(--lc-font-size);
+    line-height: var(--lc-lh);
+}
+
+.email-link {
+    font-weight: 500;
+    background:
+    linear-gradient(to bottom,
+      var(--hover-tab-color) 0%,
+      var(--hover-tab-color) 100%);
+    background-position: 0 100%;
+    background-repeat: repeat-x;
+    background-size: 4px 2px;
+    text-decoration: none;
+}
+
+.email-link:hover {
+    color: #4d4d4d;
+    background:
+    linear-gradient(
+      to bottom, var(--hover-tab-color) 0%,
+      var(--hover-tab-color) 100%);
+    background-position: 0 100%;
+    background-repeat: repeat-x;
+    background-size: 4px 100%;
+    text-decoration: none;
+    transition: background-size .3s;
+}
+
+.contact-form {
+    /* background: pink; */
+    /* width: 70%; */
+    /* text-align: center; */
+    margin: auto;
+    display: grid;
+    width: 100%;
+    grid-template-columns: 1fr 3fr;
+    grid-template-rows: auto;
+}
+
+
+
+.contact input {
+    padding: 8px;
+    width: 100%;
+    margin: 10px 0px;
+}
+
+.contact textarea {
+    padding: 8px;
+    width: 100%;
+    margin: 10px 0px;
+}
+
+.contact-left {
+    grid-column: 1 / 2;
+    /* grid-row: 1 / 2; */
+
+    /* display: block; */
+    /* width: 50%; */
+    margin: auto;
+    margin-right: 2px;
+}
+
+.contact-left label {
+    font-size: 0.8rem;
+    font-family: var(--ff-title);
+}
+
+.contact-right input {
+    grid-column: 2 / 3;
+    border: 1px solid var(--border);
+    border-radius: var(--border-radius);
+}
+
+.contact-right input[type=submit] {
+    grid-column: 2 / 3;
+    width: 50%;
+    border: 1px solid var(--border);
+    border-radius: var(--border-radius);
+}
+
+
+.contact-right textarea {
+    grid-column: 2 / 3;
+    border: 1px solid var(--border);
+    border-radius: var(--border-radius);
+}
+
+
+
+
+/* ----------------------- */
+/* ! CONTACT FORM desktop */
+/* ----------------------- */
+@media only screen and (min-width : 600px) {
+
+    .contact-form {
+        width: 60%;
+    }
+
 }
