@@ -58,7 +58,7 @@
 
     }
 
-    function show(id) {
+    function show(id,duration) {
       // selected off tabs, then on a tab
       $('.tab').removeClass('selected').filter(function() {
         return (this.hash === id);
@@ -68,7 +68,7 @@
       var fSplit = id.split('#')[1];
       var fText = '.f' + fSplit;
 
-      $('.panel').hide().filter(fText).show();
+      $('.panel').fadeOut(duration).filter(fText).fadeIn(duration);
     }
 
 
@@ -171,7 +171,7 @@
       } else {
 
         align(window.location.hash, 0);
-        show(location.hash);
+        show(location.hash,0);
 
       } // end starting with hash url
 
@@ -196,7 +196,7 @@
 
           $('.card-top').slideDown(300);
 
-          show(location.hash);
+          show(location.hash,400);
 
         }
 
@@ -207,7 +207,7 @@
           (window.location.hash === "#5") ||
           (window.location.hash === "#6")) {
           align(window.location.hash, 500);
-          show(location.hash);
+          show(location.hash,400);
         }
 
       }); // end if-you-haschange loop
@@ -341,20 +341,9 @@
 
 
         <div class="card card-top c-1">
-          <!-- <div class="corner"></div> -->
         </div>
 
-
-        <!-- <div class="corner"></div> -->
-
-
-        <!-- end card-container -->
       </div>
-
-
-      <!-- <div class="moved">
-            <span class="if-mod icofont-chart-flow-2"></span>
-        </div> -->
 
 
     </div>
@@ -505,9 +494,14 @@
           <!-- <img src='double_sc3.png' width='90%'> -->
 
         </div>
-        <!-- yes! -->
-        <!-- </div> -->
+
       </div>
+      <!-- end landing grid -->
+
+
+
+
+
 
     </div>
     <!-- end panel f0 -->
@@ -518,9 +512,65 @@
     <div class="panel f1">
 
 
-      <p>
-        tech stuff - atom-galv-ui with options, poster slider and exporter, possibly a symbols parser, matplotlib with negative space
-      </p>
+
+
+        <div class='landing-grid2'>
+          <!-- <div class='landing-card'> -->
+
+          <div class='lc-left2'>
+
+          </div>
+          <!-- end lc-left2 -->
+
+
+          <div class='lc-right2'>
+
+
+
+              <h2>quick facts:</h2>
+
+              <p>
+                location: Chicago, IL
+              </p>
+
+              <p>
+                  originally from: Massachusetts
+              </p>
+
+              <p>
+                education: PhD in Geophysical Sciences, University of Chicago (grad. Spring 2020)
+              </p>
+
+
+
+              <p>
+              </p>
+
+              <div class='divider'></div>
+
+              <p>
+                "But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the <a href="" class='lc-link'>numerical modeling</a> and <a href="" class='lc-link'>visualizing information</a>.
+              </p>
+
+              <div class='divider'></div>
+
+
+              <p>
+                "But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the <a href="" class='lc-link'>numerical modeling</a> and <a href="" class='lc-link'>visualizing information</a>.
+              </p>
+
+              <div class='divider'></div>
+
+
+          </div>
+          <!-- end lc-right2 -->
+
+        </div>
+        <!-- end landing grid -->
+
+
+
+
 
 
       <!-- <article class='noproc'>
@@ -531,6 +581,11 @@
 
 
     </div>
+    <!-- end panel 1 -->
+
+
+
+
 
 
     <!-- ! panel f2 -->
@@ -695,11 +750,39 @@
 
                   <br>
 
+
                   <p>
                       After reading all 12 pages, I hope the reader generally understands what carbon is doing in the atmosphere, and what it means to be a greenhouse gas. Nothing too technical.
                   </p>
 
                   <br>
+
+
+                  <div class='mini-gallery'>
+
+                    <div id="lightbox">
+                      <img src="figz-web/iso-research0.png" alt="" width='100%' full="figz-web/iso-research0.png">
+                    </div>
+
+                    <div id="lightbox">
+                      <img src="figz-web/iso-research1.png" alt="" width='100%' full="figz-web/iso-research1.png">
+                    </div>
+
+                  </div>
+
+                  <br>
+
+
+
+                  <p>
+                      ...That said, if the apetite for climate science content keeps up, it might be worth finishing the isometric graphics version of the booklet.
+                  </p>
+
+                  <br>
+
+
+
+
 
 
                 </div>
@@ -1135,12 +1218,155 @@
     <div class="panel f3">
 
 
-      <p>
-        visuals - mmis radar, projects for ppl (rossby, ocean, penultima), wireframing duh, topics in geosci
-      </p>
+
+
+
+
+        <div class='sci-grid-full'>
+
+            <div class='sci-right-full'>
+
+        <p>
+          This is not a research website, so let's just stick to a few fun aspects of climate science and modeling! If you want details about my research, you can <a href='#5' class='lc-link'>ask me about it</a> or check out  <a href="https://scholar.google.com/citations?user=MMwK2T4AAAAJ&hl=en&oi=ao" target=new class='lc-link'>my publications and presentations</a> on Google Scholar.
+        </p>
+
+            </div>
+        </div>
+
+
+
+
+
+
+
+        <div class='sci-grid'>
+
+            <div class='sci-left'>
+                <img src='figz-web/inorg.png' width=100%>
+            </div>
+
+            <div class='sci-right'>
+
+
+
+
+
+
+                <h2>climate science</h2>
+
+
+                <p>
+                    Carbon moves between the Earth's crust, ocean and atmosphere. During its travels, carbon moves between solid, liquid and gas compounds. <b>The inorganic carbon cycle pictured here</b> operates over millions of years. Other carbon fluxes happen much more quickly, such as carbon uptake by plants and burning of fossil fuels.
+                </p>
+
+                <p>
+                  Carbon dioxide (CO<sub>2</sub>) gas is well known because it impacts the Earth's climate and habitability. All processes that move carbon in and out of the atmosphere can therefore affect the climate. The downward arrow labeled 'seafloor weathering' shows carbon moving from atmosphere to ocean to crust. That has been a research focus of mine.
+                </p>
+
+
+
+
+
+
+
+
+
+
+
+            </div>
+            <!-- end sci-right -->
+
+        </div>
+        <!-- end sci grid -->
+
+
+
+
+
+        <div class='sci-grid'>
+
+            <div class='sci-left'>
+                <img src='figz-web/dualp.png' width=100%>
+            </div>
+
+            <div class='sci-right'>
+
+
+
+                <!-- <div class='divider'></div> -->
+
+
+                <h2>numerical modeling</h2>
+
+
+
+              <p>
+                When modeling a physical system, like parts of the carbon cycle in the first figure, how much detail should you use? Decisions about the size, detail, and focus of a numerical model is an art AND a science.
+              </p>
+
+              <p>
+                  In the second figure, I show a case where I decided it was appropriate to add detail where others have not. In short, reactive fluid travels through a porous medium, and my model added the ability for that fluid to meander into tiny nooks and crannies in the pore space.
+              </p>
+
+              <p>
+                  But more detail isn't always better. For example, in that same model, I opted NOT to include very many minerals. My assumption was that modeling a ton of minerals wouldn't help me understand the system better. It might just be confusing, time consuming, and distracting.
+              </p>
+
+
+            </div>
+            <!-- end sci-right -->
+
+        </div>
+        <!-- end sci-grid -->
+
+
+
+
+
+
+        <div class='sci-grid'>
+
+            <div class='sci-left'>
+                <img src='figz-web/square-wave.png' width=100%>
+            </div>
+
+            <div class='sci-right'>
+
+
+
+                <!-- <div class='divider'></div> -->
+
+
+
+                <!-- <div class='divider'></div> -->
+
+                <h2>modeling nitty gritty</h2>
+
+
+              <p>
+                Numerical modeling needs some basis in reality. Using physical/chemical observations in models is a good start. But how to make sure those observations are translated to the computer without losing meaning along the way?
+              </p>
+
+              <p>
+                  Sometimes we can't. Sometimes we have to make corrections afterwards. In many cases, we can predict when and where meaning will be lost so we know how to correct for that.
+              </p>
+
+              <p>
+                  Sometimes we look at the results and we don't know what is meaningful and what isn't. If model results are a result of the math/programming of the model itself, we call that an artifact. In other words, an artifact tells you about the model you built but doesn't tell you anything about the physical system!
+              </p>
+
+
+            </div>
+            <!-- end sci-right -->
+
+        </div>
+        <!-- end sci-grid -->
+
+
 
 
     </div>
+    <!-- end panel f3 -->
 
 
     <!-- ! panel f4 -->
