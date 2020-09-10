@@ -26,6 +26,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
   <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+
   <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 
   <script src="https://navah.site/transit.min.js"></script>
@@ -34,6 +35,15 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-173474398-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-173474398-1');
+  </script>
 
 
 
@@ -167,7 +177,7 @@
         // show(location.hash);
         $('.panel').hide();
         $('.panel').hide().filter(".f0").show();
-        $('.card-top').slideDown(0);
+        // $('.card-top').slideDown(0);
       } else {
 
         align(window.location.hash, 0);
@@ -194,7 +204,7 @@
           $('.mid').removeClass('shaded-tab');
           $('.mid').removeClass('mid-moved');
 
-          $('.card-top').slideDown(300);
+          // $('.card-top').slideDown(300);
 
           show(location.hash,400);
 
@@ -333,7 +343,7 @@
 
         <a class="tab" href="#1">
           <div class="card card-text">
-            cv, bio, WIPs, etc.
+            facts, bio, WIPs, etc.
 
 
           </div>
@@ -444,7 +454,7 @@
     </div>
 
 
-    <!-- ! panel f0 -->
+    <!-- ! ==== [ panel f0 ] -->
 
     <div class="panel f0">
 
@@ -458,31 +468,34 @@
 
         <div class='landing-card lc-left'>
 
-          <h2>welcome to navah.site :)</h2>
+          <h2>welcome to navah dot site :)</h2>
 
           <p>
-            hi, my name is navah (NA-vah, rhymes with 'lava'). this website is a showcase (or storage space) for projects and activities.
-          </p>
-
-          <div class='divider'></div>
-
-          <p>
-            i am particularly interested in <a href="" class='lc-link'>numerical modeling</a> and <a href="" class='lc-link'>visualizing information</a>.
+            My name is Navah (NA-vah, rhymes with 'lava'). This website is a showcase (or storage space) for projects and activities.
           </p>
 
           <div class='divider'></div>
 
 
           <p>
-            my PhD research (<a href="" class='lc-link'>University of Chicago, 2020</a>) applied tried-and-true numerical methods to new questions at the intersection of climate sciences and seafloor geology. my other scientific exploits
-            include mantle dynamics and evolutionary biology.
+            I am particularly interested in numerical modeling and visualizing information.
+          </p>
+
+          <!-- <p>
+            I am particularly interested in <a href="" class='lc-link'>numerical modeling</a> and <a href="" class='lc-link'>visualizing information</a>.
+          </p> -->
+
+          <div class='divider'></div>
+
+
+          <p>
+            My PhD research in computational geophysics (<a href="http://geosci.uchicago.edu" target='new' class='lc-link'>University of Chicago, 2020</a>) applied tried-and-true numerical methods to new questions in climate physics and chemistry. Other scientific exploits include fluid dynamics in Earth's mantle and evolutionary biology.
           </p>
 
           <div class='divider'></div>
 
           <p>
-            if you came here looking for JokesByDad, Ted Cruz fanfiction, Ben Bernenke fanfiction, or Climate Shawty, i'm sorry to report that those projects have been retired. however, i am still the climate shawty and am happy to help
-            with any climate science questions.
+            If you came here looking for JokesByDad, Ted Cruz fanfiction, Ben Bernenke fanfiction, or Climate Shawty, I'm sorry to report that those projects have been retired. However, I am still the climate shawty and am happy to help with any climate science questions.
           </p>
 
         </div>
@@ -507,7 +520,7 @@
     <!-- end panel f0 -->
 
 
-    <!-- ! panel f1 -->
+    <!-- ! ===== [ panel f1 ] -->
 
     <div class="panel f1">
 
@@ -527,39 +540,71 @@
 
 
 
-              <h2>quick facts:</h2>
+              <h2>quick facts</h2>
 
               <p>
-                location: Chicago, IL
-              </p>
-
-              <p>
-                  originally from: Massachusetts
-              </p>
-
-              <p>
-                education: PhD in Geophysical Sciences, University of Chicago (grad. Spring 2020)
-              </p>
-
-
-
-              <p>
+                Location: Chicago, IL
               </p>
 
               <div class='divider'></div>
 
               <p>
-                "But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the <a href="" class='lc-link'>numerical modeling</a> and <a href="" class='lc-link'>visualizing information</a>.
+                Originally from: Massachusetts, Connecticut
+              </p>
+
+              <div class='divider'></div>
+
+              <p>
+                Education: PhD in Geophysics 2020, UChicago
+              </p>
+
+              <div class='divider'></div>
+
+              <p>
+                  Currently sewing: <a href='https://www.purlsoho.com/create/2015/11/20/cross-back-apron/' targe='new' class='lc-link'>Purl Soho aprons</a> and more <a href='figz-web/masks3.png' target='new' class='lc-link'>covid masks</a>.
               </p>
 
               <div class='divider'></div>
 
 
               <p>
-                "But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the <a href="" class='lc-link'>numerical modeling</a> and <a href="" class='lc-link'>visualizing information</a>.
+                  Currently crocheting: <a href='https://www.ravelry.com/patterns/library/utopia' targe='new' class='lc-link'>Utopia Sweater</a>, but it's tough to stay sweater-motivated in summer.
               </p>
 
               <div class='divider'></div>
+
+
+
+              <p>Summer bike: 1989 Ciocc
+              </p>
+
+              <div class='divider'></div>
+
+
+              <p>Winter bike: Wabi Classic (pictured, even though it's summer)
+              </p>
+
+
+              <div class='divider'></div>
+
+
+              <p>Top non-fiction reads from 2019-2020: Behave by Robert Salposky and The Storm Before the Storm by Mike Duncan
+              </p>
+
+              <div class='divider'></div>
+
+
+
+              <!-- <div class='divider'></div>
+
+              <p>
+
+              </p>
+
+              <div class='divider'></div> -->
+
+
+
 
 
           </div>
@@ -588,7 +633,7 @@
 
 
 
-    <!-- ! panel f2 -->
+    <!-- ! ======[ panel f2 ] -->
 
     <div class="panel f2">
 
@@ -614,11 +659,9 @@
             <!-- ! pcard c1 -->
             <div class="pcard c1">
 
-
               <div class="pcard-image c1">
-                <img class="pimage" src="card-stand01.png" alt="">
+                <!-- <img class="pimage" src="card-stand01.png" alt=""> -->
               </div>
-
 
               <div class="pcard-body">
 
@@ -633,14 +676,11 @@
               <!-- end pcard-body -->
 
 
-
-
               <div class='rhs c1'>
 
 
                 <!-- ! c1 SMOOTH -->
                 <div class='smooth c1'>
-
 
                   <div class='mini-gallery'>
 
@@ -653,6 +693,7 @@
                     </div>
 
                   </div>
+
 
                   <br>
 
@@ -668,6 +709,12 @@
 
                   <br>
 
+                  <p>
+                      No live link until I get the OK from the pod producers, but you have to believe me that it's cool.
+                  </p>
+
+                  <br>
+
 
                 </div>
                 <!-- end smooth div -->
@@ -675,15 +722,10 @@
 
                 <div class='pcard-dash'></div>
 
-                <!-- <div class='pcard-body'> -->
-
                     <a class='pcard-link c1'>
                       READ MORE
                       <span class="iconify" data-icon="feather:chevrons-down" data-inline="false"></span>
                     </a>
-
-                <!-- </div> -->
-
 
               </div>
               <!-- end rhs c1 -->
@@ -701,20 +743,17 @@
             <!-- ! pcard c2 -->
             <div class="pcard c2">
 
-
-              <div class="pcard-image c2">
-                <img class="pimage" src="card-stand01.png" alt="">
-              </div>
-
+                <div class="pcard-image c2">
+                  <!-- <img class="pimage" src="card-stand01.png" alt=""> -->
+                </div>
 
               <div class="pcard-body">
 
-                <h3>science viz.</h3>
-                <h2>geotopics</h2>
+                <h3>data viz.</h3>
+                <h2>matplotlib styling</h2>
 
                 <p>
-                  Illustrated Topics in Geophysics is a printed zine I made to teach people about climate science!
-                  I distributed it around Chicago!
+                  Stylesheets (or manual styling) can make 3d <a href="">matplotlib</a> plots a lot more readable.
                 </p>
 
               </div>
@@ -722,84 +761,37 @@
 
 
 
-
               <div class='rhs c2'>
-
 
                 <!-- ! c2 SMOOTH -->
                 <div class='smooth c2'>
 
-
-                  <div class='mini-gallery'>
-
-                    <div id="lightbox">
-                      <img src="figz-web/p-p1-thumb0.png" alt="" width='100%' full="figz-web/p-topics-p1.png">
-                    </div>
-
-                    <div id="lightbox">
-                      <img src="figz-web/p-p2-thumb0.png" alt="" width='100%' full="figz-web/p-topics-p2.png">
-                    </div>
-
+                  <div id="lightbox">
+                    <img src="figz-web/p-3d-style.png" alt="" width='100%' full="figz-web/p-3d-style.png">
                   </div>
 
-                  <br>
-
-                  <p>
-                    These are non-consecutive pages from a zine about carbon and the climate. Now that I have a Wacom drawing tablet, I need to re-ink the artwork when I have some downtime, then I'll make the whole thing a PDF.
-                  </p>
 
                   <br>
 
 
-                  <p>
-                      After reading all 12 pages, I hope the reader generally understands what carbon is doing in the atmosphere, and what it means to be a greenhouse gas. Nothing too technical.
-                  </p>
+                <p>
+                  <!-- #c4, yeah -->
+                </p>
 
-                  <br>
-
-
-                  <div class='mini-gallery'>
-
-                    <div id="lightbox">
-                      <img src="figz-web/iso-research0.png" alt="" width='100%' full="figz-web/iso-research0.png">
-                    </div>
-
-                    <div id="lightbox">
-                      <img src="figz-web/iso-research1.png" alt="" width='100%' full="figz-web/iso-research1.png">
-                    </div>
-
-                  </div>
-
-                  <br>
-
-
-
-                  <p>
-                      ...That said, if the apetite for climate science content keeps up, it might be worth finishing the isometric graphics version of the booklet.
-                  </p>
-
-                  <br>
-
-
-
-
+                <!-- <br> -->
 
 
                 </div>
                 <!-- end smooth div -->
 
 
-                <div class='pcard-dash'></div>
 
-                <!-- <div class='pcard-body'> -->
+                <div class='pcard-dash'></div>
 
                     <a class='pcard-link c2'>
                       READ MORE
                       <span class="iconify" data-icon="feather:chevrons-down" data-inline="false"></span>
                     </a>
-
-                <!-- </div> -->
-
 
               </div>
               <!-- end rhs c2 -->
@@ -819,7 +811,7 @@
 
 
               <div class="pcard-image c3">
-                <img class="pimage" src="card-stand01.png" alt="">
+                <!-- <img class="pimage" src="card-stand01.png" alt=""> -->
               </div>
 
 
@@ -886,7 +878,7 @@
                   <br>
 
                   <p>
-                      Hinds Geophysics Laboratory, 5734 S. Ellis Avenue, Chicago, IL, 60637
+                      Hinds Geophysics Laboratory, 5734 S. Ellis Avenue, Chicago, IL, 60637. In the few years since making this, I have actually gotten good at 2- and 3- point perspective vector graphics! Oh well! This was a fun project, and another version of this shows a peak into cosmochemistry labs on the top floor, climate labs on the 4th floor, biogeochem labs on the 3rd floor, and paleobiology labs on the 2nd floor :).
 
                   </p>
 
@@ -964,18 +956,20 @@
 
 
               <div class="pcard-image c4">
-                <img class="pimage" src="card-stand01.png" alt="">
+                  <!-- <img class="pimage" src="card-stand01.png" alt=""> -->
+                <!-- <img class="pimage" src="card-stand01.png" alt=""> -->
               </div>
 
 
               <div class="pcard-body">
 
-                <h3>data viz.</h3>
-                <h2>matplotlib styling</h2>
+                  <h3>science viz.</h3>
+                  <h2>geotopics</h2>
 
-                <p>
-                  Stylesheets (or manual styling) can make 3d <a href="">matplotlib</a> plots a lot more readable.
-                </p>
+                  <p>
+                    Illustrated Topics in Geophysics is a printed zine I made to teach people about climate science!
+                    I distributed it around Chicago!
+                  </p>
 
               </div>
               <!-- end pcard-body -->
@@ -990,14 +984,60 @@
                 <div class='smooth c4'>
 
 
-                    <div id="lightbox">
-                      <img src="figz-web/p-3d-style.png" alt="" width='100%' full="figz-web/p-3d-style.png">
+
+
+                    <div class='mini-gallery'>
+
+                      <div id="lightbox">
+                        <img src="figz-web/p-p1-thumb0.png" alt="" width='100%' full="figz-web/p-topics-p1.png">
+                      </div>
+
+                      <div id="lightbox">
+                        <img src="figz-web/p-p2-thumb0.png" alt="" width='100%' full="figz-web/p-topics-p2.png">
+                      </div>
+
                     </div>
 
+                    <br>
 
-                  <p>
-                    #c4, yeah
-                  </p>
+                    <p>
+                      These are non-consecutive pages from a zine about carbon and the climate. Now that I have a Wacom drawing tablet, I need to re-ink the artwork when I have some downtime, then I'll make the whole thing a PDF.
+                    </p>
+
+                    <br>
+
+
+                    <p>
+                        After reading all 12 pages, I hope the reader generally understands what carbon is doing in the atmosphere, and what it means to be a greenhouse gas. Nothing too technical.
+                    </p>
+
+                    <br>
+
+
+                    <div class='mini-gallery'>
+
+                      <div id="lightbox">
+                        <img src="figz-web/iso-research0.png" alt="" width='100%' full="figz-web/iso-research0.png">
+                      </div>
+
+                      <div id="lightbox">
+                        <img src="figz-web/iso-research1.png" alt="" width='100%' full="figz-web/iso-research1.png">
+                      </div>
+
+                    </div>
+
+                    <br>
+
+
+
+                    <p>
+                        ...That said, if the apetite for climate science content keeps up, it might be worth finishing the isometric graphics version of the booklet.
+                    </p>
+
+                    <br>
+
+
+
 
 
                 </div>
@@ -1006,15 +1046,10 @@
 
                 <div class='pcard-dash'></div>
 
-                <!-- <div class='pcard-body'> -->
-
                     <a class='pcard-link c4'>
                       READ MORE
                       <span class="iconify" data-icon="feather:chevrons-down" data-inline="false"></span>
                     </a>
-
-                <!-- </div> -->
-
 
               </div>
               <!-- end rhs c4 -->
@@ -1038,17 +1073,23 @@
 
 
               <div class="pcard-image c5">
-                <img class="pimage" src="card-stand01.png" alt="">
+                <!-- <img class="pimage" src="card-stand01.png" alt=""> -->
               </div>
 
 
               <div class="pcard-body">
 
-                <h3>web design/dev</h3>
-                <h2>navah.site</h2>
+                <!-- <h3>web</h3>
+                <h2>http://navah.site</h2>
 
                 <p>
-                  matplotlib 3d are amazing, but need some styling to be more useful, appealing and fun to actually use :)
+                  I started coding websites line-by-line in a text editor when I was in middle school. Building navah.site gave me an excuse to learn some web skillz I missed out on.
+                </p> -->
+                <h3>misc.</h3>
+                <h2>digital sewing</h2>
+
+                <p>
+                  Sewing is highly algorithmic and mathematical. Well, mine is.
                 </p>
 
               </div>
@@ -1065,16 +1106,40 @@
 
 
 
+                    <p>UPDATE 08/24/20: I don't have anything public yet, but I am using <a href="http://d3js.org" target="new">d3 (Data-Driven Documents)</a> to visualize common adjustments to patterns. I already made an improvement to an ill-fitting pattern after playing with this code.
+                    </p>
+
+                    <br>
+
+                  <p>
+                    Indie sewing and me-made wardrobes are on the rise, and I am firmly on this bandwagon. I use so much math and geometry in my garment blocks, and on the cutting table in general. I am always testing out ways to improve upon traditional sewing instructions.
+                  </p>
+
+
+
+                  <br>
+
+
+
                     <div id="lightbox">
-                      <img src="figz-web/p-3d-style.png" alt="" width='100%' full="figz-web/p-3d-style.png">
+                      <img src="figz-web/digital-sew1.png" alt="" width='100%' full="figz-web/digital-sew1.png">
                     </div>
 
 
+                    <br>
+
+                    <p>
+                        Garment construction means turning 2D shapes into a 3D final product. In digitizing some of my designs, I am learning the basics of motion graphics (Adobe Animate, After Effects) and 3D prototyping/rendering (Blender, but I'm open to alternative software suggestions!!!!).
+                    </p>
 
 
-                  <p>
-                    #c5, yeah
-                  </p>
+
+                  <br>
+
+
+
+
+
 
 
                 </div>
@@ -1118,18 +1183,21 @@
 
 
               <div class="pcard-image c6">
-                <img class="pimage" src="card-stand01.png" alt="">
+                <!-- <img class="pimage" src="card-stand01.png" alt=""> -->
               </div>
 
 
               <div class="pcard-body">
 
-                <h3>graphic design</h3>
-                <h2>project 6</h2>
 
-                <p>
-                  rating lifetime movies based on unusual criteria, a great and important (and fun) way to look at how weird these movies are.
-                </p>
+                  <h3>web</h3>
+                  <h2>http://navah.site</h2>
+
+                  <p>
+                    I started coding websites line-by-line in a text editor when I was in middle school. Building navah.site gave me an excuse to learn some web skillz I missed out on.
+                  </p>
+
+
 
               </div>
               <!-- end pcard-body -->
@@ -1144,22 +1212,60 @@
                 <div class='smooth c6'>
 
 
-                  <div class='mini-gallery'>
 
-                    <div id="lightbox">
-                      <img src="figz-web/p-p1-thumb0.png" alt="" width='100%' full="figz-web/p-topics-p1.png">
+
+                    <div class='mini-gallery'>
+
+                      <div id="lightbox">
+                        <img src="figz-web/wires-01.png" alt="" width='100%' full="figz-web/wires-01.png">
+                      </div>
+
+                      <div id="lightbox">
+                        <img src="figz-web/wires-04.png" alt="" width='100%' full="figz-web/wires-04.png">
+                      </div>
+
                     </div>
 
-                    <div id="lightbox">
-                      <img src="figz-web/p-p2-thumb0.png" alt="" width='100%' full="figz-web/p-topics-p2.png">
-                    </div>
 
-                  </div>
+                    <br>
 
+                    <p>
+                      Back then, I learned JavaScript, PHP, and some Perl by taking things apart. Speaking in 2020, I have caught up on many of the modern web languages and technology. For example, now we call JavaScript 'vanilla JavaScript'.
 
-                  <p>
-                    #c5, yeah
                   </p>
+
+                  <br>
+
+                    <p>
+
+                        However, I still coded this website pretty much line-by-line, aside from a few snippets I found on <a href='http://codepen.io'>codepen</a>.
+
+                    </p>
+
+                    <br>
+
+
+                    <div class='mini-gallery'>
+
+                      <div id="lightbox">
+                        <img src="figz-web/wires-03.png" alt="" width='100%' full="figz-web/wires-03.png">
+                      </div>
+
+                      <div id="lightbox">
+                        <img src="figz-web/wires-02.png" alt="" width='100%' full="figz-web/wires-02.png">
+                      </div>
+
+                    </div>
+
+
+                    <br>
+
+                    <p>
+                        These are some snapshots from wireframing the ugly/brutalist/mid-aughts design of http://navah.site throughout 2020.
+                    </p>
+
+                    <br>
+
 
 
                 </div>
@@ -1209,11 +1315,17 @@
       <!-- end pbody-wrap -->
 
 
+
+
+
+
+
+
     </div>
     <!-- end panel2 -->
 
 
-    <!-- ! panel f3 -->
+    <!-- ! ======[ panel f3 ] -->
 
     <div class="panel f3">
 
@@ -1256,11 +1368,11 @@
 
 
                 <p>
-                    Carbon moves between the Earth's crust, ocean and atmosphere. During its travels, carbon moves between solid, liquid and gas compounds. <b>The inorganic carbon cycle pictured here</b> operates over millions of years. Other carbon fluxes happen much more quickly, such as carbon uptake by plants and burning of fossil fuels.
+                    Carbon moves between the Earth's atmosphere, ocean, and crust. This is the <strong>inorganic carbon cycle (pictured here)</strong>, and it operates over millions of years. Other carbon fluxes happen much more quickly, such as carbon uptake by plants and burning of fossil fuels.
                 </p>
 
                 <p>
-                  Carbon dioxide (CO<sub>2</sub>) gas is well known because it impacts the Earth's climate and habitability. All processes that move carbon in and out of the atmosphere can therefore affect the climate. The downward arrow labeled 'seafloor weathering' shows carbon moving from atmosphere to ocean to crust. That has been a research focus of mine.
+                  Carbon dioxide (CO<sub>2</sub>) gas is well known because it impacts the Earth's climate and habitability. All processes that move carbon around can therefore affect the climate! The downward arrow labeled 'seafloor weathering' shows carbon moving from atmosphere to ocean to crust. That has been a research focus of mine.
                 </p>
 
 
@@ -1299,18 +1411,17 @@
                 <h2>numerical modeling</h2>
 
 
+                <p>Numerical modeling is a great way to study systems too big or too slow or too inaccessible to observe directly. But deciding the model's scope and detail is an art AND a science.</p>
 
-              <p>
-                When modeling a physical system, like parts of the carbon cycle in the first figure, how much detail should you use? Decisions about the size, detail, and focus of a numerical model is an art AND a science.
-              </p>
+
 
               <p>
                   In the second figure, I show a case where I decided it was appropriate to add detail where others have not. In short, reactive fluid travels through a porous medium, and my model added the ability for that fluid to meander into tiny nooks and crannies in the pore space.
               </p>
 
-              <p>
+              <!-- <p>
                   But more detail isn't always better. For example, in that same model, I opted NOT to include very many minerals. My assumption was that modeling a ton of minerals wouldn't help me understand the system better. It might just be confusing, time consuming, and distracting.
-              </p>
+              </p> -->
 
 
             </div>
@@ -1348,12 +1459,16 @@
               </p>
 
               <p>
-                  Sometimes we can't. Sometimes we have to make corrections afterwards. In many cases, we can predict when and where meaning will be lost so we know how to correct for that.
+                  Sometimes we can't, and we have to make corrections afterwards. In many cases, we can predict when and where meaning will be lost so we know how to correct for that. That's what is happening in the third figure.
               </p>
 
-              <p>
+              <!-- <p>
+
+              </p> -->
+
+              <!-- <p>
                   Sometimes we look at the results and we don't know what is meaningful and what isn't. If model results are a result of the math/programming of the model itself, we call that an artifact. In other words, an artifact tells you about the model you built but doesn't tell you anything about the physical system!
-              </p>
+              </p> -->
 
 
             </div>
@@ -1369,16 +1484,56 @@
     <!-- end panel f3 -->
 
 
-    <!-- ! panel f4 -->
+    <!-- ! ==== [ panel f4 ] -->
 
     <div class="panel f4">
 
-      <h> -----panel f4 </h1>
+        <div class='sci-grid-full' style='width: 80%; margin: auto;'>
+
+            <div class='sci-right-full'>
+
+        <h2>www</h2>
+
+        <p>Still haven't finished this page!</p>
+
+        <div class='divider' style='width: 100%;'></div>
+
+        <p>
+          <a href="https://scholar.google.com/citations?user=MMwK2T4AAAAJ&hl=en&oi=ao" target=new class='lc-link'>Google Scholar profile</a> for publications, presentations, and other contributions to science
+
+        </p>
+
+
+        <div class='divider' style='width: 100%;'></div>
 
 
         <p>
-          www - important links via nnn, wikipedia nnn, elsewheres, form,
+          <a href="https://codepen.io/navah" target=new class='lc-link'>codepen.io/navah</a> for snippets of CSS, inline SVG, and JS (as of 08/2020, only a few of my CSS toys are uploaded)
+
         </p>
+
+
+        <div class='divider' style='width: 100%;'></div>
+
+
+        <p>
+          <a href="https://github.com/navah" target=new class='lc-link'>github.com/navah</a> for code projects and collaborations
+        </p>
+
+
+        <div class='divider' style='width: 100%;'></div>
+
+        <p>
+          <a href="https://instagram.com/navah_navah" target=new class='lc-link'>instagram.com/navah_navah</a> for a grid of pictures of, umm, me
+        </p>
+
+
+
+
+
+            </div>
+        </div>
+
 
 
     </div>
@@ -1403,7 +1558,7 @@
 
 
       <p>
-          feel free to contact me by email,
+          Feel free to contact me by email,
 
           <script>var s="=b!dmbtt>(fnbjm.mjol(!isfg>#nbjmup;obwbiyAhnbjm/dpn@tvckfdu>ij&31obwbi#?obwbiy!.bu.!hnbjm!.epu.!dpn=0b?";var m="";for(var i=0;i<s.length;i++)m+=String.fromCharCode(s.charCodeAt(i)-1);document.write(m);</script><noscript>You must enable JavaScript to see this text.</noscript>
       </p>
@@ -1411,16 +1566,11 @@
       <div class='contact-divider'></div>
 
       <p>
-          you can use the following form to send me an email, anonymously or with your information. if you have noticed any bugs on this website, i would love to know about them
+          You can use the following form to send me an email, anonymously or with your information. If you have noticed any bugs on this website, I would love to know about them! It can be vague, such as "animations are jumpy on mobile".
       </p>
 
       <div class='contact-divider'></div>
 
-      <p>
-          because i hand-coded http://navah.site from the ground up, i would greatly appreciate any bug reports! that would be a great anonymous use of the form below. please let me know what browser/device you are using and where the bug appears to be. it's okay to just say something like "text is overlapping" or "animations seem glitchy".
-      </p>
-
-      <div class='contact-divider'></div>
 
 
           <form method="POST" name="contactform" action="contact-form-handler.php">
@@ -1453,6 +1603,15 @@
 
               <div class='contact contact-right'>
                   <input type="text" name="url">
+              </div>
+
+
+              <div class='contact contact-left'>
+                  <label for='bug'>bug report?</label>
+              </div>
+
+              <div class='contact contact-right'>
+                  <input type="checkbox" name="bug">
               </div>
 
 
